@@ -219,15 +219,15 @@
           "_Bpy667_b3pvc_e-dQWLw"
         ],
         "ui": {
-          "x": 515.6108,
-          "y": 983.2393,
+          "x": 488.7816,
+          "y": 1003.9711,
           "zIndex": 333,
           "widthName": 60,
           "widthComment": 65,
           "color": "#4CAF50"
         },
         "meta": {
-          "updateAt": 1727965849450,
+          "updateAt": 1727966241665,
           "createAt": 1727857514204
         }
       },
@@ -1164,8 +1164,8 @@
           "columnIds": [
             "kM4hNFn5EAtCHenvwYJJ9"
           ],
-          "x": 515.6108,
-          "y": 1071.2393,
+          "x": 488.7816,
+          "y": 1091.9711,
           "direction": 1
         },
         "meta": {
@@ -1192,8 +1192,8 @@
           "columnIds": [
             "q8kAE-9AHkgvBTvWxslwh"
           ],
-          "x": 1014.6108,
-          "y": 1071.2393,
+          "x": 987.7816,
+          "y": 1091.9711,
           "direction": 2
         },
         "meta": {
