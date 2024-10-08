@@ -4,7 +4,7 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -619.7677,
+    "scrollTop": -689.2121,
     "scrollLeft": -101,
     "zoomLevel": 1,
     "show": 431,
@@ -51,25 +51,6 @@
   },
   "collections": {
     "tableEntities": {
-      "h6LM8j-Tdc131qDKXaZvc": {
-        "id": "h6LM8j-Tdc131qDKXaZvc",
-        "name": "",
-        "comment": "",
-        "columnIds": [],
-        "seqColumnIds": [],
-        "ui": {
-          "x": 200,
-          "y": 100,
-          "zIndex": 2,
-          "widthName": 60,
-          "widthComment": 60,
-          "color": ""
-        },
-        "meta": {
-          "updateAt": 1727855443199,
-          "createAt": 1727855443199
-        }
-      },
       "GeGn5MdYGZgehq5mvYlNn": {
         "id": "GeGn5MdYGZgehq5mvYlNn",
         "name": "user",
@@ -1002,34 +983,6 @@
       }
     },
     "relationshipEntities": {
-      "VJh3SW2fr5PiIlD1WPd0J": {
-        "id": "VJh3SW2fr5PiIlD1WPd0J",
-        "identification": false,
-        "relationshipType": 4,
-        "startRelationshipType": 2,
-        "start": {
-          "tableId": "CMF6SnmRNocX28wOL054f",
-          "columnIds": [
-            "NiqI64ApVX06wJ-2kHDXg"
-          ],
-          "x": 751.5,
-          "y": 466,
-          "direction": 4
-        },
-        "end": {
-          "tableId": "ZIlTZHV9bsNO-jBCQ2eDL",
-          "columnIds": [
-            "PqcDNs5t6b2zoUjgXQZyc"
-          ],
-          "x": 780,
-          "y": 345,
-          "direction": 8
-        },
-        "meta": {
-          "updateAt": 1727856703428,
-          "createAt": 1727856703428
-        }
-      },
       "49T213ykr1Ga9UUhk6Z1z": {
         "id": "49T213ykr1Ga9UUhk6Z1z",
         "identification": false,
@@ -1204,12 +1157,6 @@
     "memoEntities": {}
   },
   "lww": {
-    "h6LM8j-Tdc131qDKXaZvc": [
-      "tableEntities",
-      1727855443192,
-      1727855448890,
-      {}
-    ],
     "GeGn5MdYGZgehq5mvYlNn": [
       "tableEntities",
       1727855453593,
@@ -1443,12 +1390,6 @@
         "default": 1727856703425,
         "comment": 1727856703425
       }
-    ],
-    "VJh3SW2fr5PiIlD1WPd0J": [
-      "relationshipEntities",
-      1727856703425,
-      1727856724575,
-      {}
     ],
     "va7DmqorbhNiDSBCNBw6l": [
       "tableColumnEntities",
