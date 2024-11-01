@@ -1,6 +1,0 @@
-board 
-
-boardNumber, title, content, 
-boardTitleImage, boardImageList, writeDateTime, 
-favoriteCount, commentCount, viewCount, 
-writerEmail, writerNickname, writerProfilImage
