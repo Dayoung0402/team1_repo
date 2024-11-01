@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.5'
+	id 'org.springframework.boot' version '3.3.5' // vs code에서 업그레이드 된 버전 사용하라고 뜨길래 이 버전으로 했어
 	id 'io.spring.dependency-management' version '1.1.6'
 }
 
