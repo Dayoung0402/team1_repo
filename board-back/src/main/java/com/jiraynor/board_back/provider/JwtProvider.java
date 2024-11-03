@@ -1,34 +1,39 @@
 package com.jiraynor.board_back.provider;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
+import java.time.temporal.ChronoUnit; // 추가하기
+import java.time.Instant; // 추가하기
+import java.util.Date; // 추가하기
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;;
+import io.jsonwebtoken.Claims; // 추가하기 
+import io.jsonwebtoken.Jwts; // 추가하기 
+import io.jsonwebtoken.SignatureAlgorithm; // 추가하기 
 
 @Component
 public class JwtProvider {
 
-    private String secretKey = "S3cretK3y";
+    @Value("${secret-key}")
+    private String secretKey;
 
+
+    // jwt 생성 메서드
     public String create(String email) {
 
         Date expiredDate = Date.from(Instant.now().plus(1, ChronoUnit.HOURS));
 
         String jwt = Jwts.builder()
-            .signWith(SignatureAlgorithm.ES256, secretKey)
+            .signWith(SignatureAlgorithm.ES256,secretKey)
             .setSubject(email).setIssuedAt(new Date()).setExpiration(expiredDate)
             .compact();
 
         return jwt;
+
     }
 
+    // jwt 검증 메서드
     public String validate(String jwt) {
-
         Claims claims = null;
 
         try {
@@ -40,6 +45,5 @@ public class JwtProvider {
         }
 
         return claims.getSubject();
-
     }
 }
