@@ -24,43 +24,42 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+        private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        // Spring Security 최신 버전에서 이전 방식의 설정 코드가 더 이상 호환되지 않기 때문에 오류 발생함
-        httpSecurity
-                .cors(cors -> cors.disable())
-                .csrf(csrf -> csrf.disable())
-                .httpBasic(httpBasic -> httpBasic.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/api/v1/auth/**", "/api/v1/search/**", "/file/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*").permitAll()
-                        .anyRequest().authenticated())
-                .exceptionHandling(exception -> exception
-                        .authenticationEntryPoint(new FailedAuthenticationEntryPoint()));
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+                // Spring Security 최신 버전에서 이전 방식의 설정 코드가 더 이상 호환되지 않기 때문에 오류 발생함
+                httpSecurity
+                                .cors(cors -> cors.disable())
+                                .csrf(csrf -> csrf.disable())
+                                .httpBasic(httpBasic -> httpBasic.disable())
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .authorizeHttpRequests(authorize -> authorize
+                                                .requestMatchers("/", "/api/v1/auth/**", "/api/v1/search/**",
+                                                                "/file/**")
+                                                .permitAll()
+                                                .requestMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*")
+                                                .permitAll()
+                                                .anyRequest().authenticated())
+                                .exceptionHandling(exception -> exception
+                                                .authenticationEntryPoint(new FailedAuthenticationEntryPoint()));
 
-        httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        return httpSecurity.build();
-    }
+                return httpSecurity.build();
+        }
 }
 
 class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response,
-            AuthenticationException authException) throws IOException, ServletException {
+        @Override
+        public void commence(HttpServletRequest request, HttpServletResponse response,
+                        AuthenticationException authException) throws IOException, ServletException {
 
-        response.setContentType("appication/json");
-<<<<<<< HEAD
-        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        response.getWriter().write("{\"code\": \"NP\", \"message\": \"Do not have permission.\" }");
-=======
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.getWriter().write("{\"code\": \"AF\", \"message\": \"Aunthorization Failed\" }");       
->>>>>>> main
-    }
+                response.setContentType("appication/json");
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.getWriter().write("{\"code\": \"AF\", \"message\": \"Aunthorization Failed\" }");
+        }
 
 }
