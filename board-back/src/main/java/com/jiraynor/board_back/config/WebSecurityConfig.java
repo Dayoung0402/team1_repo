@@ -28,22 +28,18 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        // Spring Security 최신 버전에서 이전 방식의 설정 코드가 더 이상 호환되지 않기 때문에 오류 발생함 
+        // Spring Security 최신 버전에서 이전 방식의 설정 코드가 더 이상 호환되지 않기 때문에 오류 발생함
         httpSecurity
-        .cors(cors -> cors.disable())
-        .csrf(csrf -> csrf.disable())
-        .httpBasic(httpBasic -> httpBasic.disable())
-        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/", "/api/v1/auth/**", "/api/v1/search/**", "/file/**").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*").permitAll()
-            .anyRequest().authenticated()
-        )
-        .exceptionHandling(exception -> exception
-            .authenticationEntryPoint(new FailedAuthenticationEntryPoint())
-    );
-
-
+                .cors(cors -> cors.disable())
+                .csrf(csrf -> csrf.disable())
+                .httpBasic(httpBasic -> httpBasic.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/", "/api/v1/auth/**", "/api/v1/search/**", "/file/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*").permitAll()
+                        .anyRequest().authenticated())
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(new FailedAuthenticationEntryPoint()));
 
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
@@ -56,14 +52,10 @@ class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException authException) throws IOException, ServletException {
-        
+
         response.setContentType("appication/json");
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        response.getWriter().write("{\"code\": \"NP\", \"message\": \"Do not have permission.\" }");       
+        response.getWriter().write("{\"code\": \"NP\", \"message\": \"Do not have permission.\" }");
     }
 
 }
-
-
-
-
