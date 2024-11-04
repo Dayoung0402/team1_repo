@@ -1,0 +1,17 @@
+package com.jiraynor.board_back.dto.object;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+// 평점 리스트
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class FavoriteListItem {
+
+    private String email;
+    private String nickname;
+    
+}
