@@ -7,8 +7,6 @@ function App() {
    <>
     <div style= {{ display: 'flex', justifyContent: 'center', gap: '24px'}}>
       <Top3Item />
-      <Top3Item />
-      <Top3Item />
     </div>
    </>
   );
