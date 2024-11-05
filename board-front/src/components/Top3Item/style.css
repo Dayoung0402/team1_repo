@@ -1,76 +1,74 @@
-/* menu-containter & menu section */
-
-
 @font-face {
     font-family: 'SolmoeKimDaeGeon';
-    src: url('/path/to/SolmoeKimDaeGeon.woff2') format('woff2');
+    src: url('../../assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.menu title {
-    font-family: 'SolmoeKimDaeGeon', sans-serif; /* 기본 폰트로 대체 가능 */
+.menu-title {
+    font-family: 'SolmoeKimDaeGeon', sans-serif;
     font-size: 35px;
-    font-weight: 500; /* Medium */
+    font-weight: 500;
     text-align: center;
     color: #7C7163;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.menu-title::brfore {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0.2;
-    filter: blur(2px);
-    transform: translate(-2px, -2px);
+.menu-title::before,
+.menu-title::after {
+    content: "";
+    height: 2px;
+    background-color: #7C7163; /* 선 색상 */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
 }
 
-.menu-title:after {
-    font-size: 35px;
-    font-weight: bold;
-    text-align: center;
-    position: relative;
-    margin: 20px 0;
-}
-
-.menu-title:before {
-    left: calc(-50% - 50px);
-    border-radius: 50%;
-    height: 4px; /* 점 크기 */
-    width: 4px;  /* 점 크기 */
-    background-color: #888;
+.menu-title::before {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     margin-right: 10px;
 }
 
-.menu-title:after {
-    right: calc(-50% - 50px);
-    border-radius: 50%;
-    height: 4px; /* 점 크기 */
-    width: 4px;  /* 점 크기 */
-    background-color: #888;
+.menu-title::after {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     margin-left: 10px;
 }
 
-.top-3 list-item {
+.menu-title::before::before,
+.menu-title::after::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #7C7163;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.top-3-list-item {
     margin: 20px auto;
     width: 80%;
 }
 
-.top-3 list-item h2 {
+.top-3-list-item h2 {
     font-size: 35px;
-    margin-bottom: 20px; /* 수정하기 */ 
+    margin-bottom: 20px;
 }
 
 .top-3-list-item-main-box {
-    display : flex;
+    display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-/* 리스트 레이아웃 */
 .top-3-list-item-menu-item {
     width: 30%;
     border: 1px solid #ddd;
@@ -79,6 +77,13 @@
     background-color: #ffffff;
     text-align: center;
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.top-3-list-item-menu-item:hover {
+    transform: scale(1.05);
+    border-color: #0073e6;
 }
 
 .top-3-list-item-menu-item img {
@@ -98,12 +103,17 @@
     font-size: 20px;
 }
 
-/* 메뉴 이름과 한 줄 소개 사이의 점선 */
 .dotted-line {
     border: none;
-    border-bottom: 2px dotted #3E2E22; /* 점선 설정 */
+    border-bottom: 2px dotted #3E2E22;
     margin: 10px 0;
 }
+
+
+
+
+
+
 
 
 /* menu-container & menu-section: Top3 list menu의 구조와 레이아웃 
@@ -114,4 +124,6 @@
 /* top-3-list-item = menu section
    top-3-list-item-main-box = menu-container
    top-3-list-item-menu-item = menu item */
- 
+ /* Vector 9 */
+
+
