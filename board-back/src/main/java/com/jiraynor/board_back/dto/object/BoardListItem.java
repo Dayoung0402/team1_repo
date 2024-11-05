@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class BoardListItem {
-    private int boardNumber; 
+    private int boardNumber;
     private String title;
     private String content;
     private String boardTitleImage;
