@@ -1,0 +1,16 @@
+/* menu-containter & menu section */
+
+.top-3 list-item {
+    /* menu-container & menu-section */
+    display: felx;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+/* menu-container & menu-section: Top3 list menu의 구조와 레이아웃 
+ menu-item: 밑줄선 
+ menu- h2: 메뉴 제목 */
+ 
+ /* 
