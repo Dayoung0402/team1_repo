@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -641.5183,
-    "scrollLeft": -800,
-    "zoomLevel": 0.88,
+    "scrollTop": -587.7946,
+    "scrollLeft": -323.2118,
+    "zoomLevel": 0.73,
     "show": 431,
     "database": 4,
     "databaseName": "",
@@ -71,15 +71,15 @@
           "vrkCsSjbB9B_sF0U3P5Bq"
         ],
         "ui": {
-          "x": -14.9278,
-          "y": 647.662,
+          "x": 289.3384,
+          "y": 736.1748,
           "zIndex": 2,
           "widthName": 60,
           "widthComment": 81,
           "color": "#FFEB3B"
         },
         "meta": {
-          "updateAt": 1730192302595,
+          "updateAt": 1730893096930,
           "createAt": 1727855453595
         }
       },
@@ -128,23 +128,25 @@
         "comment": "게시물 이미지 테이블",
         "columnIds": [
           "va7DmqorbhNiDSBCNBw6l",
-          "IWcPYvGeYNPcjrNIKBb5v"
+          "IWcPYvGeYNPcjrNIKBb5v",
+          "iZTKmJh2eV_GkDmn-NkDB"
         ],
         "seqColumnIds": [
           "NiqI64ApVX06wJ-2kHDXg",
           "va7DmqorbhNiDSBCNBw6l",
-          "IWcPYvGeYNPcjrNIKBb5v"
+          "IWcPYvGeYNPcjrNIKBb5v",
+          "iZTKmJh2eV_GkDmn-NkDB"
         ],
         "ui": {
-          "x": 1542.6513,
-          "y": 754.3987,
+          "x": 886.5469,
+          "y": 958.4118,
           "zIndex": 169,
           "widthName": 60,
           "widthComment": 117,
           "color": "#2196F3"
         },
         "meta": {
-          "updateAt": 1730191442159,
+          "updateAt": 1730893100008,
           "createAt": 1727856509501
         }
       },
@@ -164,15 +166,15 @@
           "enXPzOdNqS2yus_wLr0B5"
         ],
         "ui": {
-          "x": 540.3263,
-          "y": 456.9208,
+          "x": 471.8331,
+          "y": 569.2496,
           "zIndex": 301,
           "widthName": 60,
           "widthComment": 77,
           "color": "#4CAF50"
         },
         "meta": {
-          "updateAt": 1730193012036,
+          "updateAt": 1730893082469,
           "createAt": 1727857318707
         }
       },
@@ -196,15 +198,15 @@
           "_Bpy667_b3pvc_e-dQWLw"
         ],
         "ui": {
-          "x": 360.3624,
-          "y": 1070.5195,
+          "x": 334.3154,
+          "y": 948.543,
           "zIndex": 333,
           "widthName": 60,
           "widthComment": 65,
           "color": "#4CAF50"
         },
         "meta": {
-          "updateAt": 1730189329661,
+          "updateAt": 1730893098599,
           "createAt": 1727857514204
         }
       }
@@ -889,6 +891,26 @@
           "updateAt": 1730193008655,
           "createAt": 1730193008655
         }
+      },
+      "iZTKmJh2eV_GkDmn-NkDB": {
+        "id": "iZTKmJh2eV_GkDmn-NkDB",
+        "tableId": "CMF6SnmRNocX28wOL054f",
+        "name": "sequence",
+        "comment": "게시물 번호",
+        "dataType": "INT",
+        "default": "AUTO INCREMENT",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 101
+        },
+        "meta": {
+          "updateAt": 1730893057702,
+          "createAt": 1730893006673
+        }
       }
     },
     "relationshipEntities": {
@@ -902,18 +924,18 @@
           "columnIds": [
             "KM2-YekDHtEQR1fcnOKwK"
           ],
-          "x": 1311.6232,
-          "y": 806.0407,
-          "direction": 2
+          "x": 1048.1232,
+          "y": 918.0407,
+          "direction": 8
         },
         "end": {
           "tableId": "CMF6SnmRNocX28wOL054f",
           "columnIds": [
             "va7DmqorbhNiDSBCNBw6l"
           ],
-          "x": 1542.6513,
-          "y": 806.3987,
-          "direction": 1
+          "x": 1120.5469,
+          "y": 958.4118,
+          "direction": 4
         },
         "meta": {
           "updateAt": 1727856761581,
@@ -930,8 +952,8 @@
           "columnIds": [
             "Nv-DXS9nEYz7uT71bNksq"
           ],
-          "x": 400.0722,
-          "y": 711.6619999999999,
+          "x": 704.3384,
+          "y": 800.1748,
           "direction": 2
         },
         "end": {
@@ -940,7 +962,7 @@
             "T_SksWkLbs2sYCr0objY_"
           ],
           "x": 784.6232,
-          "y": 806.0407,
+          "y": 750.0407,
           "direction": 1
         },
         "meta": {
@@ -958,17 +980,17 @@
           "columnIds": [
             "Nv-DXS9nEYz7uT71bNksq"
           ],
-          "x": 400.0722,
-          "y": 668.9953333333333,
-          "direction": 2
+          "x": 496.8384,
+          "y": 736.1748,
+          "direction": 4
         },
         "end": {
           "tableId": "LhDp3f1A1qoIhzNtCEZVu",
           "columnIds": [
             "7mFtIxV0ndnKTJo-2fij2"
           ],
-          "x": 540.3263,
-          "y": 508.9208,
+          "x": 471.8331,
+          "y": 621.2496,
           "direction": 1
         },
         "meta": {
@@ -995,8 +1017,8 @@
           "columnIds": [
             "_9f94JBE8L-MRV9Dc0sbf"
           ],
-          "x": 1001.3263,
-          "y": 508.9208,
+          "x": 932.8331000000001,
+          "y": 621.2496,
           "direction": 2
         },
         "meta": {
@@ -1014,17 +1036,17 @@
           "columnIds": [
             "Nv-DXS9nEYz7uT71bNksq"
           ],
-          "x": 400.0722,
-          "y": 754.3286666666665,
-          "direction": 2
+          "x": 496.8384,
+          "y": 864.1748,
+          "direction": 8
         },
         "end": {
           "tableId": "Huz7IDGIpwbNZGHIAmdmr",
           "columnIds": [
             "kM4hNFn5EAtCHenvwYJJ9"
           ],
-          "x": 609.8624,
-          "y": 1070.5195,
+          "x": 583.8154,
+          "y": 948.543,
           "direction": 4
         },
         "meta": {
@@ -1042,17 +1064,17 @@
           "columnIds": [
             "KM2-YekDHtEQR1fcnOKwK"
           ],
-          "x": 1048.1232,
-          "y": 918.0407,
-          "direction": 8
+          "x": 784.6232,
+          "y": 862.0407,
+          "direction": 1
         },
         "end": {
           "tableId": "Huz7IDGIpwbNZGHIAmdmr",
           "columnIds": [
             "q8kAE-9AHkgvBTvWxslwh"
           ],
-          "x": 859.3624,
-          "y": 1158.5195,
+          "x": 833.3154,
+          "y": 1036.5430000000001,
           "direction": 2
         },
         "meta": {
@@ -1506,6 +1528,19 @@
       1730193008655,
       1730193011591,
       {}
+    ],
+    "iZTKmJh2eV_GkDmn-NkDB": [
+      "tableColumnEntities",
+      1730893006672,
+      -1,
+      {
+        "name": 1730893015198,
+        "dataType": 1730893023781,
+        "default": 1730893057701,
+        "options(notNull)": 1730893033456,
+        "comment": 1730893048390,
+        "options(primaryKey)": 1730893050979
+      }
     ]
   }
 }
