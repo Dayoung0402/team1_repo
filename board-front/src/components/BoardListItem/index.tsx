@@ -5,19 +5,37 @@ import Rectangle23 from '../../assets/images/Rectangle23.png';
 import Rectangle22 from '../../assets/images/Rectangle22.png';
 import Rectangle24 from '../../assets/images/Rectangle24.png';
 
-//          componenet: BoardListItem 컴포넌트          //
-export default function BoardListItem() {
+interface Props {
+    boardListItem: {
+        boardNumber: number;
+        title: string;
+        content: string;
+        boardTitleImage: string;
+        //favoriteCount: number;
+        //commentCount: number;
+        writeDateTime: string;
+        writerNickname: string;
+    };
+}
 
+
+//          componenet: BoardListItem 컴포넌트          //
+export default function BoardListItem( {boardListItem }: Props) {
+
+  //          properties          //
+  const {boardNumber, title, content, boardTitleImage} = boardListItem;
+  const { writeDateTime, writerNickname} = boardListItem;
   //          render: BoardListItem 컴포넌트 렌더링         //
   return (
     <div className="outer-background">
       <div className="container">
           <div className="header">
               <div className="login">
+              <span className="material-symbols-outlined">login</span>
                   <a href="#">로그인</a> | <a href="#">회원가입</a>
               </div>
-              <p>흙수저 레시피</p>
-              <h1>레시피 게시판</h1>
+              <p id="name">흙수저 레시피</p>
+              <p id="title">레시피 게시판</p>
               <div className="nav">
                   <p className="receipe"><a href="#">레시피 게시판</a> | <a href="#">자유 게시판</a> </p>
                   <a href="#" className="button" style={{ fontSize: "16px", float: "right" }}>글 작성하기</a>
