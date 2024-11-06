@@ -11,7 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class BoardListItem {
+<<<<<<< HEAD
     private int board_number;
+=======
+    private int board_number; 
+>>>>>>> 3a736922e28d83e9ce09d83099efa299f1f91ed4
     private String title;
     private String content;
     private String boardTitleImage;
