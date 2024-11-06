@@ -28,12 +28,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtProvider jwtProvider;
 
     @Override
-    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain)
             throws ServletException, IOException {
 
         try {
             String token = parseBearerToken(request);
-        
+
             if (token == null) {
                 filterChain.doFilter(request, response);
                 return;
@@ -46,19 +47,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            AbstractAuthenticationToken authenticationToken = 
-                new UsernamePasswordAuthenticationToken(email, null, AuthorityUtils.NO_AUTHORITIES);
+            AbstractAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email, null,
+                    AuthorityUtils.NO_AUTHORITIES);
             authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-            
+
             SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
             securityContext.setAuthentication(authenticationToken);
 
             SecurityContextHolder.setContext(securityContext);
-            
 
         } catch (Exception exception) {
             exception.printStackTrace();
-        }  
+        }
 
         filterChain.doFilter(request, response);
 
@@ -69,14 +69,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String authorization = request.getHeader("Authorization");
 
         boolean hasAuthorization = StringUtils.hasText(authorization);
-        if (!hasAuthorization) return null;
+        if (!hasAuthorization)
+            return null;
 
         boolean isBearer = authorization.startsWith("Bearer ");
-        if (!isBearer) return  null;
+        if (!isBearer)
+            return null;
 
         String token = authorization.substring(7);
         return token;
-    
+
     }
-    
+
 }
