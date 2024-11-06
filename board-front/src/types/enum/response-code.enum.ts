@@ -5,7 +5,7 @@ enum ResponseCode {
     // HTTP Status 400
      VALIDATION_FAILED = "VF",
      DUPLICATE_EMAIL = "DE",
-     DUPLICATE_NICKNAME = "DN", // 우리 전화번호는 필요 없는 것 같아서 TEL_NUMBER는 뺐어요
+     DUPLICATE_NICKNAME = "DN", // 우리 전화번호는 필요 없어서 TEL_NUMBER는 뺐어요
      NOT_EXISTED_USER = "NU",
      NOT_EXISTED_BOARD = "NB",
 
