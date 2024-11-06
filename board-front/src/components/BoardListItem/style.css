@@ -1,17 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: 'SolmoeKimDaeGeon';
+    src: url('../../assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.outer-background {
+    background-color: #D8CFC4; 
+    padding: 0 150px; 
     display: flex;
     justify-content: center;
-    background-color: #f5f5f5;
 }
 
 .container {
-    max-width: 1200px;
-    width: 100%;
+    
     padding: 20px;
     background-color: #ffffff;
+    /*margin-left: 10px;*/
+    
 }
 
 .header {
@@ -21,12 +27,15 @@ body {
 }
 
 .header h1 {
+    font-family: 'SolmoeKimDaeGeon', sans-serif;
     font-size: 36px;
     margin: 0;
 }
 
 .header .nav {
     margin-top: 10px;
+
+    background-color:  #D8CFC4;
 }
 
 .header .nav a {
@@ -77,3 +86,8 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+.pagination {
+    text-align: center;
+}
+/*ddd*/
