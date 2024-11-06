@@ -20,11 +20,11 @@ public class BoardEntity {
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY )
 
-    private String boardNumber; // 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
+    private int boardNumber; // 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
     private String title; 
     private String content;
-    private String writeDateTime;
-    private String writerNickname;
+    private String writeDatetime;
+    private String writerEmail;
     private int favoriteCount;
     private int commentCount;
     

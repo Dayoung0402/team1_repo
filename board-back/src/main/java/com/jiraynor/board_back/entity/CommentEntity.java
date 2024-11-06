@@ -19,7 +19,7 @@ public class CommentEntity{
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int commentNumber;
     private String content;
-    private String writeDateTime;
+    private String writeDatetime;
     private String userEmail;
     private int boardNumber;
 

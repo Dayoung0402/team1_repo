@@ -15,7 +15,7 @@ import lombok.Setter;
 public class FavoritePk implements Serializable{
     @Column(name="user_email")
     private String userEmail;
-    @Column(name="boardNumber")
+    @Column(name="board_number")
     private int boardNumber;
     
 
