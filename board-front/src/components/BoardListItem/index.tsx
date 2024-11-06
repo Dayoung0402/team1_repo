@@ -1,6 +1,9 @@
 import React from 'react';
 import './style.css';
 
+import Rectangle23 from '../../assets/images/Rectangle23.png';
+import Rectangle22 from '../../assets/images/Rectangle22.png';
+import Rectangle24 from '../../assets/images/Rectangle24.png';
 
 //          componenet: BoardListItem 컴포넌트          //
 export default function BoardListItem() {
@@ -23,7 +26,7 @@ export default function BoardListItem() {
 
           <div className="recipe-board">
               <div className="recipe-item">
-                  <img src="image1.jpg" alt="브리치즈 파스타" />
+                  <img src={Rectangle22} alt="브리치즈 파스타" />
                   <div className="rating">평점: <span className="stars">★★★★☆</span></div>
                   <div className="price">약 열다섯 냥</div>
                   <div className="title">브리치즈 파스타</div>
@@ -31,7 +34,7 @@ export default function BoardListItem() {
               </div>
 
               <div className="recipe-item">
-                  <img src="image2.jpg" alt="돈카츠" />
+                  <img src={Rectangle23} alt="돈카츠" />
                   <div className="rating">평점: <span className="stars">★★☆☆☆</span></div>
                   <div className="price">약 열다섯 냥</div>
                   <div className="title">돈카츠</div>
@@ -39,7 +42,7 @@ export default function BoardListItem() {
               </div>
 
               <div className="recipe-item">
-                  <img src="image3.jpg" alt="김치찌개" />
+                  <img src={Rectangle24} alt="김치찌개" />
                   <div className="rating">평점: <span className="stars">★★★☆☆</span></div>
                   <div className="prive">약 열두 냥</div>
                   <div className="title">김치찌개</div>
@@ -53,7 +56,7 @@ export default function BoardListItem() {
             <a href="#">3</a>
             <a href="#">4</a>
             <a href="#">5</a>
-            <a href="#">&raquo;</a> {/* '<'이거 표시하려고 */}
+            <a href="#">&raquo;</a>
         </div>
     </div>
   </div>
