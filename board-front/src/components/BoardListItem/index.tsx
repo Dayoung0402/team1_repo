@@ -16,11 +16,11 @@ export default function BoardListItem() {
               <div className="login">
                   <a href="#">로그인</a> | <a href="#">회원가입</a>
               </div>
-              <h1>흙수저 레시피</h1>
-              <h2>레시피 게시판</h2>
+              <p>흙수저 레시피</p>
+              <h1>레시피 게시판</h1>
               <div className="nav">
                   <p className="receipe"><a href="#">레시피 게시판</a> | <a href="#">자유 게시판</a> </p>
-                  <a href="#" className="button">글 작성하기</a>
+                  <a href="#" className="button" style={{ fontSize: "16px", float: "right" }}>글 작성하기</a>
               </div>
           </div>
 
