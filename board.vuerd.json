@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -963.1101,
-    "scrollLeft": -514.1223,
-    "zoomLevel": 0.79,
+    "scrollTop": -641.5183,
+    "scrollLeft": -800,
+    "zoomLevel": 0.88,
     "show": 431,
     "database": 4,
     "databaseName": "",
@@ -393,20 +393,20 @@
       "KM2-YekDHtEQR1fcnOKwK": {
         "id": "KM2-YekDHtEQR1fcnOKwK",
         "tableId": "ZIlTZHV9bsNO-jBCQ2eDL",
-        "name": "boardNumber",
+        "name": "boar_number",
         "comment": "게시물 번호",
         "dataType": "INT",
         "default": "AUTO INCREMENT",
         "options": 10,
         "ui": {
           "keys": 1,
-          "widthName": 77,
+          "widthName": 73,
           "widthComment": 65,
           "widthDataType": 60,
           "widthDefault": 101
         },
         "meta": {
-          "updateAt": 1727856743606,
+          "updateAt": 1730877594714,
           "createAt": 1727856109155
         }
       },
@@ -613,20 +613,20 @@
       "va7DmqorbhNiDSBCNBw6l": {
         "id": "va7DmqorbhNiDSBCNBw6l",
         "tableId": "CMF6SnmRNocX28wOL054f",
-        "name": "boardNumber",
+        "name": "board_number",
         "comment": "게시물 번호",
         "dataType": "INT",
         "default": "AUTO INCREMENT",
         "options": 8,
         "ui": {
           "keys": 2,
-          "widthName": 77,
+          "widthName": 80,
           "widthComment": 65,
           "widthDataType": 60,
           "widthDefault": 101
         },
         "meta": {
-          "updateAt": 1727856761581,
+          "updateAt": 1730866948686,
           "createAt": 1727856761580
         }
       },
@@ -713,20 +713,20 @@
       "_9f94JBE8L-MRV9Dc0sbf": {
         "id": "_9f94JBE8L-MRV9Dc0sbf",
         "tableId": "LhDp3f1A1qoIhzNtCEZVu",
-        "name": "boardNumber",
+        "name": "board_number",
         "comment": "게시물 번호",
         "dataType": "INT",
         "default": "AUTO INCREMENT",
         "options": 10,
         "ui": {
           "keys": 3,
-          "widthName": 77,
+          "widthName": 80,
           "widthComment": 65,
           "widthDataType": 60,
           "widthDefault": 101
         },
         "meta": {
-          "updateAt": 1727857651140,
+          "updateAt": 1730866941383,
           "createAt": 1727857451283
         }
       },
@@ -786,7 +786,7 @@
           "widthDefault": 101
         },
         "meta": {
-          "updateAt": 1727857861079,
+          "updateAt": 1730866933511,
           "createAt": 1727857676683
         }
       },
@@ -995,7 +995,7 @@
           "columnIds": [
             "_9f94JBE8L-MRV9Dc0sbf"
           ],
-          "x": 998.3263,
+          "x": 1001.3263,
           "y": 508.9208,
           "direction": 2
         },
@@ -1179,7 +1179,7 @@
       1727856109154,
       -1,
       {
-        "name": 1727856363892,
+        "name": 1730877594714,
         "dataType": 1727856368022,
         "options(notNull)": 1727856369868,
         "default": 1727856388783,
@@ -1307,7 +1307,7 @@
       -1,
       {
         "options(notNull)": 1727856761579,
-        "name": 1727856761579,
+        "name": 1730866948679,
         "dataType": 1727856761579,
         "default": 1727856761579,
         "comment": 1727856761579
@@ -1396,7 +1396,7 @@
       -1,
       {
         "options(notNull)": 1727857451281,
-        "name": 1727857451281,
+        "name": 1730866941377,
         "dataType": 1727857451281,
         "default": 1727857451281,
         "comment": 1727857451281,
@@ -1449,7 +1449,7 @@
       -1,
       {
         "options(notNull)": 1727857676680,
-        "name": 1727857861074,
+        "name": 1730866933510,
         "dataType": 1727857676680,
         "default": 1727857676680,
         "comment": 1727857676680
