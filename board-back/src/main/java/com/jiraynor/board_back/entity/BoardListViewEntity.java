@@ -24,9 +24,5 @@ public class BoardListViewEntity {
     private int commentCount;
     private String writeDatetime;
     private String writerEmail;
-<<<<<<< HEAD
-=======
-
->>>>>>> 3a736922e28d83e9ce09d83099efa299f1f91ed4
 
 }
