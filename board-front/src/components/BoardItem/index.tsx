@@ -10,9 +10,7 @@ interface Props {
         boardNumber: number;
         title: string;
         content: string;
-        boardTitleImage: string;
-        //favoriteCount: number;
-        //commentCount: number;
+        boardTitleImage: string | null; // null을 허용하도록 수정
         writeDateTime: string;
         writerNickname: string;
     };
@@ -20,7 +18,7 @@ interface Props {
 
 
 //          componenet: BoardListItem 컴포넌트          //
-export default function BoardListItem( {boardListItem }: Props) {
+export default function BoardItem( {boardListItem }: Props) {
 
   //          properties          //
   const {boardNumber, title, content, boardTitleImage} = boardListItem;

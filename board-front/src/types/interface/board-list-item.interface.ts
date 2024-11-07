@@ -5,8 +5,8 @@ export default interface BoardListItem {
     title: string;
     content: string;
     boardTitleImage: string | null;
-    //favoriteCount: number;
-    //commentCount: number;
+    favoriteCount: number;
+    commentCount: number;
     writeDateTime: string;
     writerNickname: string;
 
