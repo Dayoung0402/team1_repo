@@ -1,7 +1,5 @@
 package com.jiraynor.board_back.entity;
 
-import org.hibernate.annotations.Tables;
-
 import com.jiraynor.board_back.dto.request.auth.SignUpRequestDto;
 
 import jakarta.persistence.Entity;
