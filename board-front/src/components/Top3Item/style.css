@@ -51,6 +51,10 @@
     color: #3E2E22;
     margin: 0; /* 여백 제거 */
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
 }
 
 .top-3-list-item-box-bottom {
@@ -73,6 +77,10 @@
     color: #000;
     margin-top: 16px;
     text-align: center;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
