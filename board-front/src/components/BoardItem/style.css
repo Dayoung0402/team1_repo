@@ -77,10 +77,18 @@
     color: #000000;
     text-decoration: none;
     border: 1px solid #7C7163;
-    /* border-radius: 5px; */
     text-align:right;
+    position: relative;
+    top: 5px; /* 원하는 값으로 조정 */
 
 }
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 12
+  }
 .button:hover {
     background-color:  #D8CFC4;
     

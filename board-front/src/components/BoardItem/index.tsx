@@ -5,24 +5,27 @@ import Rectangle23 from '../../assets/images/Rectangle23.png';
 import Rectangle22 from '../../assets/images/Rectangle22.png';
 import Rectangle24 from '../../assets/images/Rectangle24.png';
 
-interface Props {
+/*interface Props {
     boardListItem: {
         boardNumber: number;
         title: string;
         content: string;
-        boardTitleImage: string | null; // null을 허용하도록 수정
+        boardTitleImage: string;
+        favoriteCount: number;
+        commentCount: number;
         writeDateTime: string;
         writerNickname: string;
     };
 }
-
+*/
 
 //          componenet: BoardListItem 컴포넌트          //
 export default function BoardItem( {boardListItem }: Props) {
 
+
   //          properties          //
-  const {boardNumber, title, content, boardTitleImage} = boardListItem;
-  const { writeDateTime, writerNickname} = boardListItem;
+  //const {title, content, boardTitleImage} = boardListItem;
+  //const { writeDateTime, writerNickname} = boardListItem;
   //          render: BoardListItem 컴포넌트 렌더링         //
   return (
     <div className="outer-background">
@@ -36,7 +39,9 @@ export default function BoardItem( {boardListItem }: Props) {
               <p id="title">레시피 게시판</p>
               <div className="nav">
                   <p className="receipe"><a href="#">레시피 게시판</a> | <a href="#">자유 게시판</a> </p>
-                  <a href="#" className="button" style={{ fontSize: "16px", float: "right" }}>글 작성하기</a>
+                    <div>
+                        <a href="#" className="button" style={{ fontSize: "16px", float: "right" }}>글 작성하기</a>
+                    </div>
               </div>
           </div>
 
