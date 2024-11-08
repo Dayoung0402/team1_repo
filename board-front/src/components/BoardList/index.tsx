@@ -5,27 +5,18 @@ import Rectangle23 from '../../assets/images/Rectangle23.png';
 import Rectangle22 from '../../assets/images/Rectangle22.png';
 import Rectangle24 from '../../assets/images/Rectangle24.png';
 
-/*interface Props {
-    boardListItem: {
-        boardNumber: number;
-        title: string;
-        content: string;
-        boardTitleImage: string;
-        favoriteCount: number;
-        commentCount: number;
-        writeDateTime: string;
-        writerNickname: string;
-    };
+interface Props {
+    boardList: BoardList
 }
-*/
 
-//          componenet: BoardListItem 컴포넌트          //
-export default function BoardList() {
+
+//          componenet: BoardList 컴포넌트          //
+export default function BoardList({  boardList  }: Props) {
 
 
   //          properties          //
-  //const {title, content, boardTitleImage} = boardListItem;
-  //const { writeDateTime, writerNickname} = boardListItem;
+  const {title, content, boardTitleImage} = boardList;
+  const { writeDateTime, writerNickname} = boardList;
   //          render: BoardListItem 컴포넌트 렌더링         //
   return (
 
