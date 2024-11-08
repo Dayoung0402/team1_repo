@@ -1,18 +1,10 @@
 import React from 'react';
 import './App.css';
-import BoardItem from 'components/BoardItem'; // 경로 확인
-import { latestBoardListMock } from 'mocks';
-import Top3Item from 'components/Top3Item';
+import Main from 'views/Main'; // Main 컴포넌트를 import
 
 function App() {
     return (
-        <>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '24px' }}>
-                <Top3Item />
-                <Top3Item />
-                <Top3Item />
-            </div>
-        </>
+        <Main />
     );
 }
 
