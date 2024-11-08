@@ -5,10 +5,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.jiraynor.board_back.dto.request.auth.SignInRequestDto;
 import com.jiraynor.board_back.dto.request.auth.SignUpRequestDto;
 import com.jiraynor.board_back.dto.response.ResponseDto;
+import com.jiraynor.board_back.dto.response.auth.SignInResponseDto;
 import com.jiraynor.board_back.dto.response.auth.SignUpResponseDto;
 import com.jiraynor.board_back.entity.UserEntity;
+import com.jiraynor.board_back.provider.JwtProvider;
 import com.jiraynor.board_back.repository.UserRepository;
 import com.jiraynor.board_back.service.AuthService;
 
@@ -19,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class AuthServiceImplement implements AuthService{
 
     private final UserRepository userRepository;
+    private final JwtProvider jwtProvider;
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
  
@@ -49,6 +53,33 @@ public class AuthServiceImplement implements AuthService{
         }
 
         return SignUpResponseDto.success();
+    }
+
+    @Override
+    public ResponseEntity<? super SignInResponseDto> signIn(SignInRequestDto dto) {
+
+        String token = null;
+
+        try {
+
+            String email = dto.getEmail(); // SignInResponseDto.java에 line 17 추가함
+            UserEntity userEntity = userRepository.findByEmail(email); //인자 email 추가함
+            if (userEntity == null) return SignInResponseDto.signInFailed();
+
+            String password = dto.getPassword();// SignInResponseDto.java에 line 18 추가함
+            String encodePassword = userEntity.getPassword();
+            boolean isMatched = passwordEncoder.matches(password, encodePassword);
+            if(!isMatched) return SignInResponseDto.signInFailed();
+
+            token = jwtProvider.create(email);
+
+
+        } catch(Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+
+        return SignInResponseDto.success(token);
     }
     
 }
