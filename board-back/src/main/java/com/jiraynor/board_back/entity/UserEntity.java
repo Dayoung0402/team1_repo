@@ -1,6 +1,6 @@
 package com.jiraynor.board_back.entity;
 
-import org.hibernate.annotations.Tables;
+import com.jiraynor.board_back.dto.request.auth.SignUpRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -20,5 +20,12 @@ public class UserEntity {
     private String email;
     private String password;
     private String nickname;
+
+    public UserEntity(SignUpRequestDto dto) {
+
+        this.email = dto.getEmail();
+        this.password = dto.getPassword();
+        this.nickname = dto.getNickname();
+    }
 
 }
