@@ -3,7 +3,7 @@ package com.jiraynor.board_back.common;
 public interface ResponseMessage {
 
     // HTTP Status 200
-    public static final String SUCESS = "Success.";
+    public static final String SUCCESS = "Success.";
 
     // HTTP Status 400
     String VALIDATION_FAILED = "Validation failed.";

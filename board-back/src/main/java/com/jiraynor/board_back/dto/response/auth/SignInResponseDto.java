@@ -18,7 +18,7 @@ public class SignInResponseDto extends ResponseDto{
     private String password;
 
     private SignInResponseDto(String token) {
-        super(ResponseCode.SUCESS, ResponseMessage.SUCESS);
+        super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         this.token = token;
         this.expirationTime = 3600;
         //this.email = email;

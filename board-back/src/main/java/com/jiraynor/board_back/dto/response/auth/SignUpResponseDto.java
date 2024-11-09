@@ -13,7 +13,7 @@ import lombok.Getter;
 public class SignUpResponseDto extends ResponseDto{
     
     private SignUpResponseDto() {
-        super(ResponseCode.SUCESS, ResponseMessage.SUCESS);
+        super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
     }
 
     public static ResponseEntity<SignUpResponseDto> success() {
