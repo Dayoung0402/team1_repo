@@ -116,7 +116,7 @@ h2 {
 }
 
 /* 이미지 크기 조정 */
-.recipe-card .recipe.image {
+.recipe-card .recipe-image {
     width: 100%; /* 너비를 카드에 맞추도록 설정 */
     height: 450px; /* 원하는 세로 길이 설정 */
     object-fit: cover; /* 이미지를 잘라서 고정된 크기에 맞추기 */

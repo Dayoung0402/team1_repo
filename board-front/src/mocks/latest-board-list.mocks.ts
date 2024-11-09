@@ -10,6 +10,7 @@ const latestBoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price:15000
     },
     {
         boardNumber: 1,
@@ -20,6 +21,7 @@ const latestBoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price:15000
     },
     {
         boardNumber: 1,
@@ -30,6 +32,7 @@ const latestBoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price: 15000
     },
     {
         boardNumber: 1,
@@ -40,6 +43,7 @@ const latestBoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price: 15000
     }    
 ];    
 
