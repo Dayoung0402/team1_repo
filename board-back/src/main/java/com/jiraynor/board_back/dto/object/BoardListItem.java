@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 // 검색 게시물 리스트(혹시 몰라서 작성!)
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
