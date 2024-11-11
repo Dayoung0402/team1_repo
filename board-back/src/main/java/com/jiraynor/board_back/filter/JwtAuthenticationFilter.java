@@ -32,6 +32,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull FilterChain filterChain)
             throws ServletException, IOException {
 
+                // JwtAuthenticationFilter의 doFilter 메서드 내부
+            /*if (request.getRequestURI().equals("/file/upload")) {
+               filterChain.doFilter(request, response); // /file/upload 요청은 필터를 통과
+                return;
+            } // >>>>>>>>>>>>>>>>>>따로 추가한 부분!
+             */
+
+
         try {
             String token = parseBearerToken(request);
 
@@ -73,12 +81,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return null;
 
         boolean isBearer = authorization.startsWith("Bearer ");
-<<<<<<< HEAD
         if (!isBearer) return null;
-=======
-        if (!isBearer)
-            return null;
->>>>>>> back1
 
         String token = authorization.substring(7);
         return token;
