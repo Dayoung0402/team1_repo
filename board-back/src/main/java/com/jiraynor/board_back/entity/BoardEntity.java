@@ -13,14 +13,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="board")
-@Table(name="board")
+@Entity(name = "board")
+@Table(name = "board")
 public class BoardEntity {
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY )
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int boardNumber; // 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
-    private String title; 
+    private String title;
     private String content;
     private String writeDatetime;
     private String writerEmail;

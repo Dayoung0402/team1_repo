@@ -28,7 +28,6 @@ public class WebSecurityConfig {
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-                // Spring Security 최신 버전에서 이전 방식의 설정 코드가 더 이상 호환되지 않기 때문에 오류 발생함
                 httpSecurity
                                 .cors(cors -> cors.disable())
                                 .csrf(csrf -> csrf.disable())
@@ -36,19 +35,23 @@ public class WebSecurityConfig {
                                 .sessionManagement(session -> session
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                                 .authorizeHttpRequests(authorize -> authorize
-                                                .requestMatchers("/", "/api/v1/auth/**", "/api/v1/search/**",
-                                                                "/file/**")
-                                                .permitAll()
+                                                .requestMatchers("/api/**").permitAll()
                                                 .requestMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*")
                                                 .permitAll()
+                                                .requestMatchers(HttpMethod.POST, "/file/upload").permitAll() // /file/upload
+                                                                                                              // 경로 POST
+                                                                                                              // 요청 허용
+                                                .requestMatchers(HttpMethod.GET, "/file/**").permitAll() // /file 경로 GET
+                                                                                                         // 요청 허용
                                                 .anyRequest().authenticated())
                                 .exceptionHandling(exception -> exception
                                                 .authenticationEntryPoint(new FailedAuthenticationEntryPoint()));
 
                 httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-                return httpSecurity.build(); 
+                return httpSecurity.build();
         }
+
 }
 
 class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
@@ -59,7 +62,6 @@ class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
                 response.setContentType("application/json");
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().write("{\"code\": \"AF\", \"message\": \"Aunthorization Failed\" }");
+                response.getWriter().write("{\"code\": \"AF\", \"message\": \"Authorization Failed\" }");
         }
-
 }

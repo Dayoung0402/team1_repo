@@ -7,6 +7,6 @@ import com.jiraynor.board_back.entity.FavoriteEntity;
 import com.jiraynor.board_back.entity.primaryKey.FavoritePk;
 
 @Repository
-public interface FavoriteRepository extends JpaRepository<FavoriteEntity, FavoritePk>{
-    
+public interface FavoriteRepository extends JpaRepository<FavoriteEntity, FavoritePk> {
+
 }
