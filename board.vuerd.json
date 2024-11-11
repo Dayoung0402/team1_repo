@@ -5,9 +5,15 @@
     "width": 2000,
     "height": 2000,
 <<<<<<< HEAD
+<<<<<<< HEAD
     "scrollTop": -350.8763,
     "scrollLeft": -284.1691,
     "zoomLevel": 0.4,
+=======
+    "scrollTop": -333.3334,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+>>>>>>> 8dbf6cefc5a7af3ee264fee34a9231cb3a4f2579
 =======
     "scrollTop": -333.3334,
     "scrollLeft": 0,
@@ -42,6 +48,7 @@
     "memoIds": []
   },
   "collections": {
+<<<<<<< HEAD
 <<<<<<< HEAD
     "tableEntities": {
       "VlQw79svj0x4bKpcw7nF4": {
@@ -1027,10 +1034,16 @@
     "tableColumnEntities": {},
     "relationshipEntities": {},
 >>>>>>> 8dbf6cefc5a7af3ee264fee34a9231cb3a4f2579
+=======
+    "tableEntities": {},
+    "tableColumnEntities": {},
+    "relationshipEntities": {},
+>>>>>>> 8dbf6cefc5a7af3ee264fee34a9231cb3a4f2579
     "indexEntities": {},
     "indexColumnEntities": {},
     "memoEntities": {}
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
   "lww": {
     "VlQw79svj0x4bKpcw7nF4": [
@@ -1483,6 +1496,9 @@
       }
     ]
   }
+=======
+  "lww": {}
+>>>>>>> 8dbf6cefc5a7af3ee264fee34a9231cb3a4f2579
 =======
   "lww": {}
 >>>>>>> 8dbf6cefc5a7af3ee264fee34a9231cb3a4f2579
