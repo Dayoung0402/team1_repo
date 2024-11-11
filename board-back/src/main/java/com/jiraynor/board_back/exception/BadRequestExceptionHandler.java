@@ -10,8 +10,8 @@ import com.jiraynor.board_back.dto.response.ResponseDto;
 
 @RestControllerAdvice
 public class BadRequestExceptionHandler {
-    
-    @ExceptionHandler({MethodArgumentNotValidException.class, HttpMessageNotReadableException.class})
+
+    @ExceptionHandler({ MethodArgumentNotValidException.class, HttpMessageNotReadableException.class })
     public ResponseEntity<ResponseDto> validationExceptionHandler(Exception exception) {
         return ResponseDto.vaildationFailed();
     }

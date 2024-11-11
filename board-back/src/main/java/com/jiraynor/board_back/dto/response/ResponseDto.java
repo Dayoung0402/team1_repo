@@ -25,5 +25,5 @@ public class ResponseDto {
         ResponseDto responseBody = new ResponseDto(ResponseCode.VALIDATION_FAILED, ResponseMessage.VALIDATION_FAILED);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
-    
+
 }

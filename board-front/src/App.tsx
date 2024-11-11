@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
-import BoardListItem from 'components/BoardListItem';
+import BoardList from 'components/BoardList'; // 경로 확인
+import { latestBoardListMock } from 'mocks';
 
 function App() {
-  return (
-      <BoardListItem />
-  );
+    return (
+        <>
+            <BoardList />
+        </>
+    );
 }
 
 export default App;
