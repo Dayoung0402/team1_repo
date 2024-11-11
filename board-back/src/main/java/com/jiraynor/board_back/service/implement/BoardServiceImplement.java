@@ -30,19 +30,19 @@ public class BoardServiceImplement implements BoardService {
 
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
-        
+
         GetBoardResultSet resultSet = null;
         List<ImageEntity> imageEntities = new ArrayList<>();
 
         try {
 
             resultSet = boardRepository.getBoard(boardNumber);
-            if(resultSet == null) GetBoardResponseDto.noExistBoard();
+            if (resultSet == null)
+                GetBoardResponseDto.noExistBoard();
 
             imageEntities = imageRepository.findByBoardNumber(boardNumber);
 
-
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             exception.printStackTrace();
             return ResponseDto.databaseError();
         }
@@ -80,7 +80,5 @@ public class BoardServiceImplement implements BoardService {
 
         return PostBoardResponseDto.success();
     }
-
-    
 
 }
