@@ -14,15 +14,13 @@ public class SignInResponseDto extends ResponseDto{
 
     private String token;
     private int expirationTime;
-    private String email;
-    private String password;
+    
 
     private SignInResponseDto(String token) {
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         this.token = token;
         this.expirationTime = 3600;
-        //this.email = email;
-        //this.password = password;
+        
     }
 
     public static ResponseEntity<SignInResponseDto> success(String token) {
