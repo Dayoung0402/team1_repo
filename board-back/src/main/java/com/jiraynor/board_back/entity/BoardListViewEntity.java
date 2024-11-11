@@ -24,6 +24,7 @@ public class BoardListViewEntity {
     private int commentCount;
     private String writeDatetime;
     private String writerEmail;
+    private int price;
 
 
 }
