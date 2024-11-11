@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -356.3333,
-    "scrollLeft": -412.2161,
-    "zoomLevel": 0.88,
+    "scrollTop": -350.8763,
+    "scrollLeft": -284.1691,
+    "zoomLevel": 0.4,
     "show": 431,
     "database": 4,
     "databaseName": "",
@@ -53,7 +53,7 @@
       "VlQw79svj0x4bKpcw7nF4": {
         "id": "VlQw79svj0x4bKpcw7nF4",
         "name": "board",
-        "comment": "사용자 테이블",
+        "comment": "게시물 테이블",
         "columnIds": [
           "KLrHtglprVjkx-_quG18M",
           "4rkyBBU9LHP33yNo4YvfD",
@@ -85,7 +85,7 @@
           "color": "#2196F3"
         },
         "meta": {
-          "updateAt": 1731309435428,
+          "updateAt": 1731328023178,
           "createAt": 1731305245249
         }
       },
@@ -1039,7 +1039,7 @@
       -1,
       {
         "name": 1731305378250,
-        "comment": 1731305390132,
+        "comment": 1731328023177,
         "ui.color": 1731305934810
       }
     ],
