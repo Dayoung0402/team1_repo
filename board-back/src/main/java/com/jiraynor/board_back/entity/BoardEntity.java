@@ -49,4 +49,13 @@ public class BoardEntity {
         this.writerEmail = email;
     }
 
+    // 평점 카운트 1 증가
+    public void increaseFavoriteCount() {
+        this.favoriteCount++;
+    }
+
+    // 평점 카운트 1 감소
+    public void decreaseFavoriteCount() {
+        this.favoriteCount--;
+    }
 }
