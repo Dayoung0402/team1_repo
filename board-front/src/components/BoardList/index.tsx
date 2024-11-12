@@ -1,12 +1,13 @@
 import React from 'react';
 import './style.css';
+import { BoardListItem } from 'types/interface';
 
 import Rectangle23 from '../../assets/images/Rectangle23.png';
 import Rectangle22 from '../../assets/images/Rectangle22.png';
 import Rectangle24 from '../../assets/images/Rectangle24.png';
 
 interface Props {
-    boardList: BoardList
+    boardList: BoardListItem
 }
 
 
