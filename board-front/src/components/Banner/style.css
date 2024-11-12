@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'SolmoeKimDaeGeon';
+    src: url('../../assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner-container {
+    margin: 25px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.banner-under-box {
+    background-color: #958673;
+    width: 1130px;
+    height: 294px;
+    box-shadow: inset -10px -6px 24px rgba(102, 88, 70, 0.8), inset 2px 2px 2px #FFFFFF, inset -2px -2px 2px #665846;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-top-box {
+    width: 1110px;
+    height: 275px;
+    background-color: #FAF1E8;
+    border: 1px solid rgba(195, 147, 112, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+    background-image: url('../../assets/images/BG.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-title-box {
+    width: 70px;
+    height: 213px;
+    background: linear-gradient(94.63deg, rgba(149, 134, 115, 0.2) 18.8%, rgba(124, 113, 99, 0.2) 58.53%, rgba(102, 88, 70, 0.2) 95.61%), #7C7163;
+    box-shadow: inset -1px -2px 6px #5E4F44, inset 2px 2px 6px rgba(255, 255, 255, 0.5), inset -2px -4px 12px #5E4F44, inset 4px 4px 12px #5E4F44;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    z-index: 2;
+}
+
+.banner-title {
+    font-family: 'SolmoeKimDaeGeon', sans-serif;
+    font-size: 37px;
+    font-weight: 500;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: #FFFFFF;
+    z-index: 3;
+}
+
+.banner-content-box {
+    font-family: 'SolmoeKimDaeGeon', sans-serif;
+    position: relative;
+    width: 663px;
+    height: 212px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    position: absolute;
+    top: 10%;
+    left: 22%;
+}
+
+.curved-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: url(#inset-shadow); /* 필터 적용 */
+    z-index: 1;
+    
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-family: 'SolmoeKimDaeGeon', sans-serif;
+    color: #000000;
+}
+
+.buttons {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.button {
+    width: 100px;
+    height: 49px;
+    background-color: #7C7163;
+    box-shadow: inset -10px -6px 24px #7A5F4B, inset 2px 2px 2px #FFFFFF, inset -2px -2px 2px #7A5F4B;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+span {
+    font-size: 20px;
+    width: 83px;
+    height: 36px;
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 9px 20px;
+    background: linear-gradient(175.33deg, rgba(255, 255, 255, 0.2) -119.32%, rgba(250, 241, 232, 0.2) -36.54%, rgba(197, 184, 171, 0.2) -26.83%), linear-gradient(90deg, rgba(197, 184, 171, 0.2) 2.17%, rgba(250, 241, 232, 0.2) 15.08%, rgba(255, 255, 255, 0.2) 102.17%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 2.17%, rgba(250, 241, 232, 0.2) 90.43%, rgba(197, 184, 171, 0.2) 99.3%), #FFFFFF;
+    box-shadow: 2px 2px 2px #FFFFFF, inset 10px 10px 4px #FFFFFF, inset -2px -2px 2px rgba(197, 184, 171, 0.25);
+    cursor: pointer;
+}
+
+span:hover {
+    color: #FFFFFF;
+    background-color: #7C7163;
+    background: none;
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+
+
+
+
+

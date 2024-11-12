@@ -1,3 +1,104 @@
+.header-top-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 10px;/* 요소를 더 오른쪽으로 이동 */
+  right: 3%; 
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.sign-in, .sign-up {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+.sign-in:hover, .sign-up:hover, .upload-button:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.icon-box {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trans-content, .content {
+  font-family: 'Roboto Mono';
+  font-size: 20px;
+  color: #7C7163;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.logo-person-icon, .logo-sign-in-icon, .logo-sign-up-icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.upload-button {
+  width: 182px;
+  height: 43px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 70%;
+  right: 3%;
+  border-color: #7C7163;
+  border: 2px solid #7C7163; /* 버튼 테두리 */
+  gap: 7px;
+  cursor: pointer;
+}
+
+.upload-content {
+  color: #7C7163;
+  font-family: 'Solmoe KimDaeGeon';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 26px;
+}
+
+.disable-upload-button {
+  width: 182px;
+  height: 43px;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 3%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #FFF;
+  gap: 10px;
+  cursor: not-allowed;
+}
+
+.icon-box {
+  height: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +137,29 @@
     transform: rotate(360deg);
   }
 }
+
+.logo-sign-in-icon {
+  background-image: url('./assets/images/lock.png');
+}
+
+.logo-sign-up-icon {
+  background-image: url('./assets/images/Sign.png');
+}
+
+.logo-person-icon {
+  background-image: url('./assets/images/person.png');
+}
+
+.logo-upload-icon {
+  background-image: url('./assets/images/Edit.png');
+}
+
+.logo-sign-in-icon, .logo-sign-up-icon, .logo-person-icon, .logo-upload-icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+
