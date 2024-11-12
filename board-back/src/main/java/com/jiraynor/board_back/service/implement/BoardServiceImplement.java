@@ -37,6 +37,7 @@ public class BoardServiceImplement implements BoardService {
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
         GetBoardResultSet resultSet = null;
         List<ImageEntity> imageEntities = new ArrayList<>();
+        double averageRating = 0.0;
 
         try {
             resultSet = boardRepository.getBoard(boardNumber);
@@ -44,12 +45,14 @@ public class BoardServiceImplement implements BoardService {
                 return ResponseEntity.status(404).body(null);
 
             imageEntities = imageRepository.findByBoardNumber(boardNumber);
+            averageRating = calculateAverageRatingForBoard(boardNumber); // 평균 평점 계산
+
         } catch (Exception exception) {
             exception.printStackTrace();
             return ResponseDto.databaseError();
         }
 
-        return GetBoardResponseDto.success(resultSet, imageEntities);
+        return GetBoardResponseDto.success(resultSet, imageEntities, averageRating);
     }
 
     @Override
@@ -115,5 +118,18 @@ public class BoardServiceImplement implements BoardService {
     @Override
     public boolean boardExists(Integer boardNumber) {
         return boardRepository.existsById(boardNumber);
+    }
+
+    private double calculateAverageRatingForBoard(Integer boardNumber) {
+        List<FavoriteEntity> favorites = favoriteRepository.findAllByBoardNumber(boardNumber);
+
+        if (favorites.isEmpty()) {
+            return 0.0;
+        }
+
+        int totalFavoriteCount = favorites.stream().mapToInt(FavoriteEntity::getFavoriteCount).sum();
+        int totalRatingCount = favorites.stream().mapToInt(FavoriteEntity::getRatingCount).sum();
+
+        return totalRatingCount == 0 ? 0.0 : Math.round((double) totalFavoriteCount / totalRatingCount * 2) / 2.0;
     }
 }
