@@ -1,18 +1,10 @@
 @font-face {
   font-family: 'SolmoeKimDaeGeon';
-<<<<<<< HEAD
   src: url('/assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
-=======
-  src: url('./assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
->>>>>>> jiwoo4
   font-weight: normal;
   font-style: normal;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> jiwoo4
 body {
   margin: 0;
   min-width: 1920px;
