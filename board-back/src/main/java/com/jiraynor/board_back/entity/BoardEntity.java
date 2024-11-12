@@ -47,6 +47,7 @@ public class BoardEntity {
         this.favoriteCount = 0;
         this.commentCount = 0;
         this.writerEmail = email;
+        this.price = price;
     }
 
     // 평점 카운트 1 증가

@@ -9,8 +9,10 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "favorite")
@@ -18,8 +20,19 @@ import lombok.NoArgsConstructor;
 @IdClass(FavoritePk.class)
 public class FavoriteEntity {
 
+    public FavoriteEntity(String userEmail, int boardNumber) {
+        this.userEmail = userEmail;
+        this.boardNumber = boardNumber;
+    }
+        
+    
     @Id
     private String userEmail;
+
     @Id
     private int boardNumber;
+
+    private int favoriteCount;
+    
+    private int ratingCount;
 }
