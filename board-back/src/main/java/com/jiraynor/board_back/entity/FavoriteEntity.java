@@ -9,8 +9,10 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "favorite")
@@ -20,6 +22,10 @@ public class FavoriteEntity {
 
     @Id
     private String userEmail;
+
     @Id
     private int boardNumber;
+
+    private int favoriteCount; // 평점 총합
+    private int ratingCount; // 평점 횟수
 }
