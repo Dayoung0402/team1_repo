@@ -12,6 +12,8 @@ public interface GetBoardResultSet {
     String getWriterEmail();
 
     String getWriterNickname();
+
+    String getFavoriteCount();
     
     Integer getPrice();
     

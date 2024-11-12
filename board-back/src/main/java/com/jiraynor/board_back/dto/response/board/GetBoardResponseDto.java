@@ -25,6 +25,16 @@ public class GetBoardResponseDto extends ResponseDto {
   private String writerEmail;
   private String writerNickname;
   private int price;
+  private int favoriteCount;
+
+  // 기존 필드들의 getter, setter에 favoriteCount의 getter와 setter 추가
+  public int getFavoriteCount() {
+    return favoriteCount;
+}
+
+public void setFavoriteCount(int favoriteCount) {
+    this.favoriteCount = favoriteCount;
+} //이 부분을 추가!
 
   private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities) {
     super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);

@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "board")
 public class BoardEntity {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -35,7 +36,13 @@ public class BoardEntity {
     private int commentCount;
     private int price;
 
+    public int getFavoriteCount() {
+        return favoriteCount;
+    }
+
     public BoardEntity(PostBoardRequestDto dto, String email) {
+
+        
 
         Date now = Date.from(Instant.now());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
