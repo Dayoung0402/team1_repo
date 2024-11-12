@@ -1,13 +1,9 @@
 package com.jiraynor.board_back.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
@@ -17,7 +13,6 @@ import com.jiraynor.board_back.service.BoardService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api/v1/board")
@@ -29,6 +24,13 @@ public class BoardController {
     @GetMapping("/{boardNumber}")
     public ResponseEntity<? super GetBoardResponseDto> getBoard(
             @PathVariable("boardNumber") Integer boardNumber) {
+
+        // 보드 존재 여부 확인
+        if (!boardService.boardExists(boardNumber)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Board not found");
+        }
+
+        // 보드가 존재하면 서비스에서 상세 정보 반환
         ResponseEntity<? super GetBoardResponseDto> response = boardService.getBoard(boardNumber);
         return response;
     }

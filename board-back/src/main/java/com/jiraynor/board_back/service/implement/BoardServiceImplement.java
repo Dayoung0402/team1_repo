@@ -35,18 +35,15 @@ public class BoardServiceImplement implements BoardService {
 
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
-
         GetBoardResultSet resultSet = null;
         List<ImageEntity> imageEntities = new ArrayList<>();
 
         try {
-
             resultSet = boardRepository.getBoard(boardNumber);
             if (resultSet == null)
-                GetBoardResponseDto.noExistBoard();
+                return ResponseEntity.status(404).body(null);
 
             imageEntities = imageRepository.findByBoardNumber(boardNumber);
-
         } catch (Exception exception) {
             exception.printStackTrace();
             return ResponseDto.databaseError();
@@ -57,9 +54,7 @@ public class BoardServiceImplement implements BoardService {
 
     @Override
     public ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto, String email) {
-
         try {
-
             boolean existedEmail = userRepository.existsByEmail(email);
             if (!existedEmail)
                 return PostBoardResponseDto.notExistUser();
@@ -68,12 +63,11 @@ public class BoardServiceImplement implements BoardService {
             boardRepository.save(boardEntity);
 
             int boardNumber = boardEntity.getBoardNumber();
-
             List<String> boardImageList = dto.getBoardImageList();
             List<ImageEntity> imageEntities = new ArrayList<>();
 
-            for (String Image : boardImageList) {
-                ImageEntity imageEntity = new ImageEntity(boardNumber, Image);
+            for (String image : boardImageList) {
+                ImageEntity imageEntity = new ImageEntity(boardNumber, image);
                 imageEntities.add(imageEntity);
             }
             imageRepository.saveAll(imageEntities);
@@ -86,12 +80,9 @@ public class BoardServiceImplement implements BoardService {
         return PostBoardResponseDto.success();
     }
 
-    // 평점
     @Override
     public ResponseEntity<? super PutFavoriteResponseDto> putFavorite(Integer boardNumber, String email) {
-
         try {
-
             boolean existedUser = userRepository.existsByEmail(email);
             if (!existedUser)
                 return PutFavoriteResponseDto.noExistUser();
@@ -100,7 +91,6 @@ public class BoardServiceImplement implements BoardService {
             if (boardEntity == null)
                 return PutFavoriteResponseDto.noExistBoard();
 
-            // Optional을 사용하여 엔티티가 존재하는지 확인
             Optional<FavoriteEntity> optionalFavoriteEntity = favoriteRepository
                     .findByBoardNumberAndUserEmail(boardNumber, email);
             if (optionalFavoriteEntity.isEmpty()) {
@@ -122,4 +112,8 @@ public class BoardServiceImplement implements BoardService {
         return PutFavoriteResponseDto.success();
     }
 
+    @Override
+    public boolean boardExists(Integer boardNumber) {
+        return boardRepository.existsById(boardNumber);
+    }
 }
