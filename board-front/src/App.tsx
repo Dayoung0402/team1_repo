@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+<<<<<<< HEAD
 import { Route, Routes } from 'react-router-dom';
 import Main from 'views/Main';
 import Authentication from 'views/Authentication';
@@ -40,7 +41,25 @@ function App() {
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Route>
     </Routes>
+=======
+import BoardItem from 'components/BoardItem'; // 경로 확인
+import { latestBoardListMock } from 'mocks';
+import { BoardListItem } from 'types/interface';
+
+function App() {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      {latestBoardListMock.map((boardListItem, index) => (
+        <BoardItem key={index} boardlistItem={boardListItem} />
+      ))}
+    </div>
+>>>>>>> jiwoo4
   );
 }
 
 export default App;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> jiwoo4

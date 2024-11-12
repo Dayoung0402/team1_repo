@@ -11,6 +11,7 @@ const top3BoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price:0
     },
     {
         boardNumber: 2,
@@ -21,6 +22,7 @@ const top3BoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price:0
     },
     {
         boardNumber: 3,
@@ -31,6 +33,7 @@ const top3BoardListMock: BoardListItem[] = [
         commentCount: 0,
         writeDateTime: "2024.10.7. 00:54:27",
         writerNickname: "시러핑",
+        price:0
     }    
 ];
 
