@@ -2,6 +2,7 @@ package com.jiraynor.board_back.service.implement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -99,13 +100,15 @@ public class BoardServiceImplement implements BoardService {
             if (boardEntity == null)
                 return PutFavoriteResponseDto.noExistBoard();
 
-            FavoriteEntity favoriteEntity = favoriteRepository.findByBoardNumberAndUserEmail(boardNumber, email);
-            if (favoriteEntity == null) {
-                favoriteEntity = new FavoriteEntity(email, boardNumber);
+            // Optional을 사용하여 엔티티가 존재하는지 확인
+            Optional<FavoriteEntity> optionalFavoriteEntity = favoriteRepository
+                    .findByBoardNumberAndUserEmail(boardNumber, email);
+            if (optionalFavoriteEntity.isEmpty()) {
+                FavoriteEntity favoriteEntity = new FavoriteEntity(email, boardNumber);
                 favoriteRepository.save(favoriteEntity);
                 boardEntity.increaseFavoriteCount();
             } else {
-                favoriteRepository.delete(favoriteEntity);
+                favoriteRepository.delete(optionalFavoriteEntity.get());
                 boardEntity.decreaseFavoriteCount();
             }
 
