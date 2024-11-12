@@ -25,8 +25,9 @@ public class GetBoardResponseDto extends ResponseDto {
   private String writerEmail;
   private String writerNickname;
   private int price;
+  private double averageRating; // 평균 평점 추가
 
-  private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities) {
+  private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities, double averageRating) {
     super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
 
     List<String> boardImageList = new ArrayList<>();
@@ -43,11 +44,12 @@ public class GetBoardResponseDto extends ResponseDto {
     this.writerEmail = resultSet.getWriterEmail();
     this.writerNickname = resultSet.getWriterNickname();
     this.price = resultSet.getPrice();
+    this.averageRating = averageRating; // 평균 평점 설정
   }
 
   public static ResponseEntity<GetBoardResponseDto> success(GetBoardResultSet resultSet,
-      List<ImageEntity> imageEntities) {
-    GetBoardResponseDto result = new GetBoardResponseDto(resultSet, imageEntities);
+      List<ImageEntity> imageEntities, double averageRating) {
+    GetBoardResponseDto result = new GetBoardResponseDto(resultSet, imageEntities, averageRating);
     return ResponseEntity.status(HttpStatus.OK).body(result);
   }
 
@@ -55,5 +57,4 @@ public class GetBoardResponseDto extends ResponseDto {
     ResponseDto result = new ResponseDto(ResponseCode.NOT_EXISTED_BOARD, ResponseMessage.NOT_EXISTED_BOARD);
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
   }
-
 }
