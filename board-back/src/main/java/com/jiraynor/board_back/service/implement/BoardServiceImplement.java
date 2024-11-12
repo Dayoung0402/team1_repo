@@ -8,14 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
+import com.jiraynor.board_back.dto.request.board.PostCommentRequestDto;
 import com.jiraynor.board_back.dto.response.ResponseDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
+import com.jiraynor.board_back.dto.response.board.PostCommentResponseDto;
 import com.jiraynor.board_back.dto.response.board.PutFavoriteResponseDto;
 import com.jiraynor.board_back.entity.BoardEntity;
+import com.jiraynor.board_back.entity.CommentEntity;
 import com.jiraynor.board_back.entity.FavoriteEntity;
 import com.jiraynor.board_back.entity.ImageEntity;
 import com.jiraynor.board_back.repository.BoardRepository;
+import com.jiraynor.board_back.repository.CommentRepository;
 import com.jiraynor.board_back.repository.FavoriteRepository;
 import com.jiraynor.board_back.repository.ImageRepository;
 import com.jiraynor.board_back.repository.UserRepository;
@@ -31,13 +35,14 @@ public class BoardServiceImplement implements BoardService {
     private final BoardRepository boardRepository;
     private final ImageRepository imageRepository;
     private final UserRepository userRepository;
+    private final CommentRepository commentRepository;
     private final FavoriteRepository favoriteRepository;
+
 
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
         GetBoardResultSet resultSet = null;
         List<ImageEntity> imageEntities = new ArrayList<>();
-        double averageRating = 0.0;
 
         try {
             resultSet = boardRepository.getBoard(boardNumber);
@@ -45,14 +50,12 @@ public class BoardServiceImplement implements BoardService {
                 return ResponseEntity.status(404).body(null);
 
             imageEntities = imageRepository.findByBoardNumber(boardNumber);
-            averageRating = calculateAverageRatingForBoard(boardNumber); // 평균 평점 계산
-
         } catch (Exception exception) {
             exception.printStackTrace();
             return ResponseDto.databaseError();
         }
 
-        return GetBoardResponseDto.success(resultSet, imageEntities, averageRating);
+        return GetBoardResponseDto.success(resultSet, imageEntities,0.0);
     }
 
     @Override
@@ -81,6 +84,30 @@ public class BoardServiceImplement implements BoardService {
         }
 
         return PostBoardResponseDto.success();
+    }
+
+    @Override
+    public ResponseEntity<? super PostCommentResponseDto> postComment(PostCommentRequestDto dto, Integer boardNumber, String email) {
+        try {
+
+            BoardEntity boardEntity = boardRepository.findByBoardNumber(boardNumber);
+            if (boardEntity == null) return PostCommentResponseDto.noExistBoard();
+
+            boolean existedUser = userRepository.existsByEmail(email);
+            if (!existedUser) return PostCommentResponseDto.noExistUser();
+
+            CommentEntity commentEntity = new CommentEntity(dto, boardNumber, email);
+            commentRepository.save(commentEntity);
+
+            boardEntity.increaseCommentCount();
+            boardRepository.save(boardEntity);
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+
+        return PostCommentResponseDto.success();
     }
 
     @Override
@@ -120,16 +147,7 @@ public class BoardServiceImplement implements BoardService {
         return boardRepository.existsById(boardNumber);
     }
 
-    private double calculateAverageRatingForBoard(Integer boardNumber) {
-        List<FavoriteEntity> favorites = favoriteRepository.findAllByBoardNumber(boardNumber);
+   
 
-        if (favorites.isEmpty()) {
-            return 0.0;
-        }
-
-        int totalFavoriteCount = favorites.stream().mapToInt(FavoriteEntity::getFavoriteCount).sum();
-        int totalRatingCount = favorites.stream().mapToInt(FavoriteEntity::getRatingCount).sum();
-
-        return totalRatingCount == 0 ? 0.0 : Math.round((double) totalFavoriteCount / totalRatingCount * 2) / 2.0;
-    }
+    
 }

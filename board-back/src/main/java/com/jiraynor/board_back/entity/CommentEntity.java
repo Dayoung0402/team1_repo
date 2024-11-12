@@ -1,5 +1,10 @@
 package com.jiraynor.board_back.entity;
 
+import java.time.Instant;
+import java.util.Date;
+
+import com.jiraynor.board_back.dto.request.board.PostCommentRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,5 +28,12 @@ public class CommentEntity {
     private String writeDatetime;
     private String userEmail;
     private int boardNumber;
+
+    public CommentEntity(PostCommentRequestDto dto, Integer boardNumber, String email) {
+
+        this.content = dto.getComment();
+        this.userEmail = email;
+        this.boardNumber = boardNumber;
+    }
 
 }

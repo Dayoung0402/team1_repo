@@ -39,6 +39,7 @@ public class BoardEntity {
     public int getFavoriteCount() {
         return favoriteCount;
     }
+    // 추가한 부분
 
     public BoardEntity(PostBoardRequestDto dto, String email) {
 
@@ -60,6 +61,10 @@ public class BoardEntity {
     // 평점 카운트 1 증가
     public void increaseFavoriteCount() {
         this.favoriteCount++;
+    }
+
+    public void increaseCommentCount() {
+        this.commentCount++;
     }
 
     // 평점 카운트 1 감소
