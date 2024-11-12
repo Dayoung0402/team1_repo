@@ -1,4 +1,5 @@
 {
+  "name": "board-front",
   "devDependencies": {
     "@types/react": "^18.3.12"
   },
@@ -7,6 +8,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/react-router-dom": "^5.3.3",
     "react": "^18.3.1",
+    "react-cookie": "^4.0.3",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
     "react-scripts": "^5.0.1"

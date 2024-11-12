@@ -12,13 +12,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FavoritePk implements Serializable{
-    @Column(name="user_email")
+public class FavoritePk implements Serializable {
+    @Column(name = "user_email")
     private String userEmail;
-    @Column(name="board_number")
+    @Column(name = "board_number")
     private int boardNumber;
-    
 
-
-    
 }
