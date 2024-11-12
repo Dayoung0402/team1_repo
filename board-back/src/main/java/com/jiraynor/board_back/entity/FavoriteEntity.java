@@ -23,16 +23,16 @@ public class FavoriteEntity {
     public FavoriteEntity(String userEmail, int boardNumber) {
         this.userEmail = userEmail;
         this.boardNumber = boardNumber;
+        this.favoriteCount = 0; // 초기값 0 설정
+        this.ratingCount = 0; // 초기값 0 설정
     }
-        
-    
+
     @Id
     private String userEmail;
 
     @Id
     private int boardNumber;
 
-    private int favoriteCount;
-    
-    private int ratingCount;
+    private int favoriteCount; // 평점 총합
+    private int ratingCount; // 평점 횟수
 }

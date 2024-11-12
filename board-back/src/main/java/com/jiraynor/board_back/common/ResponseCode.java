@@ -1,7 +1,7 @@
 package com.jiraynor.board_back.common;
 
 public interface ResponseCode {
-    
+
     // HTTP Status 200
     public static final String SUCCESS = "SU";
 
@@ -23,7 +23,4 @@ public interface ResponseCode {
     // HTTP Status 500
     String DATABASE_ERROR = "DBE";
 
-   
-
-    
 }
