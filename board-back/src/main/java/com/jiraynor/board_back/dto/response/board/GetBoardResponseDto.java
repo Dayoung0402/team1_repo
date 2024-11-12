@@ -24,6 +24,7 @@ public class GetBoardResponseDto extends ResponseDto{
   private String writeDatetime;
   private String writerEmail;
   private String writerNickname;
+  private int price;
 
   private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities) {
     super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);

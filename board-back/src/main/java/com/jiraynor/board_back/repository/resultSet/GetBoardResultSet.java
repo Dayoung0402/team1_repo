@@ -7,6 +7,6 @@ public interface GetBoardResultSet {
     String getWriteDateTime();
     String getWriterEmail();
     String getWriterNickname();
-    String getPrice();
+    Integer getPrice();
     
 }
