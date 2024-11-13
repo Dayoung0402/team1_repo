@@ -12,13 +12,12 @@ export default function Container() {
 
   //          render: 레이아웃 렌더링          //
   return (
-    <>
+    <div className="container">
       <Header />
       <Sider />
       <Outlet />
 
-      {/* 만약에 pathname(마지막 경로 주소)가 auth가 아니면 Footer를 출력해라 */}
-      {pathname !== AUTH_PATH() && <Sider />}
-    </>
-  )
+      {/* Sider가 중복되지 않도록 제거 */}
+    </div>
+  );
 }

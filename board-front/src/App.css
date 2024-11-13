@@ -1,24 +1,28 @@
 .header-top-box {
   display: flex;
   align-items: center;
-  gap: 20px;
-  position: absolute;
-  top: 10px;/* 요소를 더 오른쪽으로 이동 */
-  right: 3%; 
+  gap: 15px;
+  position: fixed; /* 위치를 고정합니다 */
+  top: 15px; /* 화면 상단에서의 위치 */
+  right: 16.5%; /* 화면 오른쪽에서의 위치 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
 }
 
 .welcome {
   display: flex;
   align-items: center;
-  cursor: pointer;
-  gap: 10px;
+  gap: 15px;
+  position: fixed; /* 위치를 고정합니다 */
+  top: 15px; /* 화면 상단에서의 위치 */
+  right: 16%; /* 화면 오른쪽에서의 위치 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
 }
 
 .sign-in, .sign-up {
   display: flex;
   align-items: center;
   cursor: pointer;
-  gap: 10px; /* 아이콘과 텍스트 사이 간격 */
+  gap: 6px; /* 아이콘과 텍스트 사이 간격 */
 }
 
 .sign-in:hover, .sign-up:hover, .upload-button:hover {
@@ -27,8 +31,8 @@
 }
 
 .icon-box {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +40,7 @@
 
 .trans-content, .content {
   font-family: 'Roboto Mono';
-  font-size: 20px;
+  font-size: 15px;
   color: #7C7163;
   font-style: normal;
   font-weight: 400;
@@ -44,8 +48,8 @@
 }
 
 .logo-person-icon, .logo-sign-in-icon, .logo-sign-up-icon {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -91,8 +95,8 @@
 }
 
 .icon-box {
-  height: 24px;
-  height: 24px;
+  height: 16px;
+  height: 16px;
 
   display: flex;
   align-items: center;
@@ -154,12 +158,26 @@
   background-image: url('./assets/images/Edit.png');
 }
 
+.logo-left-icon {
+  background-image: url('./assets/images/left.png');
+}
+
+.logo-right-icon {
+  background-image: url('./assets/images/right.png');
+}
+
 .logo-sign-in-icon, .logo-sign-up-icon, .logo-person-icon, .logo-upload-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+.logo-left-icon, .logo-right-icon {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 

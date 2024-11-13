@@ -165,7 +165,7 @@ export default function Header() {
             <div className='free-board' onClick={onBoardButtonClickHandler}>{'자유 게시판'}</div>
           </div>
         </div>
-        <hr />
+        <hr className='header-line'></hr>
       </div>
     </div>
   );
