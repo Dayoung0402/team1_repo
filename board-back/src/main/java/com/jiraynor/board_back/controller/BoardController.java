@@ -44,15 +44,6 @@ public class BoardController {
         ResponseEntity<? super PostBoardResponseDto> response = boardService.postBoard(requestBody, email);
         return response;
     }
-    @PostMapping("/{boardNumber}/comment")
-    public ResponseEntity<? super PostCommentResponseDto> postComment(
-        @RequestBody @Valid PostCommentRequestDto requestBody, 
-        @PathVariable("boardNumber") Integer boardNumber,
-        @AuthenticationPrincipal String email
-    ) {
-        ResponseEntity<? super PostCommentResponseDto> response = boardService.postComment(requestBody, boardNumber, email);
-        return response;
-    }
     // 평점
     @PutMapping("/{boardNumber}/favorite")
     public ResponseEntity<? super PutFavoriteResponseDto> putFavorite(
