@@ -41,7 +41,6 @@ export default function Header() {
   const [isBoardWritePage, setBoardWritePage] = useState<boolean>(false);
   //          state: 자유 게시판 게시물 수정 페이지 상태          //
   const [isBoardUpdatePage, setBoardUpdatePage] = useState<boolean>(false);
- 
 
   //          function: 네비게이트 함수          //
   const navigate = useNavigate();  
@@ -125,14 +124,74 @@ export default function Header() {
     </div>
   }
 
-  //          render: 업로드 불가 버튼 컴포넌트 렌더링        //  
-    /* return <div className='disable-upload-button'>
-      <div className='icon-box'>
-        <div className='logo-upload-icon'></div>  
+  //          component: 메뉴 컴포넌트          //
+  const MenuButton = () => {
+    //          render: 메뉴 (가쪽 위치, 메인) 컴포넌트 렌더링          //
+    if (isMainPage) {
+      return (
+        <div className='menu-main'>
+            <div className='recipe-board' onClick={onRecipeBoardButtonClickHandler}>{'레시피 게시판'}</div>
+            <div className='short'></div>
+            <div className='free-board' onClick={onBoardButtonClickHandler}>{'자유 게시판'}</div>
+        </div>
+      );
+    }
+
+    //          render: 메뉴 (중간 위치) 컴포넌트 렌더링          //
+    return (
+      <div className='menu-others' style={{right: '40%'}}>
+        <div className='recipe-board' onClick={onRecipeBoardButtonClickHandler}>{'레시피 게시판'}</div>
+        <div className='short'></div>
+        <div className='free-board' onClick={onBoardButtonClickHandler}>{'자유 게시판'}</div>
       </div>
-      <div className='upload-content'>{'글 작성하기'}</div>
-    </div>
-  }  */
+    );
+  }
+  
+  //          component: 흙수저 타이틀 컴포넌트          //
+  const WebTitle = () => {
+    //          render: 흙수저 메인 페이지 타이틀 컴포넌트 렌더링          //
+    if (isMainPage) {
+      return (
+        <div className='title-main' onClick={onLogClickHandler}>{'흙수저 레시피'}</div>
+      );
+    }
+
+    //          render: 흙수저 게시판 페이지 타이틀 컴포넌트 렌더링          //
+    return (
+      <div className='title-others' onClick={onLogClickHandler}>{'흙수저 레시피'}</div>
+    );
+  }
+
+  //          component: 레시피 게시판 타이틀 컴포넌트          //
+  const RecipeBoardTitle = () => {
+    if (isRecipeBoardWritePage) {
+      return (
+        <div className='recipe-write-title' onClick={onRecipeBoardButtonClickHandler}>{'레시피 게시판'}</div>
+      );
+    }
+    if (isRecipeBoardPage) {
+      return (
+        <div className='recipe-board-title' onClick={onRecipeBoardButtonClickHandler}>{'레시피 게시판'}</div>
+      );
+    }
+    return null; // 조건이 맞지 않을 때 null을 반환
+  };
+  
+
+  //          component: 자유 게시판 타이틀 컴포넌트          //
+  const BoardTitle = () => {
+    if (isBoardWritePage) {
+      return (
+        <div className='board-write-title' onClick={onBoardButtonClickHandler}>{'자유 게시판'}</div>
+      );
+    }
+    if (isBoardPage) {
+      return (
+        <div className='web-board-title' onClick={onBoardButtonClickHandler}>{'자유 게시판'}</div>
+      );
+    }
+    return null; // 조건이 맞지 않을 때 null을 반환
+  };
 
   //          effect: path가 변경될 때마다 실행될 함수          //    
   useEffect(() => {
@@ -148,24 +207,24 @@ export default function Header() {
     setRecipeBoardWritePage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_WRITE_PATH()));
     setRecipeBoardUpdatePage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_UPDATE_PATH('')));
   }, [pathname]);
-  
+
+  //          로그인 및 회원가입 페이지에서 빈 화면 렌더링          //
+  if (isAuthPage || isSignUpPage) {
+    return <div />;
+  }
 
   //          render: 헤더 레이아웃 렌더링          //  
   return (
     <div id='header'>
       <div className='header-container'>
-            
-          {(!isAuthPage || !isSecureContext) && <AuthButton />}  {/* 로그인 상태에 따라 조건부로 표시 */}
-          {(isBoardDetailPage || isBoardPage || isRecipeBoardPage || isRecipeBoardDetailPage ) && <UploadButton />}
+      {!(isAuthPage || isSignUpPage) && <AuthButton />}
         <div className='header-middle-box'>
-          <div className='title' onClick={onLogClickHandler}>{'흙수저 레시피'}</div>
-          <div className='menu'>
-            <div className='recipe-board' onClick={onRecipeBoardButtonClickHandler}>{'레시피 게시판'}</div>
-            <div className='short'></div>
-            <div className='free-board' onClick={onBoardButtonClickHandler}>{'자유 게시판'}</div>
-          </div>
+        {!(isBoardWritePage || isRecipeBoardWritePage) && <WebTitle />}
+          <BoardTitle />
+          <RecipeBoardTitle />
+          {!(isAuthPage || isSignUpPage || isBoardWritePage || isRecipeBoardWritePage) && <MenuButton />}
         </div>
-        <hr className='header-line'></hr>
+        {!(isRecipeBoardWritePage || isBoardWritePage) && <hr className='header-line' />}
       </div>
     </div>
   );
