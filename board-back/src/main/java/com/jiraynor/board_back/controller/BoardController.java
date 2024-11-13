@@ -6,11 +6,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
-import com.jiraynor.board_back.dto.request.board.PostCommentRequestDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
-import com.jiraynor.board_back.dto.response.board.PostCommentResponseDto;
-import com.jiraynor.board_back.dto.response.board.PutFavoriteResponseDto;
 import com.jiraynor.board_back.service.BoardService;
 
 import jakarta.validation.Valid;
@@ -45,11 +42,4 @@ public class BoardController {
         return response;
     }
     // 평점
-    @PutMapping("/{boardNumber}/favorite")
-    public ResponseEntity<? super PutFavoriteResponseDto> putFavorite(
-            @PathVariable("boardNumber") Integer boardNumber,
-            @AuthenticationPrincipal String email) {
-        ResponseEntity<? super PutFavoriteResponseDto> response = boardService.putFavorite(boardNumber, email);
-        return response;
-    }
 }

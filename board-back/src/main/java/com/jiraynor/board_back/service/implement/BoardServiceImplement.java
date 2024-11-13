@@ -2,25 +2,17 @@ package com.jiraynor.board_back.service.implement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
-import com.jiraynor.board_back.dto.request.board.PostCommentRequestDto;
 import com.jiraynor.board_back.dto.response.ResponseDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
-import com.jiraynor.board_back.dto.response.board.PostCommentResponseDto;
-import com.jiraynor.board_back.dto.response.board.PutFavoriteResponseDto;
 import com.jiraynor.board_back.entity.BoardEntity;
-import com.jiraynor.board_back.entity.CommentEntity;
-import com.jiraynor.board_back.entity.FavoriteEntity;
 import com.jiraynor.board_back.entity.ImageEntity;
 import com.jiraynor.board_back.repository.BoardRepository;
-import com.jiraynor.board_back.repository.CommentRepository;
-import com.jiraynor.board_back.repository.FavoriteRepository;
 import com.jiraynor.board_back.repository.ImageRepository;
 import com.jiraynor.board_back.repository.UserRepository;
 import com.jiraynor.board_back.repository.resultSet.GetBoardResultSet;
@@ -35,8 +27,7 @@ public class BoardServiceImplement implements BoardService {
     private final BoardRepository boardRepository;
     private final ImageRepository imageRepository;
     private final UserRepository userRepository;
-    private final CommentRepository commentRepository;
-    private final FavoriteRepository favoriteRepository;
+
 
 
     @Override
@@ -86,61 +77,7 @@ public class BoardServiceImplement implements BoardService {
         return PostBoardResponseDto.success();
     }
 
-    @Override
-    public ResponseEntity<? super PostCommentResponseDto> postComment(PostCommentRequestDto dto, Integer boardNumber, String email) {
-        try {
-
-            BoardEntity boardEntity = boardRepository.findByBoardNumber(boardNumber);
-            if (boardEntity == null) return PostCommentResponseDto.noExistBoard();
-
-            boolean existedUser = userRepository.existsByEmail(email);
-            if (!existedUser) return PostCommentResponseDto.noExistUser();
-
-            CommentEntity commentEntity = new CommentEntity(dto, boardNumber, email);
-            commentRepository.save(commentEntity);
-
-            boardEntity.increaseCommentCount();
-            boardRepository.save(boardEntity);
-
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return ResponseDto.databaseError();
-        }
-
-        return PostCommentResponseDto.success();
-    }
-
-    @Override
-    public ResponseEntity<? super PutFavoriteResponseDto> putFavorite(Integer boardNumber, String email) {
-        try {
-            boolean existedUser = userRepository.existsByEmail(email);
-            if (!existedUser)
-                return PutFavoriteResponseDto.noExistUser();
-
-            BoardEntity boardEntity = boardRepository.findByBoardNumber(boardNumber);
-            if (boardEntity == null)
-                return PutFavoriteResponseDto.noExistBoard();
-
-            Optional<FavoriteEntity> optionalFavoriteEntity = favoriteRepository
-                    .findByBoardNumberAndUserEmail(boardNumber, email);
-            if (optionalFavoriteEntity.isEmpty()) {
-                FavoriteEntity favoriteEntity = new FavoriteEntity(email, boardNumber);
-                favoriteRepository.save(favoriteEntity);
-                boardEntity.increaseFavoriteCount();
-            } else {
-                favoriteRepository.delete(optionalFavoriteEntity.get());
-                boardEntity.decreaseFavoriteCount();
-            }
-
-            boardRepository.save(boardEntity);
-
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return ResponseDto.databaseError();
-        }
-
-        return PutFavoriteResponseDto.success();
-    }
+    
 
     @Override
     public boolean boardExists(Integer boardNumber) {
