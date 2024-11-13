@@ -15,6 +15,7 @@ export default function Banner({ data = { title: '', question: '', options: [], 
     const { title, question, options, initialPercentages } = data;
     const [percentages, setPercentages] = useState(initialPercentages);
     const [showPercentage, setShowPercentage] = useState([false, false]);
+    const [activeButton, setActiveButton] = useState<number | null>(null); // 활성화된 버튼 상태 추가
 
     const handleClick = (index: number) => {
         const totalVotes = percentages.reduce((acc, curr) => acc + curr, 0) + 1;
@@ -30,6 +31,7 @@ export default function Banner({ data = { title: '', question: '', options: [], 
         const newShowPercentage = [false, false];
         newShowPercentage[index] = true;
         setShowPercentage(newShowPercentage);
+        setActiveButton(index); // 활성화된 버튼 인덱스 설정
     };
 
     return (
@@ -68,8 +70,8 @@ export default function Banner({ data = { title: '', question: '', options: [], 
                             />
                         </svg>
                         <div className='content-wrapper'>
-                            <div className='title' style={{ fontSize: '35px', color: '#3E2E22', marginBottom: '20px' }}>{question}</div>
-                            <div className='content' style={{ fontSize: '21px', color: '#000', marginBottom: '20px' }}>
+                            <div className='banner-content-title' style={{ fontSize: '29px', color: '#3E2E22', marginBottom: '11px', fontStyle: 'bold' }}>{question}</div>
+                            <div className='banner-content' style={{ fontSize: '19px', color: '#000', marginBottom: '15px' }}>
                                 {options[0]} {'\u00A0\u00A0'} {options[1]}
                             </div>
                             <div className='buttons'>
@@ -79,7 +81,7 @@ export default function Banner({ data = { title: '', question: '', options: [], 
                                         className='button'
                                         onClick={() => handleClick(index)}
                                     >
-                                        <span>
+                                        <span className={showPercentage[index] ? "active" : ""}>
                                             {showPercentage[index] ? `${percentages[index]}%` : `${index + 1}번`}
                                         </span>
                                     </div>

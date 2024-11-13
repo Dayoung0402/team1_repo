@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css';
 import Rectangle23 from '../../assets/images/Rectangle23.png';
 import { BoardListItem } from 'types/interface';
+import { useNavigate } from 'react-router-dom';
+import { BOARD_DETAIL_PATH, BOARD_PATH } from 'constant';
 
 interface Props {
     top3ListItem: BoardListItem
@@ -15,12 +17,12 @@ export default function Top3Item({ top3ListItem }: Props) {
     const { writeDateTime, writerNickname } = top3ListItem;
 
     //          function: 네비게이트 함수          //
-    // const navigator = useNavigate();
+    const navigator = useNavigate();
     
     //          event handler: 게시물 아이템 클릭 이벤트 처리 함수          //
     const onClickHandler = () => {
-        // navigator(boardNumber);
-    }    
+        navigator(BOARD_PATH() + '/' + BOARD_DETAIL_PATH(boardNumber));
+    }   
 
     //          render: Top 3 List Item 컴포넌트 렌더링          //
     return (
@@ -34,11 +36,11 @@ export default function Top3Item({ top3ListItem }: Props) {
                     >
                         {/* <img src={Rectangle23} alt="까르보나라" /> */}
                     </div>
-                    <h4 className='top-3-list-item-name'>{'까르보나라dddddddfdfdfdfdfdfdfdfdfdfdfdfd'}</h4>
+                    <h4 className='top-3-list-item-name'>{title}</h4>
                 </div>
                 <div className='top-3-list-item-box-bottom'>
-                    <hr className="dotted-line" />
-                    <div className='top-3-list-item-content'>{'한 줄 소 개dddddddfdfdfdfdfdfdfdfdfdfdfdfd'}</div>
+                    <hr className="top3-dotted-line" />
+                    <div className='top-3-list-item-content'>{content}</div>
                 </div>
             </div>
         </div>
