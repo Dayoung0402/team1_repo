@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'SolmoeKimDaeGeon';
+    src: url('../../assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.board-list-item {
+    width: 300px;
+    height: 555px;
+    border: 1px, solid, #F2EBE2;
+    margin-top: 200px;
+    margin-left:150px;
+
+}
+
+
+.recipe-image {
+    width: 300px; /* 원하는 크기로 설정하세요 */
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.favorite-count {
+    font-family:'SolmoeKimDaeGeon';
+    font-size:23px;
+    color:#7C7163;
+    margin-top:7px;
+}
+
+.star-ratings {
+    color: #aaa9a9; 
+    position: relative;
+    unicode-bidi: bidi-override;
+    width: max-content;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: #7C7163;
+    margin-left: 60px;
+    margin-top: -22px;
+    font-size: 20px;
+  }
+   
+  .star-ratings-fill {
+    color: #fff58c;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-text-fill-color: #7C7163;
+  }
+   
+  .star-ratings-base {
+    z-index: 0;
+    padding: 0;
+  }
+
+
+.price {
+    font-family:'SolmoeKimDaeGeon';
+    font-size:15px;
+    font-weight: 50;
+    color: #7C7163;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+    margin-right: 8px;
+    
+}
+
+.line {
+    color:#7C7163;
+    opacity: 0.7;
+}
+
+.title {
+    font-family:'SolmoeKimDaeGeon';
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+    color: #7C7163;
+}
+
+.content {
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 15px;
+}
+
