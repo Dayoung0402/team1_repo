@@ -1,3 +1,40 @@
+
+.menu-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  font-size: 16px;
+  background-color: #F2EBE2;
+  padding: 7px 13px;
+  width: 220px;
+  height: 35px;
+  position: absolute;
+  top: 70px;
+  margin-top: 24px;
+  right: 6%;
+}
+
+.menu-others {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  font-size: 16px;
+  background-color: #F2EBE2;
+  padding: 7px 13px;
+  width: 220px;
+  height: 35px;
+  position: absolute;
+  top: 70px;
+  left: 50% !important; /* 부모 요소의 중앙으로 이동 */
+  transform: translateX(-36%) !important; /* 가로 중앙 정렬 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+  margin-top: 20px;
+
+}
+
+
 .header-top-box {
   display: flex;
   align-items: center;
