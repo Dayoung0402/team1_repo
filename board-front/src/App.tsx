@@ -1,17 +1,12 @@
 import React from 'react';
 import './App.css';
-import BoardItem from 'components/BoardItem'; // 경로 확인
-import { latestBoardListMock } from 'mocks';
-import { BoardListItem } from 'types/interface';
+import Main from 'views/Main'; // Main 컴포넌트를 import
+import Authentication from 'views/Authentication';
 
 function App() {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      {latestBoardListMock.map((boardListItem, index) => (
-        <BoardItem key={index} boardlistItem={boardListItem} />
-      ))}
-    </div>
-  );
+    return (
+        <Authentication />
+    );
 }
 
 export default App;

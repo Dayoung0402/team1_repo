@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'SolmoeKimDaeGeon';
+    src: url('../../assets/fonts/SolmoeKimDaeGeon-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#auth-wrapper {
+    height: 100vh;
+    background-image: url('./assets/backgroundImage.jpg');
+    background-repeat: no-repeat;
+    
+} 
+
+
+
+
