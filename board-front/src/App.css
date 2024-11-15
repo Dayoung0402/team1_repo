@@ -1,3 +1,7 @@
+.divider{
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
 
 .menu-main {
   display: flex;
@@ -85,26 +89,50 @@
 }
 
 .logo-person-icon, .logo-sign-in-icon, .logo-sign-up-icon {
-  width: 16px;
-  height: 16px;
+  width: 50px;
+  height: 20px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.upload-button {
-  width: 182px;
-  height: 43px;
-  padding: 5px 10px;
+.recipe-upload-button {
+  width: 120px;
+  height: 27px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 70%;
-  right: 3%;
-  border-color: #7C7163;
-  border: 2px solid #7C7163; /* 버튼 테두리 */
+  top: 0%;
+  border: 1.5px solid rgba(124, 113, 99, 0.7); /* 버튼 테두리 */
   gap: 7px;
   cursor: pointer;
+
+  position: relative;
+  left: 207%;
+   
+}
+
+.board-upload-button {
+  width: 120px;
+  height: 27px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0%;
+  border: 1.5px solid rgba(124, 113, 99, 0.7); /* 버튼 테두리 */
+  gap: 7px;
+  cursor: pointer;
+
+  position: relative;
+  left: 246.2%;
+   
+}
+
+.recipe-upload-button:hover, .board-upload-button:hover {
+  opacity: 0.7;
 }
 
 .upload-content {
@@ -112,8 +140,7 @@
   font-family: 'Solmoe KimDaeGeon';
   font-style: normal;
   font-weight: 400;
-  font-size: 25px;
-  line-height: 26px;
+  font-size: 15px;
 }
 
 .disable-upload-button {
@@ -203,7 +230,7 @@
   background-image: url('./assets/images/right.png');
 }
 
-.logo-sign-in-icon, .logo-sign-up-icon, .logo-person-icon, .logo-upload-icon {
+.logo-sign-in-icon, .logo-sign-up-icon, .logo-person-icon {
   width: 20px;
   height: 20px;
   background-size: contain;
@@ -217,4 +244,100 @@
   background-repeat: no-repeat;
 }
 
+.tool-icon-box {
+  height: 16px;
+  height: 16px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+
+  position: relative;
+  left: -29%;
+}
+
+.image-box-light-icon{
+  background-image: url(assets/images/Img_box_fill.png);
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  position: relative;
+  left: -7%;
+}
+
+.recipe-board-write-images-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe-board-write-image-box {
+  width: 100%;
+  position: relative;
+}
+
+.recipe-board-write-image {
+  width: 100%;
+
+}
+
+.write-menu-icons {
+  background-image: url('assets/images/menu.png'); /* 절대 경로 */
+  margin-top: 10px;
+  width: 400px;
+  height: 26px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1000;
+}
+
+.won-icon {
+  background-image: url('assets/images/won.png'); /* 절대 경로 */
+  margin-top: 10px;
+  width: 13px;
+  height: 13px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1000;
+  margin-top: -0.1%;
+  margin-right: 0%;
+}
+
+.write-complete-button {
+  width: 80px;
+  height: 24px;
+
+  display: flex;
+  background-color: rgba(124, 113, 99, 0.7);
+  position: relative;
+  left: 93%;
+  top: -0.5%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.complete-title {
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Solmoe KimDaeGeon';
+  text-align: center;
+  margin-top: -5px;
+  margin-left: 2px;
+}
+
+.write-complete-button:hover {
+  opacity: 0.7;
+}
+
+
+.logo-upload-icon {
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

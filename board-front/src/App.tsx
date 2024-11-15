@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Banner from './components/Banner';
+import Banner from 'components/Banner';
 import { Route, Routes } from 'react-router-dom';
 import Main from 'views/Main';
 import Authentication from 'views/Authentication';

@@ -3,7 +3,7 @@ import './style.css';
 import Rectangle23 from '../../assets/images/Rectangle23.png';
 import { BoardListItem } from 'types/interface';
 import { useNavigate } from 'react-router-dom';
-import { BOARD_DETAIL_PATH, BOARD_PATH } from 'constant';
+import { BOARD_DETAIL_PATH, BOARD_PATH, RECIPE_DETAIL_PATH, RECIPE_PATH } from 'constant';
 
 interface Props {
     top3ListItem: BoardListItem
@@ -21,7 +21,7 @@ export default function Top3Item({ top3ListItem }: Props) {
     
     //          event handler: 게시물 아이템 클릭 이벤트 처리 함수          //
     const onClickHandler = () => {
-        navigator(BOARD_PATH() + '/' + BOARD_DETAIL_PATH(boardNumber));
+        navigator(RECIPE_PATH() + '/' + RECIPE_DETAIL_PATH(boardNumber));
     }   
 
     //          render: Top 3 List Item 컴포넌트 렌더링          //

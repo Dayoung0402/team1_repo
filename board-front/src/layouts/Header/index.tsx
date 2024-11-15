@@ -104,25 +104,44 @@ export default function Header() {
   }
 
   //          component: 업로드 버튼 컴포넌트          //
-  const UploadButton = () => {
+  const RecipeUploadButton = () => {
 
     //          state: 게시물 상태          //
     const { title, content, boardImageFileList, resetBoard } = useBoardStore();
 
     //          event habdler: 업로드 버튼 클릭 이벤트 처리 함수          //
-    const onUploadButtonClickHandler = () => {
-
+    const onRecipeUploadButtonClickHandler = () => {
+      navigate(RECIPE_WRITE_PATH());
     }
 
     //         render: 업로드 버튼 컴포넌트 렌더링          //
     // if (title && content)
-    return <div className='upload-button' onClick={onUploadButtonClickHandler}>
+    return <div className='recipe-upload-button' onClick={onRecipeUploadButtonClickHandler}>
       <div className='icon-box'>
         <div className='logo-upload-icon'></div>  
       </div>
       <div className='upload-content'>{'글 작성하기'}</div>
     </div>
   }
+
+  const BoardUploadButton = () => {
+    const { title, content, boardImageFileList, resetBoard } = useBoardStore();
+
+    //          event habdler: 업로드 버튼 클릭 이벤트 처리 함수          //
+    const onBoardUploadButtonClickHandler = () => {
+      navigate(BOARD_WRITE_PATH());
+    }
+
+    //         render: 업로드 버튼 컴포넌트 렌더링          //
+    // if (title && content)
+    return <div className='board-upload-button' onClick={onBoardUploadButtonClickHandler}>
+      <div className='icon-box'>
+        <div className='logo-upload-icon'></div>  
+      </div>
+      <div className='upload-content'>{'글 작성하기'}</div>
+    </div>
+  }
+  
 
   //          component: 메뉴 컴포넌트          //
   const MenuButton = () => {
@@ -200,11 +219,11 @@ export default function Header() {
     setMainPage(pathname === MAIN_PATH());
     setBoardPage(pathname.startsWith(BOARD_PATH()));
     setBoardDetailPage(pathname.startsWith(BOARD_PATH() + '/' + BOARD_DETAIL_PATH('')));
-    setBoardWritePage(pathname.startsWith(BOARD_PATH() + '/' + BOARD_WRITE_PATH()));
+    setBoardWritePage(pathname.startsWith(BOARD_WRITE_PATH()));
     setBoardUpdatePage(pathname.startsWith(BOARD_PATH() + '/' + BOARD_UPDATE_PATH('')));
     setRecipeBoardPage(pathname.startsWith(RECIPE_PATH()));
     setRecipeBoardDetailPage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_DETAIL_PATH('')));
-    setRecipeBoardWritePage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_WRITE_PATH()));
+    setRecipeBoardWritePage(pathname.startsWith(RECIPE_WRITE_PATH()));
     setRecipeBoardUpdatePage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_UPDATE_PATH('')));
   }, [pathname]);
 
@@ -223,6 +242,8 @@ export default function Header() {
           <BoardTitle />
           <RecipeBoardTitle />
           {!(isAuthPage || isSignUpPage || isBoardWritePage || isRecipeBoardWritePage) && <MenuButton />}
+          {(isRecipeBoardPage && !isRecipeBoardWritePage) && <RecipeUploadButton />}
+          {(isBoardPage && !isBoardWritePage) && <BoardUploadButton />}
         </div>
         {!(isRecipeBoardWritePage || isBoardWritePage) && <hr className='header-line' />}
       </div>
