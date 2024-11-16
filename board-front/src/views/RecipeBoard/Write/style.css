@@ -39,7 +39,7 @@
     left: 5%;
 }
 
-.recipe-price-input {
+.recipe-price-textarea {
     flex: 1;
     border: none;
     outline: none;
@@ -50,6 +50,8 @@
     width: 100px;
     position: relative;
     left: 11%;
+    resize: none;
+    margin-top: 8%;
 }
 
 .recipe-board-write-tool-box {
@@ -65,7 +67,7 @@
     margin-bottom: 15px;
 }
 
-.board-write-title-input {
+.board-write-title-textarea {
     width: 100%;
     border: none;
     outline: none;
@@ -75,7 +77,8 @@
     font-weight: 500;
     line-height: 140%;
     position: relative;
-    left: 2.5%;
+    right: 0.6%;
+    resize: none;
 }
 
 .recipe-board-write-content-box {
@@ -97,6 +100,8 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 150%;
+    position: relative;
+    right: 2.3%;
 }
 
 .recipe-board-write-box {
@@ -107,6 +112,7 @@
     left: 2.5%;
     padding: 25px;
     margin-top: -2px;
+    overflow-y: auto; /* 스크롤 */
 }
 
 .recipe-board-write-tool-box {
@@ -118,4 +124,14 @@
     flex-direction: column;
     gap: 40px;
     height: 30px;
+}
+
+.recipe-board-write-image {
+    width:100%;
+}
+
+.image-close {
+    position: absolute;
+    top : 30px;
+    left: 93%;
 }
