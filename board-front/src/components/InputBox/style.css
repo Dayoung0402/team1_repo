@@ -1,0 +1,35 @@
+.inputbox {
+    display: felx;
+    flex-direction: column;
+    
+}
+
+.inputbox-label {
+    color:#3E2E22;
+    font-size: 20px;
+    font-family: 'SolmoeKimDaeGeon';
+    margin-bottom: 15px;
+}
+
+.inputbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 아이콘과 입력 필드 사이 간격 추가 */
+}
+
+.inputbox-message {
+    color:blue;
+
+    text-decoration: underline;
+}
+
+.input {
+    padding: 3px 70px 3px 3px;
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 23px; /* 아이콘의 너비 */
+    height: 23px; /* 아이콘의 높이 */
+    cursor: pointer; /* 클릭 가능 아이콘 스타일 */
+}
