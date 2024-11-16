@@ -13,6 +13,8 @@ public interface GetBoardResultSet {
 
     String getWriterNickname();
 
+    String getFavoriteCount();
+    
     Integer getPrice();
-
+    
 }

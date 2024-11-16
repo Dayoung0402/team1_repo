@@ -25,6 +25,7 @@ public class GetBoardResponseDto extends ResponseDto {
   private String writerEmail;
   private String writerNickname;
   private int price;
+
   private double averageRating; // 평균 평점 추가
 
   private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities, double averageRating) {

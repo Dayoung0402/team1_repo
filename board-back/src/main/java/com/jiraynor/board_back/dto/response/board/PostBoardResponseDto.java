@@ -1,7 +1,5 @@
 package com.jiraynor.board_back.dto.response.board;
 
-import java.net.ResponseCache;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
