@@ -27,23 +27,17 @@ public class BoardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int boardNumber; // 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
+    private int boardNumber; 
+    //  boardNumeber는 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
+    // 프론트가 api 연동할 때 신경쓰기
     private String title;
     private String content;
     private String writeDatetime;
     private String writerEmail;
-    private int favoriteCount;
-    private int commentCount;
     private int price;
 
-    public int getFavoriteCount() {
-        return favoriteCount;
-    }
-    // 추가한 부분
 
     public BoardEntity(PostBoardRequestDto dto, String email) {
-
-        
 
         Date now = Date.from(Instant.now());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -52,23 +46,8 @@ public class BoardEntity {
         this.title = dto.getTitle();
         this.content = dto.getContent();
         this.writeDatetime = writeDatetime;
-        this.favoriteCount = 0;
-        this.commentCount = 0;
         this.writerEmail = email;
-        this.price = price;
+        this.price = dto.getPrice();
     }
-
-    // 평점 카운트 1 증가
-    public void increaseFavoriteCount() {
-        this.favoriteCount++;
-    }
-
-    public void increaseCommentCount() {
-        this.commentCount++;
-    }
-
-    // 평점 카운트 1 감소
-    public void decreaseFavoriteCount() {
-        this.favoriteCount--;
-    }
+    
 }

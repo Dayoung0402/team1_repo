@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import java.util.Collections;
+
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.ResponseDto;
@@ -27,8 +29,6 @@ public class BoardServiceImplement implements BoardService {
     private final BoardRepository boardRepository;
     private final ImageRepository imageRepository;
     private final UserRepository userRepository;
-
-
 
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
@@ -75,6 +75,26 @@ public class BoardServiceImplement implements BoardService {
         }
 
         return PostBoardResponseDto.success();
+    }
+
+    @Override
+    public List<BoardEntity> getRandomBoards() {
+        try {
+            return boardRepository.findRandomBoards();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public List<BoardEntity> getAllBoards() {
+        try {
+            return boardRepository.findAll();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return Collections.emptyList();
+        }
     }
 
     
