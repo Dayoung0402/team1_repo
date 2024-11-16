@@ -256,13 +256,18 @@
 
 .image-box-light-icon{
   background-image: url(assets/images/Img_box_fill.png);
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 10px;
+  margin-top: 4px;
   position: relative;
-  left: -7%;
+  left: 81%;
+  cursor: pointer;
+}
+
+.image-box-light-icon:hover {
+  opacity: 0.7;
 }
 
 .recipe-board-write-images-box {
@@ -285,6 +290,7 @@
 .write-menu-icons {
   background-image: url('assets/images/menu.png'); /* 절대 경로 */
   margin-top: 10px;
+  margin-left: -23px;
   width: 400px;
   height: 26px;
   background-size: contain;
@@ -337,4 +343,17 @@
   height: 16px;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.close-icon {
+  background-image: url(assets/images/close.png);
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  opacity: 0.5;
 }
