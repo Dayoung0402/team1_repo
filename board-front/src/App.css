@@ -1,3 +1,12 @@
+.eye-light-on-icon {
+  background-image: url('assets/ju/eye-light-on.png');
+}
+
+.eye-light-off-icon {
+  background-image: url('assets/ju/eye-light-off.png');
+}
+
+
 
 .menu-main {
   display: flex;
@@ -216,5 +225,3 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-
