@@ -6,6 +6,7 @@
 }
 
 #auth-wrapper {
+<<<<<<< HEAD
     height: 100%;
     
 } 
@@ -61,6 +62,14 @@
     margin-left: 80px;
     margin-right: 80px;
 }
+=======
+    height: 100vh;
+    background-image: url('./assets/backgroundImage.jpg');
+    background-repeat: no-repeat;
+    
+} 
+
+>>>>>>> d4a2561 (로그인 만드는중)
 
 
 

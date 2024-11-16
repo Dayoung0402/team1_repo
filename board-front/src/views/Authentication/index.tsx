@@ -15,6 +15,7 @@ export default function Authentication() {
     //          render: sign in card 컴포넌트 렌더링          //
     return (
       <div className='auth-card'>
+<<<<<<< HEAD
           <div className='auth-card-title-box'>
             <div className='auth-card-title'>{'로그인'}</div>
           </div>
@@ -24,6 +25,9 @@ export default function Authentication() {
             <div className='missing-password'></div>
             <div className='auth-login-button'>{'로그인'}</div>
           </div>
+=======
+
+>>>>>>> d4a2561 (로그인 만드는중)
       </div>
     );
   };
@@ -50,8 +54,11 @@ export default function Authentication() {
       <div className='right'>
 
       </div>
+<<<<<<< HEAD
       {view === 'sign-in' && <SignInCard />}
       {view === 'sign-up' && <SignUpCard />}
+=======
+>>>>>>> d4a2561 (로그인 만드는중)
     </div>
   )
 }
