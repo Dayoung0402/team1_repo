@@ -1,6 +1,13 @@
 import React, { useRef, useState, useEffect, ChangeEvent } from 'react';
 import './style.css';
 import { useBoardStore } from 'stores';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { AUTH_PATH, MAIN_PATH } from 'constant';
+import { PostBoardResponseDto } from 'apis/response/board';
+import { ResponseDto } from 'apis/response';
+import { fileUploadRequest, postBoardRequest } from 'apis';
+import { PostBoardRequestDto } from 'apis/request/board';
 
 //          component: 레시피 게시판 작성 화면 컴포넌트          //
 export default function RecipeBoardWrite() {
@@ -20,6 +27,16 @@ export default function RecipeBoardWrite() {
   const { price, setPrice } = useBoardStore();
   const { boardImageFileList, setBoardImageFileList } = useBoardStore();
   const { resetBoard } = useBoardStore();
+
+  //          state: 쿠키 상태          //
+  const [cookies, setCookies] = useCookies();
+
+
+  //          state: 로그인 유저 상태          //
+  //const { loginUser } = useLoginUserStore(); 나중에 다시 해보기 42번 처음 시작 부분 //
+
+  //          function: 네비게이트 함수         //
+  const navigator = useNavigate();
 
   //          state: 게시물 이미지 미리보기 URL 상태          //
   const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -52,11 +69,11 @@ export default function RecipeBoardWrite() {
     const numericValue = Number(value.replace(/[^0-9]/g, '')); // 숫자만 허용
     setPrice(numericValue);
 
-    if (!contentRef.current) return;
+    if (!priceRef.current) return;
   
     // 높이를 자동으로 설정 후 스크롤 높이만큼 조정
-    contentRef.current.style.height = 'auto';
-    contentRef.current.style.height = `${contentRef.current.scrollHeight}px`;
+    priceRef.current.style.height = 'auto';
+    priceRef.current.style.height = `${priceRef.current.scrollHeight}px`;
 };
 
 //          event handler: 이미지 변경 이벤트 처리          //
@@ -100,9 +117,82 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
 } 
 
   //          effect: 마운트 시 실행할 함수          //
+  // 로그인이 안되어 있는 상태이면 못 들어오게 만들어 주는 것 //
   useEffect(() => {
-    resetBoard();
+    const accessToken = cookies.accessToken;
+
+    // 로그인이 안되어 있는 상태이면 못 들어오게 함 //
+    /*if (!accessToken) {
+      navigator(MAIN_PATH());
+      return;
+    }
+    resetBoard();*/ 
+
   }, []);
+
+
+  //          component: 글 작성하기 버튼 컴포넌트          //
+  const RecipeWriteCompleteButton = () => {
+    const { title, content, boardImageFileList, price, resetBoard } = useBoardStore();
+  
+    const postBoardResponse = (responseBody: PostBoardResponseDto | ResponseDto | null) => {
+      if (!responseBody) return;
+      const { code } = responseBody;
+  
+      if (code === 'AF' || code === 'NU') navigator(AUTH_PATH());
+      if (code === 'VF') alert('제목과 내용은 필수입니다.');
+      if (code === 'DBE') alert('데이터베이스 오류입니다.');
+      if (code !== 'SU') return;
+  
+      resetBoard();
+
+      /*if (!loginUser) return;
+      const {email} = loginUser;
+      navigate(USER_PATH(email)); */
+    
+    };
+    
+    const onRecipeWriteCompleteButtonClickHandler = async () => {
+      console.log('작성 완료 버튼 클릭됨'); // 로그 추가
+      const accessToken = cookies.accessToken;
+      if (!accessToken) {
+        alert('로그인이 필요합니다.');
+        navigator(AUTH_PATH());
+        return;
+      }
+  
+      const boardImageList: string[] = [];
+  
+      for (const file of boardImageFileList) {
+        const data = new FormData();
+        data.append('file', file);
+  
+        const url = await fileUploadRequest(data);
+        if (url) boardImageList.push(url);
+      }
+  
+      const requestBody: PostBoardRequestDto = {
+        title,
+        content,
+        boardImageList,
+        price,
+      };
+  
+      postBoardRequest(requestBody, accessToken).then(postBoardResponse);
+    };
+  
+    return (
+      <div
+        className="write-complete-button"
+        onClick={onRecipeWriteCompleteButtonClickHandler}
+      >
+        <div className="complete-title">{'작성 완료'}</div>
+      </div>
+    );
+  };
+  
+
+ 
 
   //          render: 레시피 게시판 작성 화면 컴포넌트 렌더링          //
   return (
@@ -121,11 +211,8 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
           <hr className='price-line' />
           <textarea ref={priceRef} className='recipe-price-textarea' placeholder='금액을 입력하세요' value={price.toString()} onChange={onPriceChangeHandler} />
           <div className='won-icon'></div>
-          <div className='tool-icon-box'></div>
         </div>
-        <div className ='write-complete-button'> 
-          <div className = 'complete-title'>{'작성 완료'}</div>
-        </div>
+        <RecipeWriteCompleteButton />
         <div className='recipe-board-write-box'>
           <div className='recipe-board-write-title-box'>
             <textarea 
@@ -166,3 +253,4 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
     </div>
   );
 }
+
