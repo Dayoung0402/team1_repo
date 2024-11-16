@@ -52,10 +52,7 @@ function App() {
           <Route path={RECIPE_UPDATE_PATH(':boardNumber')} element={<RecipeBoardUpdate />}/>
         </Route>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a554e8b (dond)
         {/* 잘못된 주소를 입력 했을 때  404 Not Found가 뜨게 함 */}
         <Route path='*' element={<h1>404 Not Found</h1>} />
       </Route>

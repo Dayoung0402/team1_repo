@@ -1,12 +1,16 @@
 import React from 'react';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
-import { AUTH_PATH, BOARD_DETAIL_PATH, BOARD_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, RECIPE_DETAIL_PATH, RECIPE_PATH, RECIPE_UPDATE_PATH, RECIPE_WRITE_PATH, SIGN_UP } from 'constant';
+import { AUTH_PATH, BOARD_DETAIL_PATH, BOARD_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, RECIPE_DETAIL_PATH, RECIPE_PATH, RECIPE_UPDATE_PATH, RECIPE_WRITE_PATH, SIGN_UP, USER_PATH } from 'constant';
 import { useCookies } from 'react-cookie';
 import { useState } from 'react';
 import { useBoardStore } from 'stores';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { fileUploadRequest, postBoardRequest } from 'apis';
+import { PostBoardResponseDto } from 'apis/response/board';
+import { ResponseDto } from 'apis/response';
+import { PostBoardRequestDto } from 'apis/request/board';
 
 //          component: 헤더 레이아웃          //
 export default function Header() {
@@ -103,15 +107,22 @@ export default function Header() {
     );
   }
 
+
+
+
+
+
+
   //          component: 업로드 버튼 컴포넌트          //
   const RecipeUploadButton = () => {
 
     //          state: 게시물 상태          //
-    const { title, content, boardImageFileList, resetBoard } = useBoardStore();
+    const { title, content, boardImageFileList, price, resetBoard } = useBoardStore();
 
-    //          event habdler: 업로드 버튼 클릭 이벤트 처리 함수          //
+
+    //          event habdler: 레시피 글 작성하기 버튼 클릭 이벤트 처리 함수          //
     const onRecipeUploadButtonClickHandler = () => {
-      navigate(RECIPE_WRITE_PATH());
+        navigate(RECIPE_WRITE_PATH());
     }
 
     //         render: 업로드 버튼 컴포넌트 렌더링          //
@@ -124,10 +135,11 @@ export default function Header() {
     </div>
   }
 
+
   const BoardUploadButton = () => {
     const { title, content, boardImageFileList, resetBoard } = useBoardStore();
 
-    //          event habdler: 업로드 버튼 클릭 이벤트 처리 함수          //
+    //          event habdler: 자유 게시물 글 작성하기 버튼 클릭 이벤트 처리 함수          //
     const onBoardUploadButtonClickHandler = () => {
       navigate(BOARD_WRITE_PATH());
     }
@@ -142,6 +154,15 @@ export default function Header() {
     </div>
   }
   
+
+
+
+
+
+
+
+
+
 
   //          component: 메뉴 컴포넌트          //
   const MenuButton = () => {
