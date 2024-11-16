@@ -6,6 +6,12 @@
 }
 
 #auth-wrapper {
+    height: 100%;
+    
+} 
+
+.left {
+    width: 45%;
     height: 100vh;
     position: relative; /* 부모 요소에 position 설정 */
     overflow: hidden;
