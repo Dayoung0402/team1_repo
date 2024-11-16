@@ -23,7 +23,6 @@ public class BoardController {
 
     private final BoardService boardService;
 
-
     // 메인 페이지에서 게시물 불러오기
     @GetMapping("/top-3")
     public ResponseEntity<List<BoardEntity>> getMainSiteBoards() {
