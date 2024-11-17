@@ -79,6 +79,14 @@
   justify-content: center;
 }
 
+.icon-box-small {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .trans-content, .content {
   font-family: 'Roboto Mono';
   font-size: 15px;
@@ -360,3 +368,94 @@
 .close-icon:hover {
   opacity: 0.5;
 }
+
+.left-direction-icon {
+  background-image: url(assets/images/leftDirection.png);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.right-direction-icon {
+  background-image: url(assets/images/rightDirection.png);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.etc-icon {
+  background-image: url(assets/images/etc.png);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.user-image-icon {
+  background-image: url(assets/images/person.png);
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 4px;
+}
+
+.delete-icon {
+  background-image: url(assets/images/delete.png);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.correct-icon {
+  background-image: url(assets/images/correct.png);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.rate-icon {
+  background-image: url(assets/images/rate.png);
+  width: 140px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.comment-profile-icon {
+  background-image: url(assets/images/commentUser.png);
+  width: 35px;
+  height: 35px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+
+.save-icon {
+  background-image: url(assets/images/save.png);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.comment-view-user-icon {
+  background-image: url(assets/images/commentViewUser.png);
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.triangle-icon {
+  background-image: url(assets/images/triangle.png);
+  width: 10px;
+  height: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
