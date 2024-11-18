@@ -11,15 +11,20 @@
     display: flex;
     align-items: center;
     
-    cursor: pointer;
-}
-
-.pagination-change-link-box:hover {
-    opacity: 0.2;
 }
 
 .pagination-text-active, .pagination-text {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     color: #7C7163;
+}
+
+#pagination-wrapper .left-direction-icon, 
+#pagination-wrapper .right-direction-icon {
+    cursor: pointer !important;
+}
+
+#pagination-wrapper .left-direction-icon:hover, 
+#pagination-wrapper .right-direction-icon:hover {
+    opacity: 0.4 !important;
 }
