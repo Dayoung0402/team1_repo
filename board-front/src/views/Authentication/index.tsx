@@ -146,10 +146,112 @@ export default function Authentication() {
       //          component: sign up card 컴포넌트           //
   const SignUpCard = () => {
 
+    //          state: 닉네임 요소 참조 상태          //
+    const nicknameRef = useRef<HTMLInputElement | null >(null);
+    //          state: 이메일 요소 참조 상태          //
+    const emailRef = useRef<HTMLInputElement | null >(null);
+    //          state: 비밀번호 요소 참조 상태          //
+    const passwordRef = useRef<HTMLInputElement | null >(null);
+
+    
+    //          state: 닉네임 상태          //
+    const [nickname, setNickname] = useState<string>('');
+
+    //          state: 이메일 상태          //
+    const [email, setEmail] = useState<string>('');
+
+    //          state: 패스워드 상태          //
+    const [password, setPassword] = useState<string>('');
+
+    //          state: 패스워드 타입상태          //
+    const [passwordType, setPasswordType] = useState<'text' | 'password'>('password')
+
+    //          state: 닉네임 에러 상태          //
+    const [isNicknameError, setNicknameError] = useState<boolean>(false);
+    //          state: 이메일 에러 상태          //
+    const [isEmailError, setEmailError] = useState<boolean>(false);
+    //          state: 패스워드 에러 상태          //
+    const [isPasswordError, setPasswordError] = useState<boolean>(false);
+
+    //          state: 닉네임 에러 메세지 상태          //
+    const[nicknameErrorMessage, setNicknameErrorMessage] = useState<string>('');
+    //          state: 이메일 에러 메세지 상태          //
+    const[emailErrorMessage, setEmailErrorMessage] = useState<string>('');
+    //          state: 패스워드 에러 메세지 상태          //
+    const[passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
+
+    //         state: 패스워드 버튼 아이콘 상태         //
+    const [passwordButtonIcon, setPasswordButtonIcon] = useState<'eye-light-off-icon' | 'eye-light-on-icon'>('eye-light-off-icon');
+    
+    //          event hadler: 닉네임 변경 이벤트 처리          //
+    const onNicknameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      const{value} = event.target;
+      setNickname(value);
+    }
+
+    //          event hadler: 이메일 변경 이벤트 처리          //
+    const onEmailChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      const{value} = event.target;
+      setEmail(value);
+    }
+
+    //          event hadler: 비밀번호 변경 이벤트 처리          //
+    const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      const{value} = event.target;
+      setPassword(value);
+    }
+
+    //          event handler:패스워드 버튼 클릭 이벤트 처리          //
+    const onPasswordButtonClickHandler =() => {
+      if(passwordButtonIcon === 'eye-light-off-icon') {
+        setPasswordButtonIcon('eye-light-on-icon');
+        setPasswordType('text');
+      }
+      else {
+        setPasswordButtonIcon('eye-light-off-icon');
+        setPasswordType('password');
+      }
+    }
+
+    //          event handler: 닉네임 키 다운 이벤트 처리          //
+    const onNicknameKeyDownHandler = (event:KeyboardEvent<HTMLInputElement>) => {
+      if(event.key !== 'Enter') return;
+      if (!passwordRef.current) return; 
+      passwordRef.current.focus(); 
+    }
+    //          event handler: 이메일 키 다운 이벤트 처리          //
+    const onEmailKeyDownHandler = (event:KeyboardEvent<HTMLInputElement>) => {
+      if(event.key !== 'Enter') return;
+      if (!passwordRef.current) return; 
+      passwordRef.current.focus(); 
+    }
+    //          event handler: 패스워드 키 다운 이벤트 처리          //
+    const onPasswordKeyDownHandler = (event:KeyboardEvent<HTMLInputElement>) => {
+      if(event.key !== 'Enter') return;
+      if (!passwordRef.current) return; 
+      passwordRef.current.focus(); 
+    }
+
+
     //          render: sign up card 컴포넌트 렌더링          //
     return (
       <div className='auth-card'>
-
+          <div className='auth-card-box'>
+            <div className='auth-card-top'>
+              <div className='auth-card-title-box'>
+                <div className='auth-card-title'>{'회원가입'}</div>
+              </div>
+              <InputBox ref={nicknameRef} label='닉네임'type='text' placeholder='닉네임을 입력해주세요' value={nickname} onChange={onNicknameChangeHandler} error={isNicknameError} message={nicknameErrorMessage} />
+              <InputBox ref={emailRef} label='이메일'type='text' placeholder='이메일을 입력해주세요' value={email} onChange={onEmailChangeHandler} error={isEmailError} message={emailErrorMessage} icon={passwordButtonIcon} onButtonClick={onPasswordButtonClickHandler}/>
+              <InputBox ref={passwordRef} label='비밀번호'type={passwordType} placeholder='비밀번호를 입력해주세요' value={password} onChange={onPasswordChangeHandler} error={isPasswordError} message={passwordErrorMessage}/>
+            </div>
+            <div className='auth-card-bottom' >
+              <div className='large-full-button'>{'회원가입'}</div>
+              <div className='auth-description-box'>
+                <div className='auth-description'>{'이미 계정이 있으신가요?'}<span className='auth-description-link'>{'로그인'}</span></div>
+              </div>
+            </div>
+          </div>
       </div>
     );
   };
