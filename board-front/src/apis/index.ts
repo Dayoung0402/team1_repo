@@ -1,8 +1,11 @@
-/*
+
 import axios from 'axios';
 import { SignInRequestDto, SignUpRequestDto } from "./ju/auth";
 import { ResponseDto } from './response';
 import SignInResponseDto from './ju/auth/sign-in.response.dto';
+import { PostBoardRequestDto } from './request/board';
+import { PostBoardResponseDto } from './response/board';
+
 
 const DOMAIN = 'http://localhost:4000';
 
@@ -27,9 +30,10 @@ export const signInRequest = async(requestBody: SignInRequestDto) => {
 
 export const signUpReques = async(requestBody:SignUpRequestDto) => {
 
-import { PostBoardRequestDto } from './request/board';
-import { PostBoardResponseDto } from './response/board';
-import { ResponseDto } from './response';
+
+
+}
+
 
 export const tmp= '';
 
@@ -52,13 +56,11 @@ export const fileUploadRequest = async (data: FormData) => {
     return result;    
 
 }
-*/
 
-/*
 const POST_BOARD_URL = () => '${API_DOMAIN}/board'; // 주소 다른 것 같은데 일단 해보기 
 
 export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessToken: string) => {
-    const result = await axios.post(POST_BOARD_URL(), requestBody, /*authorization(accessToken)
+    const result = await axios.post(POST_BOARD_URL(), requestBody, /*authorization(accessToken)*/)
     .then(response => {
         const responseBody: PostBoardResponseDto = response.data;
         return responseBody;
@@ -71,4 +73,6 @@ export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessT
     return result;
 }
 
-*/
+
+ 
+
