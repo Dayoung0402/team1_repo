@@ -10,6 +10,7 @@ import BoardWrite from 'views/Board/Write';
 import BoardUpdate from 'views/Board/Update';
 import Container from 'layouts/Container';
 import SignUp from 'views/SignUp';
+import RecipeBoardList from 'views/RecipeBoard/RecipeBoardList';
 import RecipeBoardDetail from 'views/RecipeBoard/Detail';
 import RecipeBoardUpdate from 'views/RecipeBoard/Update';
 import RecipeBoardWrite from 'views/RecipeBoard/Write';
@@ -46,11 +47,10 @@ function App() {
           <Route path={BOARD_UPDATE_PATH(':boardNumber')} element={<BoardUpdate />}/>
         </Route>
 
-        <Route path={RECIPE_PATH()}>
-          <Route path={RECIPE_WRITE_PATH()} element={<RecipeBoardWrite />}/>
-          <Route path={RECIPE_DETAIL_PATH(':boardNumber')} element={<RecipeBoardDetail />}/>
-          <Route path={RECIPE_UPDATE_PATH(':boardNumber')} element={<RecipeBoardUpdate />}/>
-        </Route>
+        <Route path={RECIPE_PATH()} element={<RecipeBoardList />}/> {/*여기 수정*/}
+        <Route path={RECIPE_WRITE_PATH()} element={<RecipeBoardWrite />}/>
+        <Route path={RECIPE_DETAIL_PATH(':boardNumber')} element={<RecipeBoardDetail />}/>
+        <Route path={RECIPE_UPDATE_PATH(':boardNumber')} element={<RecipeBoardUpdate />}/>
 
 
         {/* 잘못된 주소를 입력 했을 때  404 Not Found가 뜨게 함 */}

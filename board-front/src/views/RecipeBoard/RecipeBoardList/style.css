@@ -1,0 +1,12 @@
+#recipe-board-list-top-wrapper {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.recipe-board-list-current-contents {
+    display: flex;
+    flex-direction: row;
+    margin-top: -200px;
+}
+

@@ -36,7 +36,9 @@ export default function RecipeBoardDetail() {
           </div>
           <div className = 'recipe-detail-box-content'>
             <div className = 'recipe-detail-box-write-content'>{'재료 : 브리치즈 반개 (중요도 ⭐⭐️️⭐⭐️️⭐️), 방울토마토, 마늘(간마늘 대체 가능), 올리브오일, 소금, 후추, 오일, 소금, 후추, 바질'}</div>
-            <div className = 'recipe-detail-box-image-box'></div>
+            <img
+              className="recipe-detail-box-image-box" src='https://image.zeta-ai.io/profile-image/7cbabf96-32b3-4a81-97f1-3069f9f7f642/b3987df0-a48d-42b8-994b-1e5994fc35bd.jpeg?w=750&q=75&f=webp' />
+
           </div>
         </div>
       </div>

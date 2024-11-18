@@ -1,0 +1,25 @@
+#pagination-wrapper {
+    display: flex;
+    gap: 20px;
+
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.pagination-change-link-box {
+    display: flex;
+    align-items: center;
+    
+    cursor: pointer;
+}
+
+.pagination-change-link-box:hover {
+    opacity: 0.2;
+}
+
+.pagination-text-active, .pagination-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #7C7163;
+}

@@ -124,6 +124,12 @@
 
 .recipe-detail-box-write-content {
     font-size: 18px;   
+    white-space: pre-wrap; /*줄바꿈 처리 */
+}
+
+.recipe-detail-box-image-box {
+    width: 100%;
+    margin-top: 50px;
 }
 
 #recipe-board-detail-bottom{
@@ -202,6 +208,7 @@
     font-weight: 500;
     line-height: 150%;
     padding: 15px 20px;
+    overflow: hidden;
 }
 
 .comment-complete-button-box {

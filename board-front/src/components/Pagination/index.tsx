@@ -8,29 +8,22 @@ export default function Pagination() {
     return (
         <div id = 'pagination-wrapper'>
             <div className = 'pagination-change-link-box'>
-                <div className = 'icon-box-small'>
-                    <div className = 'left-direction-icon'></div>
-                </div>
+                <div className = 'left-direction-icon'></div>
             </div>
+
             <div className='pagination-divider'>
-                <div className = 'icon-box-small'>
-                    <div className = 'etc-icon'></div>
-                </div>
+                <div className = 'etc-icon'></div>
             </div>
             
             <div className='pagination-text-active'>{1}</div>
             <div className='pagination-text'>{2}</div>
 
             <div className='pagination-divider'>
-                <div className = 'icon-box-small'>
-                    <div className = 'etc-icon'></div>
-                </div>
+                <div className = 'etc-icon'></div>
             </div>
 
             <div className='pagination-change-link-box'>
-                <div className = 'icon-box-small'>
-                    <div className = 'left-direction-icon'></div>
-                </div>
+                <div className = 'right-direction-icon'></div>
             </div>
         </div>
     )
