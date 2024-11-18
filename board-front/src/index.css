@@ -9,10 +9,7 @@
 body {
   margin: 0;
   width: 1409px;
-<<<<<<< HEAD
   height: 100%;
-=======
->>>>>>> 00b0ac6795d71e1e493509c4ef34e626d1c4e602
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -22,10 +19,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-=======
-  height: 100%;
->>>>>>> 00b0ac6795d71e1e493509c4ef34e626d1c4e602
 }
 
 code {
