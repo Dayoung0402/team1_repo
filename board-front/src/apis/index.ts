@@ -60,7 +60,7 @@ export const fileUploadRequest = async (data: FormData) => {
 const POST_BOARD_URL = () => '${API_DOMAIN}/board'; // 주소 다른 것 같은데 일단 해보기 
 
 export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessToken: string) => {
-    const result = await axios.post(POST_BOARD_URL(), requestBody, /*authorization(accessToken)*/)
+    const result = await axios.post(POST_BOARD_URL(), requestBody, /*authorization(accessToken)*/) // 현재로는 authorization 함수를 찾을 수 없음 (3번) //
     .then(response => {
         const responseBody: PostBoardResponseDto = response.data;
         return responseBody;

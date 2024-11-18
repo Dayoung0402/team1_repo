@@ -29,11 +29,11 @@ export default function RecipeBoardWrite() {
   const { resetBoard } = useBoardStore();
 
   //          state: 쿠키 상태          //
-  const [cookies, setCookies] = useCookies();
+  const [cookies, setCookies] = useCookies(); // 5번, 영상에서 token이 있는데도 안돼서 cookie로 바꿈, 42번 영상 27분부터 //
 
 
   //          state: 로그인 유저 상태          //
-  //const { loginUser } = useLoginUserStore(); 나중에 다시 해보기 42번 처음 시작 부분 //
+  // const { loginUser } = useLoginUserStore(); // 현재 상태로는 useLoginUserStore()를 찾을 수 없음 (1번) //
 
   //          function: 네비게이트 함수         //
   const navigator = useNavigate();
@@ -121,8 +121,16 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
   useEffect(() => {
     const accessToken = cookies.accessToken;
 
-    // 로그인이 안되어 있는 상태이면 못 들어오게 함 //
-    /*if (!accessToken) {
+    // 로그인이 안되어 있는 상태이면 못 들어오게 함 // (2번) //
+    if (!accessToken) {
+      navigator(MAIN_PATH());
+      return;
+    }
+    resetBoard();
+    /*-------------------------*/
+    /* 여기서 부터는 오류 수정 전 42번 영상 27분 25초 */
+
+    /*if (!loginUser) {
       navigator(MAIN_PATH());
       return;
     }
@@ -133,8 +141,10 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
 
   //          component: 글 작성하기 버튼 컴포넌트          //
   const RecipeWriteCompleteButton = () => {
+    //          state: 게시물 상태          //
     const { title, content, boardImageFileList, price, resetBoard } = useBoardStore();
-  
+
+    //          function : post board response 처리 함수          //
     const postBoardResponse = (responseBody: PostBoardResponseDto | ResponseDto | null) => {
       if (!responseBody) return;
       const { code } = responseBody;
@@ -147,19 +157,24 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
       resetBoard();
 
       /*if (!loginUser) return;
-      const {email} = loginUser;
+      const {email} = loginUser; // 4번, 우리도 email인지 확인하기  //
       navigate(USER_PATH(email)); */
     
     };
     
+    //          event handler: 업로드 버튼 클릭 이벤트 처리 함수          //
     const onRecipeWriteCompleteButtonClickHandler = async () => {
       console.log('작성 완료 버튼 클릭됨'); // 로그 추가
+
       const accessToken = cookies.accessToken;
+
       if (!accessToken) {
         alert('로그인이 필요합니다.');
         navigator(AUTH_PATH());
         return;
       }
+      
+      // if (!accessToken) return; // 3번, 위에 이프 문이 더 괜찮은 듯 //
   
       const boardImageList: string[] = [];
   
@@ -176,10 +191,10 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
         content,
         boardImageList,
         price,
-      };
+      }
   
       postBoardRequest(requestBody, accessToken).then(postBoardResponse);
-    };
+    }
   
     return (
       <div
@@ -224,7 +239,9 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
               rows={1}
             />
           </div>
-          <div className='divider'></div>
+          <div className='divider'>
+            <hr className = 'title-divder' />
+          </div>
           <div className='recipe-board-write-content-box'>
             <textarea 
               ref={contentRef} 

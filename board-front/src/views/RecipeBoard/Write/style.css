@@ -135,3 +135,7 @@
     top : 30px;
     left: 93%;
 }
+
+.title-divder {
+    border: 0.7px solid rgba(0, 0, 0, 0.2);
+}

@@ -1,23 +1,58 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './style.css';
-import { CommentListItem } from 'types/interface';
+import { Board, CommentListItem } from 'types/interface';
 import StarRating from 'components/StarRating';
+import { useNavigate, useParams } from 'react-router-dom';
+import { boardMock } from 'mocks';
+import useCommentStore from 'stores/comment';
 
 //          component: 레시피 게시판 상세 화면 컴포넌트          //
 export default function RecipeBoardDetail() {
 
+  //          state: 게시물 번호 path variable 상태          //
+  const { boardNumber } = useParams();
+
+
+  //           function: 네비게이트 함수          //
+  const navigator = useNavigate();
+
+  //          state: 댓글 영역 요소 참조 상태          //
+  const commentRef = useRef<HTMLTextAreaElement | null>(null);
+
+  //          state: 댓글 상태           //
+  const {comment, setComment} = useCommentStore();
+
+  //          state: 로그인 유저 상태          //
+  //const { loginUser } = useLoginUserStore();// 1번, useLoginUserStore()를 찾을 수 없음 //
+
+ 
+
+  
   //          component: 게시물 상세 상단 컴포넌트          //
   const BoardDetailTop = () => {
 
+    //          state: more 버튼 상태          //
+    const [board, setBoard] = useState<Board | null>(null);
+
+    
+    //          effect: 게시물 번호 path variable이 바뀔때 마다 게시물 불러오기          //
+    useEffect(() => {
+      setBoard(boardMock);
+    }, [boardNumber]);
+
+    //          event handler : 입력 완료 버튼 누를 시, 레시피 게시판 페이지로 돌아가기          //
+
+
     //          render: 게시물 상세 상단 컴포넌트 렌더링          //
+    if (!board) return <></>
     return (
       <div id = 'recipe-board-detail-top'>
         <div className = 'recipe-board-info-box'>
           <div className = 'recipe-user-info-box'>
             <div className = 'user-image-icon'></div>
-            <div className = 'user-name-box'>{'히주히주히주 님의 글'}</div>
+            <div className = 'user-name-box'>{board.writerNickname}{' 님의 글'}</div>
           </div>
-          <div className = 'recipe-user-calender-box'>{'1995-10-04 | 10:04:52'}</div>
+          <div className = 'recipe-user-calender-box'>{board.writeDatetime}</div>
         </div>
         <div className = 'recipe-board-detail-box'>
           <div className = 'recipe-detail-button'>
@@ -31,14 +66,12 @@ export default function RecipeBoardDetail() {
             </div>
           </div>
           <div className = 'recipe-detail-box-header'>
-            <div className = 'recipe-detail-box-title'>{'브리치즈파스타'}</div>
-            <div className = 'recipe-detail-box-title-content'>{'예상 비용 : 약 15000₩'}</div>
+            <div className = 'recipe-detail-box-title'>{board.title}</div>
+            <div className = 'recipe-detail-box-title-content'>{'예상 비용 : 약 '}{board.price}{'₩'}</div>
           </div>
           <div className = 'recipe-detail-box-content'>
-            <div className = 'recipe-detail-box-write-content'>{'재료 : 브리치즈 반개 (중요도 ⭐⭐️️⭐⭐️️⭐️), 방울토마토, 마늘(간마늘 대체 가능), 올리브오일, 소금, 후추, 오일, 소금, 후추, 바질'}</div>
-            <img
-              className="recipe-detail-box-image-box" src='https://image.zeta-ai.io/profile-image/7cbabf96-32b3-4a81-97f1-3069f9f7f642/b3987df0-a48d-42b8-994b-1e5994fc35bd.jpeg?w=750&q=75&f=webp' />
-
+            <div className = 'recipe-detail-box-write-content'>{board.content}</div>
+            {board.boardImageList.map(image => <img className="recipe-detail-box-image-box" src={image} />)}
           </div>
         </div>
       </div>
@@ -48,6 +81,18 @@ export default function RecipeBoardDetail() {
 
   //          component: 게시물 상세 하단 컴포넌트          //
   const BoardDetailBottom = () => {
+    //          event handler: 댓글 변경 이벤트 처리          //
+    const onCommentChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+      const { value } = event.target;
+      setComment(value);
+      
+      if (!commentRef.current) return;
+    
+      // 높이를 자동으로 설정 후 스크롤 높이만큼 조정
+      commentRef.current.style.height = 'auto';
+      commentRef.current.style.height = `${commentRef.current.scrollHeight}px`;
+    }
+    
     //          render: 게시물 상세 하단 컴포넌트 렌더링          //
     return (
       <div id = 'recipe-board-detail-bottom'>
@@ -68,7 +113,7 @@ export default function RecipeBoardDetail() {
           <div className = 'comment-input-profile-box'>
             <div className = 'comment-profile-icon'></div>
               <div className = 'input-container'>
-                <textarea className = 'recipe-board-comment-textare' placeholder='힘이 되는 한마디...!'/>
+                <textarea className = 'recipe-board-comment-textare' placeholder='힘이 되는 한마디...!' value={comment.toString()} onChange={onCommentChangeHandler}/>
             </div>
           </div>
 
