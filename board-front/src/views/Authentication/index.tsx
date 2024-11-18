@@ -233,7 +233,7 @@ export default function Authentication() {
     }
 
 
-    //          render: sign up card 컴포넌트 렌더링          //
+    //          render: sign up card 컴포넌트 렌더링         //
     return (
       <div className='auth-card'>
           <div className='auth-card-box'>
