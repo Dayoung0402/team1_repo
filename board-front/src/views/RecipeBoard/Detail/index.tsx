@@ -9,6 +9,7 @@ import { MAIN_PATH } from 'constant';
 import { getBoardRequest } from 'apis';
 import GetBoardResponseDto from 'apis/response/board/get-board.response.dto';
 import { ResponseDto } from 'apis/response';
+import useLoginUserStore from 'stores/login-user.store';
 
 //          component: 레시피 게시판 상세 화면 컴포넌트          //
 export default function RecipeBoardDetail() {
@@ -27,7 +28,7 @@ export default function RecipeBoardDetail() {
   const {comment, setComment} = useCommentStore();
 
   //          state: 로그인 유저 상태          //
-  //const { loginUser } = useLoginUserStore();// 1번, useLoginUserStore()를 찾을 수 없음 //
+  const { loginUser } = useLoginUserStore();
 
  
 
