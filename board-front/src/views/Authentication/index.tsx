@@ -212,7 +212,9 @@ export default function Authentication() {
         setPasswordType('password');
       }
     }
-    
+
+    //          event handler: 다음 단계 버튼 클릭 이벤트 처리          //
+  
 
     //          event handler: 닉네임 키 다운 이벤트 처리          //
     const onNicknameKeyDownHandler = (event:KeyboardEvent<HTMLInputElement>) => {
