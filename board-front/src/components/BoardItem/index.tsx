@@ -32,7 +32,7 @@ export default function BoardItem({ boardlistItem }: Props) {
     return (
         <div className='board-list-item'>
             <div className='recipe-card'>
-                <div className='recipe-image' style={{ backgroundImage: `url(${Rectangle24})` }}></div>
+                <div className='recipe-image'></div>
                 
                 <div className='favorite-count'>
                     평점:
