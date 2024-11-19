@@ -5,6 +5,11 @@ import StarRating from 'components/StarRating';
 import { useNavigate, useParams } from 'react-router-dom';
 import { boardMock } from 'mocks';
 import useCommentStore from 'stores/comment';
+import { MAIN_PATH } from 'constant';
+import { getBoardRequest } from 'apis';
+import GetBoardResponseDto from 'apis/response/board/get-board.response.dto';
+import { ResponseDto } from 'apis/response';
+import useLoginUserStore from 'stores/login-user.store';
 
 //          component: 레시피 게시판 상세 화면 컴포넌트          //
 export default function RecipeBoardDetail() {
@@ -23,7 +28,7 @@ export default function RecipeBoardDetail() {
   const {comment, setComment} = useCommentStore();
 
   //          state: 로그인 유저 상태          //
-  //const { loginUser } = useLoginUserStore();// 1번, useLoginUserStore()를 찾을 수 없음 //
+  const { loginUser } = useLoginUserStore();
 
  
 
@@ -34,10 +39,30 @@ export default function RecipeBoardDetail() {
     //          state: more 버튼 상태          //
     const [board, setBoard] = useState<Board | null>(null);
 
+    //          function : get board response 처리 함수          //
+    const getBoardResponse = (responseBody: GetBoardResponseDto | ResponseDto | null) => {
+      if (!responseBody) return;
+      const { code } = responseBody;
+      if (code === 'NB') alert ('존재하지 않는 게시물 입니다');
+      if (code === 'DBE') alert ('데이터 베이스 오류입니다.');
+
+      if (code !== 'SU') {
+        navigator(MAIN_PATH());
+        return;
+      }
+
+      const board : Board = { ...responseBody as GetBoardResponseDto };
+      setBoard(board);
+    }
+
     
     //          effect: 게시물 번호 path variable이 바뀔때 마다 게시물 불러오기          //
     useEffect(() => {
-      setBoard(boardMock);
+      if (!boardNumber) {
+        navigator(MAIN_PATH());
+        return;
+      }
+      getBoardRequest(boardNumber).then(getBoardResponse);
     }, [boardNumber]);
 
     //          event handler : 입력 완료 버튼 누를 시, 레시피 게시판 페이지로 돌아가기          //

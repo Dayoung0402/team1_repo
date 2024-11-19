@@ -8,6 +8,7 @@ import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
 import { fileUploadRequest, postBoardRequest } from 'apis';
 import { PostBoardRequestDto } from 'apis/request/board';
+import useLoginUserStore from 'stores/login-user.store';
 
 //          component: 레시피 게시판 작성 화면 컴포넌트          //
 export default function RecipeBoardWrite() {
@@ -33,7 +34,7 @@ export default function RecipeBoardWrite() {
 
 
   //          state: 로그인 유저 상태          //
-  // const { loginUser } = useLoginUserStore(); // 현재 상태로는 useLoginUserStore()를 찾을 수 없음 (1번) //
+  const { loginUser } = useLoginUserStore();
 
   //          function: 네비게이트 함수         //
   const navigator = useNavigate();
