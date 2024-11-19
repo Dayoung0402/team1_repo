@@ -46,7 +46,7 @@ public class BoardServiceImplement implements BoardService {
             return ResponseDto.databaseError();
         }
 
-        return GetBoardResponseDto.success(resultSet, imageEntities,0.0);
+        return GetBoardResponseDto.success(resultSet, imageEntities);
     }
 
     @Override

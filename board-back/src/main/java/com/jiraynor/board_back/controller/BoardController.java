@@ -23,14 +23,14 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    // 메인 페이지에서 게시물 불러오기
+    // 메인 페이지에서 top - 3 게시물 불러오기
     @GetMapping("/top-3")
     public ResponseEntity<List<BoardEntity>> getMainSiteBoards() {
         List<BoardEntity> randomBoards = boardService.getRandomBoards();
         return ResponseEntity.status(HttpStatus.OK).body(randomBoards);
     }
 
-    // 레시피 게시판에서 불러오기
+    // 레시피 게시판에서 모든 레시피 불러오기
     @GetMapping("/lastest-list")
     public ResponseEntity<List<BoardEntity>> getRecipeSiteBoards() {
         List<BoardEntity> allBoards = boardService.getAllBoards();
@@ -39,7 +39,6 @@ public class BoardController {
 
     // 게시물 상세 페이지 가지고 올 때
     // url에서 boardNumber를 가져와서 그 걸 메핑하는 작업이 필요한 것
-    // 그래서 Post에서는 필요없는 매핑이 필요해!
     @GetMapping("/{boardNumber}")
     public ResponseEntity<? super GetBoardResponseDto> getBoard(
             @PathVariable("boardNumber") Integer boardNumber) {
