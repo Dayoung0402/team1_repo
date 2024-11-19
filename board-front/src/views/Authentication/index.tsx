@@ -195,7 +195,7 @@ export default function Authentication() {
       setEmail(value);
     }
 
-    //          event hadler: 비밀번호 변경 이벤트 처리          //
+    //          event hadler: 패스워드 변경 이벤트 처리          //
     const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
       const{value} = event.target;
       setPassword(value);
@@ -212,6 +212,7 @@ export default function Authentication() {
         setPasswordType('password');
       }
     }
+    
 
     //          event handler: 닉네임 키 다운 이벤트 처리          //
     const onNicknameKeyDownHandler = (event:KeyboardEvent<HTMLInputElement>) => {
