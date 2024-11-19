@@ -4,7 +4,8 @@ import { SignInRequestDto, SignUpRequestDto } from "./ju/auth";
 import { ResponseDto } from './response';
 import SignInResponseDto from './ju/auth/sign-in.response.dto';
 import { PostBoardRequestDto } from './request/board';
-import { PostBoardResponseDto } from './response/board';
+import { PostBoardResponseDto, GetBoardResponseDto, GetLatestBoardListReponseDto, GetTop3BoardListResponseDto } from './response/board';
+import { GetSignInUserResponseDto } from './response/user';
 
 
 const DOMAIN = 'http://localhost:4000';
@@ -26,23 +27,29 @@ export const signInRequest = async(requestBody: SignInRequestDto) => {
             return responseBody;
         })
     return result;
-}
+};
 
 export const signUpReques = async(requestBody:SignUpRequestDto) => {
 
 
 
-}
+};
 
 
 export const tmp= '';
 
 // 파일 업로드 부분 //
-const FILE_DOMAIN = '${DOMAIN}/file';
+const FILE_DOMAIN = `${DOMAIN}/file`;;
 
-const FILE_UPLOAD_URL = () => '${FILE_DOMAIN}/upload';
+const FILE_UPLOAD_URL = () => `${FILE_DOMAIN}/upload`;
 
 const multipartFormData = {headers: {'Content-Type': 'multipart/form-data'}};
+
+const authorization = (accessToken : string ) => { 
+    return { headers: { Authorization : `Bearer ${accessToken}`}}
+};
+
+
 
 export const fileUploadRequest = async (data: FormData) => {
     const result = await axios.post(FILE_UPLOAD_URL(), data, multipartFormData)
@@ -55,9 +62,26 @@ export const fileUploadRequest = async (data: FormData) => {
     })
     return result;    
 
-}
+};
 
-const POST_BOARD_URL = () => '${API_DOMAIN}/board'; // 주소 다른 것 같은데 일단 해보기 
+const GET_BOARD_URL = (boardNumber: number | string) => `${API_DOMAIN}/board/${boardNumber}`;
+const POST_BOARD_URL = () => `${API_DOMAIN}/board`; // 주소 다른 것 같은데 일단 해보기 
+const GET_LATEST_BOARD_LIST_URL = () => `${API_DOMAIN}/board/lastest-list`;
+const GET_TOP_3_BOARD_LIST_URL = () => `${API_DOMAIN}/board/top-3`;
+
+export const getBoardRequest = async (boardNumber: number | string) => {
+    const result = await axios.get(GET_BOARD_URL(boardNumber))
+        .then(response => {
+            const responseBody: GetBoardResponseDto = response.data;
+            return responseBody;
+        })
+        .catch(error => {
+            if(!error.response) return null;
+            const responseBody: ResponseDto = error.reponse.data;
+            return responseBody;
+        })
+        return result;
+}; 
 
 export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessToken: string) => {
     const result = await axios.post(POST_BOARD_URL(), requestBody, /*authorization(accessToken)*/) // 현재로는 authorization 함수를 찾을 수 없음 (3번) //
@@ -71,8 +95,51 @@ export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessT
         return responseBody;
     })
     return result;
+};
+
+export const getLatestBoardListRequest = async () => {
+    const result = await axios.get(GET_LATEST_BOARD_LIST_URL())
+    .then(response => {
+        const responseBody: GetLatestBoardListReponseDto = response.data;
+        return responseBody;
+    })
+    .catch(error => {
+        if (!error.response) return null;
+        const responseBody: ResponseDto = error.response.data;
+        return responseBody;
+    });
+    return result;
+};
+
+export const getTop3BoardListRequest = async () => {
+    const result = await axios.get(GET_TOP_3_BOARD_LIST_URL())
+    .then(response => {
+        const responseBody: GetTop3BoardListResponseDto = response.data;
+        return responseBody;
+    })
+    .catch(error => {
+        if (!error.response) return null;
+        const responseBody: ResponseDto = error.response.data;
+        return responseBody;
+    });
+    return result;
+};
+
+const GET_SIGN_IN_USER_URL = () => `${API_DOMAIN}/user`;
+
+export const getSignInUserRequest = async (accessToken: string) => {
+    const result = await axios.get(GET_SIGN_IN_USER_URL(), authorization(accessToken))
+
+        .then(response => {
+            const responseBody: GetSignInUserResponseDto = response.data;
+            return responseBody;
+        })
+        .catch(error => {
+            if (!error.response) return null;
+            const responseBody: ResponseDto = error.response.data;
+            return responseBody;
+        });
+
+        return result; 
 }
-
-
- 
 

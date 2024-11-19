@@ -49,16 +49,11 @@ export default function Pagination(props: Props) {
                 <div className = 'etc-icon'></div>
             </div>
 
-            {viewPageList.map((page) => (
-  page === currentPage ? (
-    <div key={page} className="pagination-text-active">{page}</div>
-  ) : (
-    <div key={page} className="pagination-text" onClick={() => onPageClickHandler(page)}>
-      {page}
-    </div>
-  )
-))}
-
+            {viewPageList.map( page =>
+            page === currentPage ?
+            <div className = 'pagination-text-active'>{page}</div> :
+            <div className = 'pagination-text' onClick={() => onPageClickHandler(page)}>{page}</div>
+            )}
 
             <div className='pagination-divider'>
                 <div className = 'etc-icon'></div>

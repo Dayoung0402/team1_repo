@@ -45,6 +45,7 @@ const usePagination = <T>(countPerPage: number) => {
         for (let page =1; page <= totalPage; page++) totalPageList.push(page);
         setTotalPageList(totalPageList);
 
+
         const totalSection = Math.ceil(totalList.length / (countPerPage * 10)); // 실행해보고 디자인에 맞게 수정하기 
         setTotalSection(totalSection);
 

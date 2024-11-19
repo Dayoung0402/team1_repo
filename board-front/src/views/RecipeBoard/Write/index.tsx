@@ -119,14 +119,14 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
   //          effect: 마운트 시 실행할 함수          //
   // 로그인이 안되어 있는 상태이면 못 들어오게 만들어 주는 것 //
   useEffect(() => {
-    const accessToken = cookies.accessToken;
+    //const accessToken = cookies.accessToken;//
 
     // 로그인이 안되어 있는 상태이면 못 들어오게 함 // (2번) //
-    if (!accessToken) {
+    /*if (!accessToken) {
       navigator(MAIN_PATH());
       return;
     }
-    resetBoard();
+    resetBoard(); */
     /*-------------------------*/
     /* 여기서 부터는 오류 수정 전 42번 영상 27분 25초 */
 
