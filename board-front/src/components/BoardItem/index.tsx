@@ -37,15 +37,7 @@ export default function BoardItem({ boardlistItem }: Props) {
                 <div className='favorite-count'>
                     평점:
                     <div className="star-ratings">
-                        <div 
-                            className="star-ratings-fill space-x-2 text-lg" 
-                            style={{ width: `${ratingToPercent()}%` }}
-                        >
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                        <div className="star-ratings-base space-x-2 text-lg">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
+                       
                     </div>
                 </div>
 
