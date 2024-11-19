@@ -9,8 +9,10 @@
 .board-list-item {
     width: 300px;
     height: 555px;
-    border: 1px, solid, #F2EBE2;
+    border: 1px, solid, #F2EBE2; /*나중에 없앨것임*/
     margin-top: 200px;
+    padding: 20px;
+
     
 }
 
