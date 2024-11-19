@@ -27,7 +27,7 @@ const latestBoardListMock: BoardListItem[] = [
   {
     boardNumber: 3,
     title: "브리치즈 파스타",
-    content: "오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 나 점심때 오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 오늘 점심을 뭐먹을 지 너무 고민이 되는 오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 나 점심때 ...",
+    content: "심싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
     boardTitleImage: emptyImage,
     favoriteCount: 2,
     commentCount: 0,

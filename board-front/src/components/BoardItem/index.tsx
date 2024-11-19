@@ -32,20 +32,12 @@ export default function BoardItem({ boardlistItem }: Props) {
     return (
         <div className='board-list-item'>
             <div className='recipe-card'>
-                <div className='recipe-image' style={{ backgroundImage: `url(${Rectangle24})` }}></div>
+                <div className='recipe-image'></div>
                 
                 <div className='favorite-count'>
                     평점:
                     <div className="star-ratings">
-                        <div 
-                            className="star-ratings-fill space-x-2 text-lg" 
-                            style={{ width: `${ratingToPercent()}%` }}
-                        >
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                        <div className="star-ratings-base space-x-2 text-lg">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
+                       
                     </div>
                 </div>
 
