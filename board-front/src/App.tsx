@@ -38,7 +38,7 @@ function App() {
         {/* 얘는 전환되는 주소인듯 */}
         <Route path={MAIN_PATH()} element={<Main />}/>
         <Route path={AUTH_PATH()} element={<Authentication />}/>
-        <Route path={SIGN_UP()} element={<SignUp />}/>
+        {/*<Route path={SIGN_UP()} element={<SignUp />}/> */}
         <Route path={SEARCH_PATH(':searchWord')} element={<Search />}/>
 
         <Route path={BOARD_PATH()}>
