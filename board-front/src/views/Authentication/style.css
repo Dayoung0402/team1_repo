@@ -18,7 +18,7 @@
     padding: 0; /* 추가: 모든 내부 여백 제거 */
     left: 0; /* 왼쪽 여백 제거 */
     position: absolute;
-    width: 754px;
+    width: 754px !important;
     height: 100%;
     text-align: left;
     position: relative;
@@ -28,12 +28,12 @@
 }
 
 
-.title, .description {
+.titles, .description {
     position: relative;
     color: #3E2E22;
 }
 
-.title {
+.titles {
     font-family: 'SolmoeKimDaeGeon';
     font-size: 48px;
     text-align: center;
@@ -110,9 +110,11 @@
 }
 
 .auth-description-link {
-    color: #F2EBE2;
-    cursor: pointer;
-    margin-left: 5px;
+    color: #F2EBE2 !important;
+    cursor: pointer !important;
+    margin-left: 5px !important;
+    background-image: none;
+    box-shadow: none;
 }
 
 .auth-description-link:hover {
