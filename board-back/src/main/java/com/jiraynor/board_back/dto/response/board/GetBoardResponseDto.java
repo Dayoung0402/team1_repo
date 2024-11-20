@@ -45,7 +45,6 @@ public class GetBoardResponseDto extends ResponseDto {
     this.writerEmail = resultSet.getWriterEmail();
     this.writerNickname = resultSet.getWriterNickname();
     this.price = resultSet.getPrice();
-    this.averageRating = averageRating; // 평균 평점 설정
   }
 
   public static ResponseEntity<GetBoardResponseDto> success(GetBoardResultSet resultSet,
