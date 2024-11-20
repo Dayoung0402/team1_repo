@@ -1,13 +1,17 @@
-import emptyImage from "../assets/images/Rectangle22.png"
+import emptyImage from "../assets/ju/emptyImage.png";
 import { BoardListItem } from "types/interface";
+import star4 from "../assets/ju/star4.png";
+import star5 from "../assets/images/rate.png";
+import star0 from "../assets/ju/star0.png";
+
 
 const latestBoardListMock: BoardListItem[] = [
   {
     boardNumber: 1,
     title: "브리치즈 파스타",
-    content: "싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
+    content: "싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타 으아아아아아아아아아아아 ",
     boardTitleImage: emptyImage,
-    favoriteCount: 3.5,
+    favoriteCount: star4,
     commentCount: 0,
     writeDateTime: "2024.10.7. 00:54:27",
     writerNickname: "시러핑",
@@ -16,9 +20,9 @@ const latestBoardListMock: BoardListItem[] = [
   {
     boardNumber: 2,
     title: "브리치즈 파스타",
-    content: "심싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
+    content: "싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
     boardTitleImage: emptyImage,
-    favoriteCount: 4,
+    favoriteCount: star5,
     commentCount: 0,
     writeDateTime: "2024.10.7. 00:54:27",
     writerNickname: "시러핑",
@@ -27,9 +31,9 @@ const latestBoardListMock: BoardListItem[] = [
   {
     boardNumber: 3,
     title: "브리치즈 파스타",
-    content: "심싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
+    content: "싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
     boardTitleImage: emptyImage,
-    favoriteCount: 2,
+    favoriteCount: star0,
     commentCount: 0,
     writeDateTime: "2024.10.7. 00:54:27",
     writerNickname: "시러핑",
@@ -38,9 +42,9 @@ const latestBoardListMock: BoardListItem[] = [
   {
     boardNumber: 4,
     title: "브리치즈 파스타",
-    content: "오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 나 점심때 오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 오늘 점심을 뭐먹을 지 너무 고민이 되는 오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 나 점심때 ...",
+    content: "싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
     boardTitleImage: emptyImage,
-    favoriteCount: 2,
+    favoriteCount: star4,
     commentCount: 0,
     writeDateTime: "2024.10.7. 00:54:27",
     writerNickname: "시러핑",
@@ -49,9 +53,9 @@ const latestBoardListMock: BoardListItem[] = [
   {
     boardNumber: 5,
     title: "브리치즈 파스타",
-    content: "오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 나 점심때 오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 오늘 점심을 뭐먹을 지 너무 고민이 되는 오늘 점심을 뭐먹을 지 너무 고민이 되는 데 뭐 먹을까? 나 점심때 ...",
+    content: "싱싱한 방울 토마토와 바질의 향긋함과 브리치즈의 꼬수움이 조화롭게 어우러진 파스타",
     boardTitleImage: emptyImage,
-    favoriteCount: 2,
+    favoriteCount: star4,
     commentCount: 0,
     writeDateTime: "2024.10.7. 00:54:27",
     writerNickname: "시러핑",
