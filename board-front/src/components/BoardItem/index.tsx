@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
 import { BoardListItem } from 'types/interface';
-import Rectangle24 from '../../assets/ju/emptyImage.png';
 import { useNavigate } from 'react-router-dom';
 import { BOARD_DETAIL_PATH, BOARD_PATH } from 'constant';
+
 
 interface Props {
     boardlistItem: BoardListItem
@@ -32,13 +32,10 @@ export default function BoardItem({ boardlistItem }: Props) {
     return (
         <div className='board-list-item'>
             <div className='recipe-card'>
-                <div className='recipe-image'></div>
-                
+            <div className="recipe-image"></div>
                 <div className='favorite-count'>
                     평점:
-                    <div className="star-ratings">
-                       
-                    </div>
+                    <div className="star-ratings"></div>
                 </div>
 
                 <div className='price'>
