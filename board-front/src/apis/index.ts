@@ -62,13 +62,8 @@ const authorization = (accessToken : string ) => {
 
 
 
-export const fileUploadRequest = async (data: FormData, accessToken: string) => {
-    const headers = {
-        ...multipartFormData.headers,
-        ...authorization(accessToken).headers
-    };
-    
-    const result = await axios.post(FILE_UPLOAD_URL(), data, { headers, withCredentials: true })
+export const fileUploadRequest = async (data: FormData) => {
+    const result = await axios.post(FILE_UPLOAD_URL(), data, multipartFormData)
     .then(response => {
         const responseBody: string = response.data;
         return responseBody;
