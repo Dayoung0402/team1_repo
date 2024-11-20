@@ -26,7 +26,7 @@ public class GetBoardResponseDto extends ResponseDto {
   private String writerNickname;
   private int price;
 
-  private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities, double averageRating) {
+  private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities) {
     super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
 
     List<String> boardImageList = new ArrayList<>();
