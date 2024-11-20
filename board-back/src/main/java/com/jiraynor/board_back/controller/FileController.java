@@ -24,10 +24,12 @@ public class FileController {
 
     @PostMapping("/upload")
     public String upload(
-            @RequestParam("file") MultipartFile file) {
-        String url = fileService.upload(file);
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("board_number") Integer boardNumber) {
+        String url = fileService.upload(file, boardNumber); // boardNumber 전달
         return url;
     }
+    
 
     @GetMapping(value = "{fileName}", produces = { MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE })
     public Resource getImage(
