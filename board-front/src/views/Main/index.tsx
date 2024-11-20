@@ -9,6 +9,7 @@ import { getTop3BoardListRequest } from "apis";
 import { useNavigate } from "react-router-dom";
 import { GetTop3BoardListResponseDto } from "apis/response/board";
 import { ResponseDto } from "apis/response";
+import { usePagination } from "hooks";
 
 export default function Main() {
 
@@ -25,6 +26,8 @@ export default function Main() {
     };
 
     const MainBottom = () => {
+
+
         //          function: 네비게이트 함수          //
         const navigate = useNavigate();
 
