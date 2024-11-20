@@ -120,10 +120,10 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
   //          effect: 마운트 시 실행할 함수          //
   // 로그인이 안되어 있는 상태이면 못 들어오게 만들어 주는 것 //
   useEffect(() => {
-    const acecessToken = cookies.acecessToken;
+    const accessToken = cookies.accessToken;
 
     // 로그인이 안되어 있는 상태이면 못 들어오게 함 // (2번) //
-    if (!acecessToken) {
+    if (!accessToken) {
       navigator(MAIN_PATH());
       return;
     }
@@ -167,15 +167,15 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
     const onRecipeWriteCompleteButtonClickHandler = async () => {
       console.log('작성 완료 버튼 클릭됨'); // 로그 추가
 
-      const acecessToken = cookies.acecessToken;
+      const accessToken = cookies.accessToken;
 
-      if (!acecessToken) {
+      if (!accessToken) {
         alert('로그인이 필요합니다.');
         navigator(AUTH_PATH());
         return;
       }
       
-      // if (!acecessToken) return; // 3번, 위에 이프 문이 더 괜찮은 듯 //
+      // if (!accessToken) return; // 3번, 위에 이프 문이 더 괜찮은 듯 //
   
       const boardImageList: string[] = [];
   
@@ -183,7 +183,7 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
         const data = new FormData();
         data.append('file', file);
   
-        const url = await fileUploadRequest(data, acecessToken);
+        const url = await fileUploadRequest(data, accessToken);
         console.log("Uploaded Image URL:", url); // 로그 추가
         if (url) { boardImageList.push(url);
         } else {
@@ -200,7 +200,7 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
       };
 
   
-    postBoardRequest(requestBody, acecessToken)
+    postBoardRequest(requestBody, accessToken)
       .then((responseBody) => {
         console.log("Post Board Response:", responseBody); // 로그 추가
         postBoardResponse(responseBody);

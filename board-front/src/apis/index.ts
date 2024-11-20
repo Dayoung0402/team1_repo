@@ -56,16 +56,16 @@ const FILE_UPLOAD_URL = () => `${FILE_DOMAIN}/upload`;
 
 const multipartFormData = {headers: {'Content-Type': 'multipart/form-data'}};
 
-const authorization = (acecessToken : string ) => { 
-    return { headers: { Authorization : `Bearer ${acecessToken}`}}
+const authorization = (accessToken : string ) => { 
+    return { headers: { Authorization : `Bearer ${accessToken}`}}
 };
 
 
 
-export const fileUploadRequest = async (data: FormData, acecessToken: string) => {
+export const fileUploadRequest = async (data: FormData, accessToken: string) => {
     const headers = {
         ...multipartFormData.headers,
-        ...authorization(acecessToken).headers
+        ...authorization(accessToken).headers
     };
     
     const result = await axios.post(FILE_UPLOAD_URL(), data, { headers, withCredentials: true })
@@ -99,8 +99,8 @@ export const getBoardRequest = async (boardNumber: number | string) => {
         return result;
 }; 
 
-export const postBoardRequest = async (requestBody: PostBoardRequestDto, acecessToken: string) => {
-    const result = await axios.post(POST_BOARD_URL(), requestBody, authorization(acecessToken)) // 현재로는 authorization 함수를 찾을 수 없음 (3번) //
+export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessToken: string) => {
+    const result = await axios.post(POST_BOARD_URL(), requestBody, authorization(accessToken)) // 현재로는 authorization 함수를 찾을 수 없음 (3번) //
     .then(response => {
         const responseBody: PostBoardResponseDto = response.data;
         return responseBody;
@@ -143,8 +143,8 @@ export const getTop3BoardListRequest = async () => {
 
 const GET_SIGN_IN_USER_URL = () => `${API_DOMAIN}/user`;
 
-export const getSignInUserRequest = async (acecessToken: string) => {
-    const result = await axios.get(GET_SIGN_IN_USER_URL(), authorization(acecessToken))
+export const getSignInUserRequest = async (accessToken: string) => {
+    const result = await axios.get(GET_SIGN_IN_USER_URL(), authorization(accessToken))
 
         .then(response => {
             const responseBody: GetSignInUserResponseDto = response.data;

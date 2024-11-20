@@ -44,14 +44,14 @@ const { setLoginUser, resetLoginUser } = useLoginUserStore();
   }
 
 
-  //          effect: acecessToken cookie 값이 변경될 때 마다 실행할 함수         //
+  //          effect: accessToken cookie 값이 변경될 때 마다 실행할 함수         //
   useEffect(() => {
-    if (!cookies.acecessToken) {
+    if (!cookies.accessToken) {
       resetLoginUser();
       return; 
     }
-    getSignInUserRequest(cookies.acecessToken).then(getSignInUserResponse);
-  }, [cookies.acecessToken]);
+    getSignInUserRequest(cookies.accessToken).then(getSignInUserResponse);
+  }, [cookies.accessToken]);
 
 
   //          render: Application 렌더링          //
