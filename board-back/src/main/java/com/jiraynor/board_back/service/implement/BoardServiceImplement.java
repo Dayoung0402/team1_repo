@@ -7,13 +7,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.Collections;
 
-
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.ResponseDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
+import com.jiraynor.board_back.dto.response.board.GetLatestBoardListResponseDto;
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
 import com.jiraynor.board_back.entity.BoardEntity;
+import com.jiraynor.board_back.entity.BoardListViewEntity;
 import com.jiraynor.board_back.entity.ImageEntity;
+import com.jiraynor.board_back.repository.BoardListViewRepository;
 import com.jiraynor.board_back.repository.BoardRepository;
 import com.jiraynor.board_back.repository.ImageRepository;
 import com.jiraynor.board_back.repository.UserRepository;
@@ -29,6 +31,7 @@ public class BoardServiceImplement implements BoardService {
     private final BoardRepository boardRepository;
     private final ImageRepository imageRepository;
     private final UserRepository userRepository;
+    private final BoardListViewRepository boardListViewRepository;
 
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
@@ -46,7 +49,7 @@ public class BoardServiceImplement implements BoardService {
             return ResponseDto.databaseError();
         }
 
-        return GetBoardResponseDto.success(resultSet, imageEntities,0.0);
+        return GetBoardResponseDto.success(resultSet, imageEntities);
     }
 
     @Override
@@ -97,14 +100,26 @@ public class BoardServiceImplement implements BoardService {
         }
     }
 
-    
-
     @Override
     public boolean boardExists(Integer boardNumber) {
         return boardRepository.existsById(boardNumber);
     }
 
-   
+    @Override
+    public ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList() {
 
-    
+        List<BoardListViewEntity> boardListViewEntities = new ArrayList<>();
+
+        try {
+
+            boardListViewEntities = boardListViewRepository.findByOrderByWriteDatetimeDesc();
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+
+        return GetLatestBoardListResponseDto.success(boardListViewEntities);
+    }
+
 }

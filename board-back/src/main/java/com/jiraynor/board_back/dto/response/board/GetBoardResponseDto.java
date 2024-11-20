@@ -26,9 +26,7 @@ public class GetBoardResponseDto extends ResponseDto {
   private String writerNickname;
   private int price;
 
-  private double averageRating; // 평균 평점 추가
-
-  private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities, double averageRating) {
+  private GetBoardResponseDto(GetBoardResultSet resultSet, List<ImageEntity> imageEntities) {
     super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
 
     List<String> boardImageList = new ArrayList<>();
@@ -48,8 +46,8 @@ public class GetBoardResponseDto extends ResponseDto {
   }
 
   public static ResponseEntity<GetBoardResponseDto> success(GetBoardResultSet resultSet,
-      List<ImageEntity> imageEntities, double averageRating) {
-    GetBoardResponseDto result = new GetBoardResponseDto(resultSet, imageEntities, averageRating);
+      List<ImageEntity> imageEntities) {
+    GetBoardResponseDto result = new GetBoardResponseDto(resultSet, imageEntities);
     return ResponseEntity.status(HttpStatus.OK).body(result);
   }
 
