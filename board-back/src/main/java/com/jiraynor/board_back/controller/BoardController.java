@@ -9,13 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
-<<<<<<< HEAD
-import com.jiraynor.board_back.dto.response.board.GetTop3BoardListResponseDto;
-=======
 import com.jiraynor.board_back.dto.response.board.GetLatestBoardListResponseDto;
->>>>>>> back2
+import com.jiraynor.board_back.dto.response.board.GetTop3BoardListResponseDto;
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
-import com.jiraynor.board_back.entity.BoardEntity;
 import com.jiraynor.board_back.service.BoardService;
 
 import jakarta.validation.Valid;
@@ -31,7 +27,7 @@ public class BoardController {
     // 메인 페이지에서 top - 3 게시물 불러오기
     @GetMapping("/top-3")
     public ResponseEntity<? super GetTop3BoardListResponseDto> getTop3BoardList() {
-        ResponseEntity<? super GetTop3BoardListResponseDto>response = boardService.getTop3BoardList();
+        ResponseEntity<? super GetTop3BoardListResponseDto> response = boardService.getTop3BoardList();
         return response;
     }
 
@@ -66,4 +62,6 @@ public class BoardController {
         ResponseEntity<? super PostBoardResponseDto> response = boardService.postBoard(requestBody, email);
         return response;
     }
+
+    
 }

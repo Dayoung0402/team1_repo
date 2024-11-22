@@ -1,12 +1,7 @@
 package com.jiraynor.board_back.dto.object;
 
-<<<<<<< HEAD
-import java.util.List;
-import java.util.stream.Collectors;
-=======
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> back2
 
 import com.jiraynor.board_back.entity.BoardListViewEntity;
 
@@ -26,24 +21,6 @@ public class BoardListItem {
     private String writerNickname;
     private int price;
 
-<<<<<<< HEAD
-    // BoardListViewEntity 리스트를 BoardListItem 리스트로 변환하는 메서드 추가
-    public static List<BoardListItem> getList(List<BoardListViewEntity> entities) {
-        if (entities == null || entities.isEmpty()) {
-            return List.of(); // 빈 리스트 반환
-        }
-        return entities.stream()
-                       .map(entity -> new BoardListItem(
-                           entity.getBoardNumber(),
-                           entity.getTitle(),
-                           entity.getContent(),
-                           entity.getTitleImage(),
-                           entity.getWriteDatetime(),
-                           entity.getWriterNickname(),
-                           entity.getPrice()
-                       ))
-                       .collect(Collectors.toList());
-=======
     public BoardListItem(BoardListViewEntity boardListViewEntity) {
         this.boardNumber = boardListViewEntity.getBoardNumber();
         this.title = boardListViewEntity.getTitle();
@@ -61,6 +38,5 @@ public class BoardListItem {
             list.add(boardListItem);
         }
         return list;
->>>>>>> back2
     }
 }
