@@ -24,6 +24,8 @@ export default function Top3Item({ top3ListItem }: Props) {
         navigator(RECIPE_PATH() + '/' + RECIPE_DETAIL_PATH(boardNumber));
     }   
 
+    
+
     //          render: Top 3 List Item 컴포넌트 렌더링          //
     return (
         <div className='top-3-list-item'>

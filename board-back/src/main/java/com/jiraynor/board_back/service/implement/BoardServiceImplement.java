@@ -46,13 +46,13 @@ public class BoardServiceImplement implements BoardService {
             return ResponseDto.databaseError();
         }
 
-        return GetBoardResponseDto.success(resultSet, imageEntities,0.0);
+        return GetBoardResponseDto.success(resultSet, imageEntities);
     }
 
     @Override
     public ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto, String email) {
         try {
-            boolean existedEmail = userRepository.existsByEmail(email);
+            boolean existedEmail = userRepository.existsByEmail(email); //11.20 수정 부분
             if (!existedEmail)
                 return PostBoardResponseDto.notExistUser();
 
@@ -60,10 +60,10 @@ public class BoardServiceImplement implements BoardService {
             boardRepository.save(boardEntity);
 
             int boardNumber = boardEntity.getBoardNumber();
-            List<String> boardImageList = dto.getBoardImageList();
+            List<String> imageList = dto.getImage();
             List<ImageEntity> imageEntities = new ArrayList<>();
 
-            for (String image : boardImageList) {
+            for (String image : imageList) {
                 ImageEntity imageEntity = new ImageEntity(boardNumber, image);
                 imageEntities.add(imageEntity);
             }

@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -29,7 +32,7 @@ public class WebSecurityConfig {
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
                 httpSecurity
-                                .cors(cors -> cors.disable())
+                                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 정책 활성화
                                 .csrf(csrf -> csrf.disable())
                                 .httpBasic(httpBasic -> httpBasic.disable())
                                 .sessionManagement(session -> session
@@ -52,16 +55,28 @@ public class WebSecurityConfig {
                 return httpSecurity.build();
         }
 
-}
+        @Bean
+        public CorsConfigurationSource corsConfigurationSource() {
+                CorsConfiguration configuration = new CorsConfiguration();
+                configuration.addAllowedOrigin("http://localhost:3000"); // 허용할 Origin
+                configuration.addAllowedMethod("*"); // 모든 HTTP 메서드 허용
+                configuration.addAllowedHeader("*"); // 모든 헤더 허용
+                configuration.setAllowCredentials(true); // 자격 증명 허용
 
-class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", configuration); // 모든 경로에 적용
+                return source;
+        }
 
-        @Override
-        public void commence(HttpServletRequest request, HttpServletResponse response,
-                        AuthenticationException authException) throws IOException, ServletException {
+        class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-                response.setContentType("application/json");
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().write("{\"code\": \"AF\", \"message\": \"Authorization Failed\" }");
+                @Override
+                public void commence(HttpServletRequest request, HttpServletResponse response,
+                                AuthenticationException authException) throws IOException, ServletException {
+
+                        response.setContentType("application/json");
+                        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                        response.getWriter().write("{\"code\": \"AF\", \"message\": \"Authorization Failed\" }");
+                }
         }
 }

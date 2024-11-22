@@ -8,6 +8,7 @@ import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
 import { fileUploadRequest, postBoardRequest } from 'apis';
 import { PostBoardRequestDto } from 'apis/request/board';
+import useLoginUserStore from 'stores/login-user.store';
 
 //          component: 레시피 게시판 작성 화면 컴포넌트          //
 export default function RecipeBoardWrite() {
@@ -33,7 +34,7 @@ export default function RecipeBoardWrite() {
 
 
   //          state: 로그인 유저 상태          //
-  // const { loginUser } = useLoginUserStore(); // 현재 상태로는 useLoginUserStore()를 찾을 수 없음 (1번) //
+  const { loginUser } = useLoginUserStore();
 
   //          function: 네비게이트 함수         //
   const navigator = useNavigate();
@@ -182,8 +183,13 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
         const data = new FormData();
         data.append('file', file);
   
-        const url = await fileUploadRequest(data);
-        if (url) boardImageList.push(url);
+        const url = await fileUploadRequest(data, accessToken);
+        console.log("Uploaded Image URL:", url); // 로그 추가
+        if (url) { boardImageList.push(url);
+        } else {
+          alert('이미지 업로드에 실패했습니다.');
+          return; // 업로드 실패 시 종료
+        }
       }
   
       const requestBody: PostBoardRequestDto = {
@@ -191,10 +197,19 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
         content,
         boardImageList,
         price,
-      }
+      };
+
   
-      postBoardRequest(requestBody, accessToken).then(postBoardResponse);
-    }
+    postBoardRequest(requestBody, accessToken)
+      .then((responseBody) => {
+        console.log("Post Board Response:", responseBody); // 로그 추가
+        postBoardResponse(responseBody);
+      })
+      .catch((error) => {
+        console.error("Post Board Request Failed:", error);
+        alert('게시물 저장에 실패했습니다.');
+    });
+    };
   
     return (
       <div
@@ -253,7 +268,7 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
           </div>
           <div className='recipe-board-write-images-box'>
             {imageUrls.map((imageUrl, index) => 
-              <div className='recipe-board-write-image-box'>
+              <div className='recipe-board-write-image-box' key={index}>
               <img className='recipe-board-write-image' src={imageUrl} />
                 <div className='icon-button'>
                   <div className='tool-icon-box image-close' onClick={() => onImageCloseButtonClickHandler(index)}>

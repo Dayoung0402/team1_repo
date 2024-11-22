@@ -29,7 +29,6 @@ public class BoardEntity {
 
     private int boardNumber; 
     //  boardNumeber는 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
-    // 프론트가 api 연동할 때 신경쓰기
     private String title;
     private String content;
     private String writeDatetime;
@@ -40,7 +39,7 @@ public class BoardEntity {
     public BoardEntity(PostBoardRequestDto dto, String email) {
 
         Date now = Date.from(Instant.now());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
         String writeDatetime = simpleDateFormat.format(now);
 
         this.title = dto.getTitle();

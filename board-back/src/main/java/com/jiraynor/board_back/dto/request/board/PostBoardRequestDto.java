@@ -17,8 +17,9 @@ public class PostBoardRequestDto {
     private String title;
     @NotBlank
     private String content;
-    @NotNull
-    private List<String> boardImageList;
+    
+    private List<String> image; //11.20 수정 부분
+
     @NotNull
     private int price;
     

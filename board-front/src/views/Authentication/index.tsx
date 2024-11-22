@@ -57,7 +57,7 @@ export default function Authentication() {
       const now = new Date().getTime();
       const expires = new Date(now + expirationTime * 1000)
 
-      setCookie('acecessToken', token, { expires, path: MAIN_PATH() });
+      setCookie('accessToken', token, { expires, path: MAIN_PATH() });
       navigator(MAIN_PATH());
     }
 
@@ -354,7 +354,6 @@ export default function Authentication() {
 
       </div>
       {view === 'sign-in' && <SignInCard />}
-      {view === 'sign-up' && <SignUpCard />}
     </div>
   )
 }

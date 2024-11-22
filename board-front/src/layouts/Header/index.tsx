@@ -11,9 +11,14 @@ import { fileUploadRequest, postBoardRequest } from 'apis';
 import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
 import { PostBoardRequestDto } from 'apis/request/board';
+import useLoginUserStore from 'stores/login-user.store';
+
 
 //          component: 헤더 레이아웃          //
 export default function Header() {
+
+  //          state: 로그인 유저 상태           //
+  const { loginUser, setLoginUser, resetLoginUser } = useLoginUserStore();
 
   //          state: path 상태          //
   const { pathname } = useLocation();
@@ -248,11 +253,26 @@ export default function Header() {
     setRecipeBoardUpdatePage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_UPDATE_PATH('')));
   }, [pathname]);
 
+  //          effect: login 유저가 변경될 때마다 실행될 함수          //
+  useEffect (() => {
+    setLogin(loginUser !== null );
+  }, [loginUser])
+
+  useEffect(() => {
+    console.log('loginUser:', loginUser); // loginUser 값 확인
+    console.log('isLogin:', loginUser !== null); // isLogin 조건 확인
+  }, [loginUser]);
+  
+  useEffect(() => {
+    console.log("Cookies:", cookies);
+  }, [cookies]);
+
+
   //          로그인 및 회원가입 페이지에서 빈 화면 렌더링          //
   if (isAuthPage || isSignUpPage) {
     return <div />;
   }
-
+  
   //          render: 헤더 레이아웃 렌더링          //  
   return (
     <div id='header'>
