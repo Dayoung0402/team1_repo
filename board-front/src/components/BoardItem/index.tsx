@@ -31,7 +31,7 @@ export default function BoardItem({ boardlistItem }: Props) {
         <div className="board-list-item">
             <div className="recipe-card">
                 <div className="recipe-image">
-                    <img src={boardTitleImage || '/static/media/emptyImage.png'} alt={title || '이미지 없음'} />
+                    <img src={boardTitleImage || '../assets/ju/emptyImage.png'} alt={title || '이미지 없음'} />
                 </div>
 
                 <div className="favorite-count">

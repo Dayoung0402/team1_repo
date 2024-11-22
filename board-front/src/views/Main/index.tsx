@@ -39,10 +39,10 @@ export default function Main() {
             if (!responseBody) return;
             const { code } = responseBody;
             if (code === 'DBE') alert('데이터베이스 오류입니다.');
-            if (code === 'SU') return;
+            if (code !== 'SU') return;
 
             const { top3List } = responseBody as GetTop3BoardListResponseDto;
-            setTop3BoardList(top3List || []);
+            setTop3BoardList(top3List);
         };
 
         //          effect: 첫 마운트 시 실행될 함수          //
