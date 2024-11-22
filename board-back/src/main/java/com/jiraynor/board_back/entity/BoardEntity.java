@@ -23,20 +23,18 @@ import lombok.NoArgsConstructor;
 @Table(name = "board")
 public class BoardEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int boardNumber; 
-    //  boardNumeber는 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
+    private int boardNumber;
+    // boardNumeber는 레시피 게시판에는 필요하지 않지만 자유게시판에는 존재
     private String title;
     private String content;
     private String writeDatetime;
     private String writerEmail;
     private int price;
 
-
-    public BoardEntity(PostBoardRequestDto dto, String email) {
+    public BoardEntity(PostBoardRequestDto dto, String writerEmail) {
 
         Date now = Date.from(Instant.now());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
@@ -45,8 +43,8 @@ public class BoardEntity {
         this.title = dto.getTitle();
         this.content = dto.getContent();
         this.writeDatetime = writeDatetime;
-        this.writerEmail = email;
+        this.writerEmail = writerEmail;
         this.price = dto.getPrice();
     }
-    
+
 }

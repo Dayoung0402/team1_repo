@@ -23,5 +23,6 @@ public class BoardListViewEntity {
     private String writeDatetime;
     private String writerEmail;
     private int price;
+    private String writerNickname;
 
 }
