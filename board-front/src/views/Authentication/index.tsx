@@ -354,6 +354,7 @@ export default function Authentication() {
 
       </div>
       {view === 'sign-in' && <SignInCard />}
+      {view === 'sign-up' && <SignUpCard />}
     </div>
   )
 }
