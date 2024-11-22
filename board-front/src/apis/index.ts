@@ -49,10 +49,10 @@ export const signUpRequest = async(requestBody:SignUpRequestDto) => {
 
 export const tmp= '';
 
-// 파일 업로드 부분 //
+// 파일 업로드 부분(파일 도메인) //
 const FILE_DOMAIN = `${DOMAIN}/file`;
 
-const FILE_UPLOAD_URL = () => `${FILE_DOMAIN}/upload`;
+const FILE_UPLOAD_URL = () => `${FILE_DOMAIN}/upload`; 
 
 const multipartFormData = {headers: {'Content-Type': 'multipart/form-data'}};
 
@@ -62,16 +62,24 @@ const authorization = (accessToken : string ) => {
 
 
 
-export const fileUploadRequest = async (data: FormData) => {
-    const result = await axios.post(FILE_UPLOAD_URL(), data, multipartFormData)
-    .then(response => {
-        const responseBody: string = response.data;
-        return responseBody;
-    })
-    .catch(error => {
+export const fileUploadRequest = async (data: FormData, accessToken: string) => {
+    const config = {
+        headers: {
+            ...multipartFormData.headers, // 기존 Content-Type 헤더 유지
+            Authorization: `Bearer ${accessToken}`, // Authorization 헤더 추가
+        },
+    };
+
+    try {
+        const response = await axios.post(FILE_UPLOAD_URL(), data, config);
+        console.log('File Upload Response:', response.data); // 성공 시 로그
+        const responseBody: string = response.data; // 업로드된 파일 URL
+        return responseBody; 
+    } catch (error) {
+        const err = error as any; // 또는 AxiosError
+        console.error('File Upload Error:', err.response || err.message);
         return null;
-    })
-    return result;    
+    } 
 
 };
 
@@ -94,6 +102,7 @@ export const getBoardRequest = async (boardNumber: number | string) => {
         return result;
 }; 
 
+
 export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessToken: string) => {
     const result = await axios.post(POST_BOARD_URL(), requestBody, authorization(accessToken)) // 현재로는 authorization 함수를 찾을 수 없음 (3번) //
     .then(response => {
@@ -107,6 +116,8 @@ export const postBoardRequest = async (requestBody: PostBoardRequestDto, accessT
     })
     return result;
 };
+
+
 
 export const getLatestBoardListRequest = async () => {
     const result = await axios.get(GET_LATEST_BOARD_LIST_URL())

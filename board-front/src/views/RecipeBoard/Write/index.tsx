@@ -183,7 +183,7 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
         const data = new FormData();
         data.append('file', file);
   
-        const url = await fileUploadRequest(data);
+        const url = await fileUploadRequest(data, accessToken);
         console.log("Uploaded Image URL:", url); // 로그 추가
         if (url) { boardImageList.push(url);
         } else {
