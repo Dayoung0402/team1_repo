@@ -26,4 +26,5 @@ public class ImageEntity {
         this.boardNumber = boardNumber;
         this.image = image;
     }
+
 }

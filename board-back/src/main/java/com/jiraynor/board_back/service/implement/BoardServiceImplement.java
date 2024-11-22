@@ -119,7 +119,6 @@ public class BoardServiceImplement implements BoardService {
         }
 
         return GetLatestBoardListResponseDto.success(boardListViewEntities);
-
     }
 
 }

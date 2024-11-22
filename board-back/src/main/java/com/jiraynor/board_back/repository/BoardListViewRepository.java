@@ -9,7 +9,5 @@ import com.jiraynor.board_back.entity.BoardListViewEntity;
 
 @Repository
 public interface BoardListViewRepository extends JpaRepository<BoardListViewEntity, Integer> {
-
     List<BoardListViewEntity> findByOrderByWriteDatetimeDesc();
-
 }

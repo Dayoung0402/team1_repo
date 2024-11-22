@@ -62,5 +62,4 @@ public class BoardController {
         ResponseEntity<? super PostBoardResponseDto> response = boardService.postBoard(requestBody, email);
         return response;
     }
-
 }
