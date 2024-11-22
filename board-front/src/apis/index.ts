@@ -85,7 +85,7 @@ export const fileUploadRequest = async (data: FormData, accessToken: string) => 
 
 const GET_BOARD_URL = (boardNumber: number | string) => `${API_DOMAIN}/board/${boardNumber}`;
 const POST_BOARD_URL = () => `${API_DOMAIN}/board`; // 주소 다른 것 같은데 일단 해보기 
-const GET_LATEST_BOARD_LIST_URL = () => `${API_DOMAIN}/board/lastest-list`;
+const GET_LATEST_BOARD_LIST_URL = () => `${API_DOMAIN}/board/latest-list`;
 const GET_TOP_3_BOARD_LIST_URL = () => `${API_DOMAIN}/board/top-3`;
 
 export const getBoardRequest = async (boardNumber: number | string) => {
