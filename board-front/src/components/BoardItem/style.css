@@ -8,59 +8,47 @@
 .board-list-item {
     width: 300px;
     height: 555px;
-    border: 1px, solid, #F2EBE2; /*나중에 없앨것임*/
+    /*border: 1px, solid, #F2EBE2; 나중에 없앨것임*/
     margin-top: 200px;
-    padding: 20px;
-
-    
+    margin-left:25px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-
 .recipe-image {
-    width: 300px; /* 원하는 크기로 설정하세요 */
     height: 400px;
-    background-size: cover;
+    max-width:300px;
+    background-size: contain;
     background-position: center;
+}
+
+.recipe-image img {
+    max-width: 100%; /* 이미지가 영역을 초과하지 않도록 */
+    max-height: 100%; /* 이미지가 영역의 높이를 초과하지 않도록 */
+    object-fit: contain; /* 이미지 비율을 유지하면서 영역에 맞춤 */
 }
 
 .favorite-count {
     font-family:'SolmoeKimDaeGeon';
-    font-size:23px;
+    font-size:20px;
     color:#7C7163;
     margin-top:7px;
 }
 
 .star-ratings {
-    color: #aaa9a9; 
-    position: relative;
-    unicode-bidi: bidi-override;
-    width: max-content;
-    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1.3px;
-    -webkit-text-stroke-color: #7C7163;
-    margin-left: 60px;
-    margin-top: -22px;
-    font-size: 20px;
+    margin-left:54px;
+    margin-top: -25px;
+    width: 140px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .star-ratings img {
+    width:90%; /*별 크기 조정*/
+
   }
    
-  .star-ratings-fill {
-    color: #fff58c;
-    padding: 0;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    -webkit-text-fill-color: #7C7163;
-  }
-   
-  .star-ratings-base {
-    z-index: 0;
-    padding: 0;
-  }
-
-
 .price {
     font-family:'SolmoeKimDaeGeon';
     font-size:15px;
@@ -68,7 +56,7 @@
     color: #7C7163;
     display: flex;
     justify-content: flex-end;
-    margin-top: -10px;
+    margin-top: -40px;
     margin-right: 8px;
     
 }
@@ -76,6 +64,7 @@
 .line {
     color:#7C7163;
     opacity: 0.7;
+    margin-top: 10px;
 }
 
 .title {
@@ -84,6 +73,7 @@
     display: flex;
     justify-content: flex-end;
     color: #7C7163;
+    margin-top:10px;
 }
 
 .content {

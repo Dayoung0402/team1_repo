@@ -3,7 +3,7 @@ import './style.css';
 import { useBoardStore } from 'stores';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { AUTH_PATH, MAIN_PATH } from 'constant';
+import { AUTH_PATH, MAIN_PATH,BOARD_PATH } from 'constant';
 import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
 import { fileUploadRequest, postBoardRequest } from 'apis';
@@ -155,7 +155,11 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
       if (code === 'DBE') alert('데이터베이스 오류입니다.');
       if (code !== 'SU') return;
   
+      /*resetBoard();*/
+      // 지우가 레시피 목록 페이지로 이동하도록 수정 //
+      alert('게시물이 성공적으로 작성되었습니다.');
       resetBoard();
+      navigator(BOARD_PATH());
 
       /*if (!loginUser) return;
       const {email} = loginUser; // 4번, 우리도 email인지 확인하기  //

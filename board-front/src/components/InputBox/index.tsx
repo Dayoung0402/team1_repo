@@ -1,7 +1,6 @@
 import {ChangeEvent,KeyboardEvent, forwardRef} from 'react';
 import './style.css';
 import React from 'react';
-import eyeLightOff from '../../assets/ju/eye-light-off.png'; // 상대 경로로 수정
 
 //          interface: InputBox 컴포넌트 Properties          //
 interface Props {
@@ -40,11 +39,11 @@ const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
             <div className='inputbox-label'>{label}</div>
             <div className={error ? 'inputbox-container-error' : 'inputbox-container'}>
                 <input ref={ref} type={type} className='input' placeholder={placeholder} value={value} onChange={onChange} onKeyDown={onKeyDownHandler} />
-                {onButtonClick !== undefined && (
+                {onButtonClick !== undefined && 
                     <div className='icon-button' onClick={onButtonClick}>
-                        {icon !== undefined && (<div className={'icon ${icon}'} />) }
+                        {icon !== undefined && <div className={'icon ${icon}'} /> }
                     </div>
-                )}
+                }
             </div>
             {message !== undefined && (<div className='inputbox-message'>{message}</div>)}
             <div className='inputbox-message'>{message}</div>
