@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jiraynor.board_back.service.FileService;
 
 import lombok.RequiredArgsConstructor;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/file") // api/v1은 붙이지 않음

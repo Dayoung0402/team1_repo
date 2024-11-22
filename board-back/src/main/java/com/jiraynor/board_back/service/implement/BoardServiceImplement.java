@@ -8,11 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.Collections;
 
-
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.ResponseDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
+<<<<<<< HEAD
 import com.jiraynor.board_back.dto.response.board.GetTop3BoardListResponseDto;
+=======
+import com.jiraynor.board_back.dto.response.board.GetLatestBoardListResponseDto;
+>>>>>>> back2
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
 import com.jiraynor.board_back.entity.BoardEntity;
 import com.jiraynor.board_back.entity.BoardListViewEntity;
@@ -33,6 +36,7 @@ public class BoardServiceImplement implements BoardService {
     private final BoardRepository boardRepository;
     private final ImageRepository imageRepository;
     private final UserRepository userRepository;
+    private final BoardListViewRepository boardListViewRepository;
 
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber) {
@@ -75,7 +79,7 @@ public class BoardServiceImplement implements BoardService {
     @Override
     public ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto, String email) {
         try {
-            boolean existedEmail = userRepository.existsByEmail(email);
+            boolean existedEmail = userRepository.existsByEmail(email); // 11.20 수정 부분
             if (!existedEmail)
                 return PostBoardResponseDto.notExistUser();
 
@@ -83,10 +87,10 @@ public class BoardServiceImplement implements BoardService {
             boardRepository.save(boardEntity);
 
             int boardNumber = boardEntity.getBoardNumber();
-            List<String> boardImageList = dto.getBoardImageList();
+            List<String> imageList = dto.getImage();
             List<ImageEntity> imageEntities = new ArrayList<>();
 
-            for (String image : boardImageList) {
+            for (String image : imageList) {
                 ImageEntity imageEntity = new ImageEntity(boardNumber, image);
                 imageEntities.add(imageEntity);
             }
@@ -100,16 +104,55 @@ public class BoardServiceImplement implements BoardService {
         return PostBoardResponseDto.success();
     }
 
+<<<<<<< HEAD
     
+=======
+    @Override
+    public List<BoardEntity> getRandomBoards() {
+        try {
+            return boardRepository.findRandomBoards();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public List<BoardEntity> getAllBoards() {
+        try {
+            return boardRepository.findAll();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+>>>>>>> back2
 
     @Override
     public boolean boardExists(Integer boardNumber) {
         return boardRepository.existsById(boardNumber);
     }
 
+<<<<<<< HEAD
     
 
    
+=======
+    @Override
+    public ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList() {
 
-    
+        List<BoardListViewEntity> boardListViewEntities = new ArrayList<>();
+
+        try {
+            boardListViewEntities = boardListViewRepository.findByOrderByWriteDatetimeDesc();
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+
+        return GetLatestBoardListResponseDto.success(boardListViewEntities);
+    }
+>>>>>>> back2
+
 }

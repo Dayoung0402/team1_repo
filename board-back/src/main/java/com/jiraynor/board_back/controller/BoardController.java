@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
+<<<<<<< HEAD
 import com.jiraynor.board_back.dto.response.board.GetTop3BoardListResponseDto;
+=======
+import com.jiraynor.board_back.dto.response.board.GetLatestBoardListResponseDto;
+>>>>>>> back2
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
 import com.jiraynor.board_back.entity.BoardEntity;
 import com.jiraynor.board_back.service.BoardService;
@@ -32,10 +36,10 @@ public class BoardController {
     }
 
     // 레시피 게시판에서 모든 레시피 불러오기
-    @GetMapping("/lastest-list")
-    public ResponseEntity<List<BoardEntity>> getRecipeSiteBoards() {
-        List<BoardEntity> allBoards = boardService.getAllBoards();
-        return ResponseEntity.status(HttpStatus.OK).body(allBoards);
+    @GetMapping("/latest-list")
+    public ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList() {
+        ResponseEntity<? super GetLatestBoardListResponseDto> response = boardService.getLatestBoardList();
+        return response;
     }
 
     // 게시물 상세 페이지 가지고 올 때
@@ -62,6 +66,4 @@ public class BoardController {
         ResponseEntity<? super PostBoardResponseDto> response = boardService.postBoard(requestBody, email);
         return response;
     }
-
-    
 }

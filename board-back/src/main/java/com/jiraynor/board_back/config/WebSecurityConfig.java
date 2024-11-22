@@ -32,7 +32,7 @@ public class WebSecurityConfig {
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
                 httpSecurity
-                                .cors(cors -> cors.disable())
+                                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 정책 활성화
                                 .csrf(csrf -> csrf.disable())
                                 .httpBasic(httpBasic -> httpBasic.disable())
                                 .sessionManagement(session -> session
@@ -55,19 +55,18 @@ public class WebSecurityConfig {
                 return httpSecurity.build();
         }
 
+        @Bean
+        public CorsConfigurationSource corsConfigurationSource() {
+                CorsConfiguration configuration = new CorsConfiguration();
+                configuration.addAllowedOrigin("http://localhost:3000"); // 허용할 Origin
+                configuration.addAllowedMethod("*"); // 모든 HTTP 메서드 허용
+                configuration.addAllowedHeader("*"); // 모든 헤더 허용
+                configuration.setAllowCredentials(true); // 자격 증명 허용
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:3000"); // 허용할 Origin
-        configuration.addAllowedMethod("*"); // 모든 HTTP 메서드 허용
-        configuration.addAllowedHeader("*"); // 모든 헤더 허용
-        configuration.setAllowCredentials(true); // 자격 증명 허용
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration); // 모든 경로에 적용
-        return source;
-    }
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", configuration); // 모든 경로에 적용
+                return source;
+        }
 
         class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
