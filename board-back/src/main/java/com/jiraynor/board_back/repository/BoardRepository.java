@@ -31,8 +31,5 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
             
     GetBoardResultSet getBoard(Integer boardNumber);
 
-    // 메인페이지에서 3개를 가지고 오는 쿼리
-    @Query(value = "SELECT * FROM board ORDER BY RAND() LIMIT 3", nativeQuery = true)
-        List<BoardEntity> findRandomBoards();
 
 }

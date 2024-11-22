@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.jiraynor.board_back.dto.request.board.PostBoardRequestDto;
 import com.jiraynor.board_back.dto.response.board.GetBoardResponseDto;
+import com.jiraynor.board_back.dto.response.board.GetTop3BoardListResponseDto;
 import com.jiraynor.board_back.dto.response.board.PostBoardResponseDto;
 import com.jiraynor.board_back.entity.BoardEntity;
 import com.jiraynor.board_back.service.BoardService;
@@ -25,9 +26,9 @@ public class BoardController {
 
     // 메인 페이지에서 top - 3 게시물 불러오기
     @GetMapping("/top-3")
-    public ResponseEntity<List<BoardEntity>> getMainSiteBoards() {
-        List<BoardEntity> randomBoards = boardService.getRandomBoards();
-        return ResponseEntity.status(HttpStatus.OK).body(randomBoards);
+    public ResponseEntity<? super GetTop3BoardListResponseDto> getTop3BoardList() {
+        ResponseEntity<? super GetTop3BoardListResponseDto>response = boardService.getTop3BoardList();
+        return response;
     }
 
     // 레시피 게시판에서 모든 레시피 불러오기

@@ -32,21 +32,23 @@ public class BoardEntity {
     private String title;
     private String content;
     private String writeDatetime;
-    private String writerEmail;
+    private String writerNickname;
     private int price;
 
 
-    public BoardEntity(PostBoardRequestDto dto, String email) {
+    public BoardEntity(PostBoardRequestDto dto, String writerNickname) {
 
         Date now = Date.from(Instant.now());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String writeDatetime = simpleDateFormat.format(now);
 
         this.title = dto.getTitle();
         this.content = dto.getContent();
         this.writeDatetime = writeDatetime;
-        this.writerEmail = email;
+        this.writerNickname = writerNickname;
         this.price = dto.getPrice();
     }
+
+    
     
 }
