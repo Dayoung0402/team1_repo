@@ -32,8 +32,8 @@ const usePagination = <T>(countPerPage: number) => {
 
     //          function: 보여줄 페이지 리스트 추출 함수          //
     const setViewPage = () => {
-        const FIRST_INDEX = 10 * (currentSection - 1);
-        const LAST_INDEX = totalPageList.length > 10 * currentSection ? 10 * currentSection : totalPageList.length;
+        const FIRST_INDEX = 3 * (currentSection - 1);
+        const LAST_INDEX = totalPageList.length > 3 * currentSection ? 3 * currentSection : totalPageList.length;
         const viewPageList = totalPageList.slice(FIRST_INDEX, LAST_INDEX);
         setViewPageList(viewPageList);
     };
@@ -46,7 +46,7 @@ const usePagination = <T>(countPerPage: number) => {
         setTotalPageList(totalPageList);
 
 
-        const totalSection = Math.ceil(totalList.length / (countPerPage * 10)); // 실행해보고 디자인에 맞게 수정하기 
+        const totalSection = Math.ceil(totalList.length / (countPerPage * 3)); // 실행해보고 디자인에 맞게 3으로 수정함
         setTotalSection(totalSection);
 
         setCurrentPage(1);

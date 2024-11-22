@@ -3,6 +3,7 @@ import './style.css';
 import { BoardListItem } from 'types/interface';
 import { useNavigate } from 'react-router-dom';
 import { BOARD_DETAIL_PATH, BOARD_PATH } from 'constant';
+import star5 from "../../assets/images/rate.png";
 
 interface Props {
     boardlistItem: BoardListItem;
@@ -31,13 +32,13 @@ export default function BoardItem({ boardlistItem }: Props) {
         <div className="board-list-item">
             <div className="recipe-card">
                 <div className="recipe-image">
-                    <img src={boardTitleImage || '../assets/ju/emptyImage.png'} alt={title || '이미지 없음'} />
+                    <img src={boardTitleImage || '../../assets/ju/emptyImage.png'} alt={title || '이미지 없음'} />
                 </div>
 
                 <div className="favorite-count">
                     평점:
                     <div className="star-ratings">
-                        <img src={favoriteCount} alt={'평점'} />
+                        <img src={star5} alt={'평점'} />
                     </div>
                 </div>
 

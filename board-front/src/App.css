@@ -41,7 +41,7 @@
   position: absolute;
   top: 70px;
   margin-top: 24px;
-  right: 6%;
+  right: 7.1%;
 }
 
 .menu-others {
@@ -112,7 +112,7 @@
   justify-content: center;
 }
 
-.trans-content, .content {
+.trans-content, .contents {
   font-family: 'Roboto Mono';
   font-size: 15px;
   color: #7C7163;
@@ -142,7 +142,7 @@
   cursor: pointer;
 
   position: relative;
-  left: 207%;
+  left: 202%;
    
 }
 
@@ -495,4 +495,14 @@
   background-repeat: no-repeat;
   position: relative;
   right: 40%;
+}
+
+.freedom {
+  background-image: url(assets/images/freedom.png);
+  width: 1003px;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  left: 1.7%;
 }

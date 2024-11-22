@@ -100,13 +100,13 @@ export default function Header() {
           <div className='icon-box'>
             <div className='logo-sign-in-icon'></div>
           </div>
-          <div className='content' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
+          <div className='contents' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
         </div>
         <div className='sign-up'>
           <div className='icon-box'>
             <div className='logo-sign-up-icon'></div>  
           </div>
-          <div className='content' onClick={onSignUpButtonClickHandler}>{'회원가입'}</div>
+          <div className='contents' onClick={onSignUpButtonClickHandler}>{'회원가입'}</div>
         </div>
       </div>
     );
