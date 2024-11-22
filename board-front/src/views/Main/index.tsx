@@ -9,6 +9,7 @@ import { getTop3BoardListRequest } from "apis";
 import { useNavigate } from "react-router-dom";
 import { GetTop3BoardListResponseDto } from "apis/response/board";
 import { ResponseDto } from "apis/response";
+import { usePagination } from "hooks";
 
 export default function Main() {
 
@@ -25,6 +26,8 @@ export default function Main() {
     };
 
     const MainBottom = () => {
+
+
         //          function: 네비게이트 함수          //
         const navigate = useNavigate();
 
@@ -36,10 +39,10 @@ export default function Main() {
             if (!responseBody) return;
             const { code } = responseBody;
             if (code === 'DBE') alert('데이터베이스 오류입니다.');
-            if (code === 'SU') return;
+            if (code !== 'SU') return;
 
             const { top3List } = responseBody as GetTop3BoardListResponseDto;
-            setTop3BoardList(top3List || []);
+            setTop3BoardList(top3List);
         };
 
         //          effect: 첫 마운트 시 실행될 함수          //

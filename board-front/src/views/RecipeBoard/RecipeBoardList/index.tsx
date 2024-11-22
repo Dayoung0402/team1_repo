@@ -46,7 +46,7 @@ export default function RecipeBoardList() {
     useEffect(() => {
       // 목데이터를 페이지네이션 훅에 설정
       setTotalList(latestBoardListMock);  // API 연동 후 삭제하기 
-    }, []);
+    }, []); 
 
     //          render: 게시물 리스트 게시판 상단 컴포넌트 렌데링          //
     return (
