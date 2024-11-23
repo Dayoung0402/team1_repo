@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { BoardListItem } from 'types/interface';
 import { useNavigate } from 'react-router-dom';
-import { BOARD_DETAIL_PATH, BOARD_PATH } from 'constant';
+import { BOARD_DETAIL_PATH, BOARD_PATH, RECIPE_DETAIL_PATH } from 'constant';
 import star5 from "../../assets/images/rate.png";
 
 interface Props {
@@ -18,8 +18,8 @@ export default function BoardItem({ boardlistItem }: Props) {
     const navigator = useNavigate();
 
     // 게시물 아이템 클릭 이벤트 처리 함수
-    const onClickHandler = () => {
-        navigator(BOARD_PATH() + '/' + BOARD_DETAIL_PATH(boardNumber));
+    const onClickBoardItemHandler = () => {
+        navigator(RECIPE_DETAIL_PATH(boardNumber));
     };
 
     // Content를 최대 20자로 제한하고 '...' 추가
@@ -30,7 +30,7 @@ export default function BoardItem({ boardlistItem }: Props) {
     // Render
     return (
         <div className="board-list-item">
-            <div className="recipe-card">
+            <div className="recipe-card" onClick={onClickBoardItemHandler}>
                 <div className="recipe-image">
                     <img src={boardTitleImage || '../../assets/ju/emptyImage.png'} alt={title || '이미지 없음'} />
                 </div>

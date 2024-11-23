@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Main from 'views/Main';
 import Authentication from 'views/Authentication';
 import Search from 'views/Search';
-import BoardList from 'views/Board/List/indet';
+import FreeDomBoardList from 'views/Board/BoardList/indet';
 import BoardDetail from 'views/Board/Detail';
 import BoardWrite from 'views/Board/Write';
 import BoardUpdate from 'views/Board/Update';
@@ -75,7 +75,7 @@ const { setLoginUser, resetLoginUser } = useLoginUserStore();
         <Route path={SIGN_UP()} element={<SignUp />}/>
         <Route path={SEARCH_PATH(':searchWord')} element={<Search />}/>
 
-        <Route path={BOARD_PATH()} element={<BoardList />}>
+        <Route path={BOARD_PATH()} element={<FreeDomBoardList />}>
           <Route path={BOARD_WRITE_PATH()} element={<BoardWrite />}/>
           <Route path={BOARD_DETAIL_PATH(':boardNumber')} element={<BoardDetail />}/>
           <Route path={BOARD_UPDATE_PATH(':boardNumber')} element={<BoardUpdate />}/>

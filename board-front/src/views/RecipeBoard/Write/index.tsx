@@ -3,7 +3,7 @@ import './style.css';
 import { useBoardStore } from 'stores';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { AUTH_PATH, MAIN_PATH,BOARD_PATH } from 'constant';
+import { AUTH_PATH, MAIN_PATH,BOARD_PATH, RECIPE_PATH } from 'constant';
 import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
 import { postBoardRequest } from 'apis';
@@ -159,7 +159,6 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
       // 지우가 레시피 목록 페이지로 이동하도록 수정 //
       alert('게시물이 성공적으로 작성되었습니다.');
       resetBoard();
-      navigator(BOARD_PATH());
 
       /*if (!loginUser) return;
       const {email} = loginUser; // 4번, 우리도 email인지 확인하기  //
@@ -188,7 +187,7 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
         if (response?.code === 'SU') {
           alert('게시물이 성공적으로 저장되었습니다.');
           resetBoard();
-          navigator('/main');
+          navigator(RECIPE_PATH());
         } else {
           alert('게시물 저장 중 오류가 발생했습니다.');
         }
