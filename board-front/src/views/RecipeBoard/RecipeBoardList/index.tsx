@@ -52,7 +52,9 @@ export default function RecipeBoardList() {
     return (
       <div id = 'recipe-board-list-top-wrapper'>
         <div className = 'recipe-board-list-current-contents'>
-          {viewList.map(boardListItem => <BoardItem boardlistItem={boardListItem}/>)}
+        {viewList.map((boardListItem) => (
+  <BoardItem key={boardListItem.boardNumber} boardlistItem={boardListItem} />
+))}
         </div>
         <div className = 'recipe-board-list-bottom-pagination-box'>
           <Pagination

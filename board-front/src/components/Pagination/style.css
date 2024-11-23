@@ -16,7 +16,13 @@
 .pagination-text-active, .pagination-text {
     font-size: 13px;
     font-weight: 700;
+    
     color: #7C7163;
+    cursor: pointer;
+}
+
+.pagination-text-active:hover, .pagination-text:hover {
+    opacity: 0.4;
 }
 
 #pagination-wrapper .left-direction-icon, 
@@ -28,3 +34,4 @@
 #pagination-wrapper .right-direction-icon:hover {
     opacity: 0.4 !important;
 }
+

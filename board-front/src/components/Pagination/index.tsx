@@ -12,6 +12,7 @@ interface Props {
     totalSection: number;
 }
 
+
 //          component: 페이지네이션 컴포넌트          //
 export default function Pagination(props: Props) {
 
@@ -22,6 +23,7 @@ export default function Pagination(props: Props) {
     //          event Handler: 페이지 클릭 이벤트 처리          //
     const onPageClickHandler = (page: number) => {
         setCurrentPage(page);
+        console.log("Page clicked:", page); 
     }
 
     //          event Handler: 이전 클릭 이벤트 처리        //
@@ -49,11 +51,13 @@ export default function Pagination(props: Props) {
                 <div className = 'etc-icon'></div>
             </div>
 
-            {viewPageList.map( page =>
-            page === currentPage ?
-            <div className = 'pagination-text-active'>{page}</div> :
-            <div className = 'pagination-text' onClick={() => onPageClickHandler(page)}>{page}</div>
-            )}
+            {viewPageList.map((page) => 
+    page === currentPage ? (
+        <div key={page} className='pagination-text-active'>{page}</div>
+    ) : (
+        <div key={page} className='pagination-text' onClick={() => onPageClickHandler(page)}>{page}</div>
+    )
+)}
 
             <div className='pagination-divider'>
                 <div className = 'etc-icon'></div>
