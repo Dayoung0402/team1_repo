@@ -11,12 +11,12 @@
     flex-direction: row;
     margin-top: -180px;
     align-items: center;
-    margin-left: 18.5px;
+    margin-left: 19px;
 }
 
 .recipe-board-list-bottom-pagination-box {
     display: flex;
     justify-content: center;
     margin-top: -20px;
-    margin-left: 45px;
+    margin-left: 47px;
 }

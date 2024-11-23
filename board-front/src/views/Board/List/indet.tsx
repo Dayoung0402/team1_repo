@@ -6,7 +6,7 @@ export default function BoardList() {
 
   //          render: 게시물 상세 화면 컴포넌트 렌더링          //
   return (
-    <div className = 'freedom-container'>
+    <div id = 'freedom-container'>
         <div className = 'freedom'></div>
     </div>
   )

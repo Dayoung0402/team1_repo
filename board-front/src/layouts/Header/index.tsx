@@ -244,11 +244,11 @@ export default function Header() {
     setSignUpPage(pathname.startsWith(SIGN_UP()));
     setMainPage(pathname === MAIN_PATH());
     setBoardPage(pathname.startsWith(BOARD_PATH()));
-    setBoardDetailPage(pathname.startsWith(BOARD_PATH() + '/' + BOARD_DETAIL_PATH('')));
+    setBoardDetailPage(pathname.startsWith(BOARD_DETAIL_PATH('')));
     setBoardWritePage(pathname.startsWith(BOARD_WRITE_PATH()));
     setBoardUpdatePage(pathname.startsWith(BOARD_PATH() + '/' + BOARD_UPDATE_PATH('')));
     setRecipeBoardPage(pathname.startsWith(RECIPE_PATH()));
-    setRecipeBoardDetailPage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_DETAIL_PATH('')));
+    setRecipeBoardDetailPage(pathname.startsWith(RECIPE_DETAIL_PATH('')));
     setRecipeBoardWritePage(pathname.startsWith(RECIPE_WRITE_PATH()));
     setRecipeBoardUpdatePage(pathname.startsWith(RECIPE_PATH() + '/' + RECIPE_UPDATE_PATH('')));
   }, [pathname]);
