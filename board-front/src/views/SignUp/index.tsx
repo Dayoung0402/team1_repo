@@ -7,7 +7,7 @@ import { signInRequest, signUpRequest} from 'apis';
 import SignInResponseDto from 'apis/ju/auth/sign-in.response.dto';
 import { ResponseDto } from 'apis/response';
 import { useCookies } from 'react-cookie';
-import { MAIN_PATH } from 'constant';
+import { AUTH_PATH, MAIN_PATH } from 'constant';
 import { useNavigate } from 'react-router-dom';
 import { SignUpResponseDto } from 'apis/response/auth';
 
@@ -178,6 +178,10 @@ export default function SinUp() {
       const onSignInLinkClickHandler = () => {
         setView('sign-in');
       }
+
+      const onChangeSignInPage = () => {
+        navigator(AUTH_PATH());
+      }
     
   
       //          event handler: 닉네임 키 다운 이벤트 처리          //
@@ -211,9 +215,9 @@ export default function SinUp() {
                 <InputBox ref={passwordRef} label='비밀번호'type={passwordType} placeholder='비밀번호를 입력해주세요' value={password} onChange={onPasswordChangeHandler} error={isPasswordError} message={passwordErrorMessage} onKeyDown={onPasswordKeyDownHandler}/>
               </div>
               <div className='auth-card-bottom' >
-                <div className='large-full-button' onClick={onSignUpButtonClickHandler}>{'회원가입'}</div>
+                <div className='large-full-button' onClick={onChangeSignInPage}>{'회원가입'}</div>
                 <div className='auth-description-box'>
-                  <div className='auth-description'>{'이미 계정이 있으신가요?'}<span className='auth-description-link' onClick={onSignInLinkClickHandler}>{'로그인'}</span></div>
+                  <div className='auth-description'>{'이미 계정이 있으신가요?'}<span className='auth-description-link' onClick={onChangeSignInPage}>{'로그인'}</span></div>
                 </div>
               </div>
             </div>

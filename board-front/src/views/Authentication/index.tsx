@@ -260,8 +260,8 @@ export default function Authentication() {
       if (!isNicknamePattern || !isEmailPattern || !isCheckedPassword) return;
     }
 
-    //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
-    const onSignUpButtonClickHandler = () => {
+     //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
+     const onSignUpButtonClickHandler = () => {
       const nicknamePattern = /^[가-힣]+$/;
       const isNicknamePattern = nicknamePattern.test(nickname);
       if (!isNicknamePattern) {
@@ -280,10 +280,7 @@ export default function Authentication() {
         setPasswordError(true);
         setPasswordErrorMessage('비밀번호는 8자 이상 입력해주세요.')
       }
-      if (!isNicknamePattern || !isEmailPattern || !isCheckedPassword) {
-        setView('sign-in');
-        return;
-      }
+
       const hasNickname = nickname.trim().length !== 0;
       if (!hasNickname) {
         setNicknameError(true);
@@ -358,4 +355,3 @@ export default function Authentication() {
     </div>
   )
 }
-
