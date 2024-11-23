@@ -159,6 +159,7 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
       // 지우가 레시피 목록 페이지로 이동하도록 수정 //
       alert('게시물이 성공적으로 작성되었습니다.');
       resetBoard();
+      navigator(BOARD_PATH());
 
       /*if (!loginUser) return;
       const {email} = loginUser; // 4번, 우리도 email인지 확인하기  //

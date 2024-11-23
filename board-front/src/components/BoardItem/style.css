@@ -32,6 +32,12 @@
     object-fit: cover; /* 영역에 이미지를 꽉 채우되 비율 유지 */
 }
 
+.recipe-image img {
+    max-width: 100%; /* 이미지가 영역을 초과하지 않도록 */
+    max-height: 100%; /* 이미지가 영역의 높이를 초과하지 않도록 */
+    object-fit: contain; /* 이미지 비율을 유지하면서 영역에 맞춤 */
+}
+
 .favorite-count {
     font-family:'SolmoeKimDaeGeon';
     font-size:20px;
