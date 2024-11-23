@@ -1,7 +1,7 @@
 export default interface PostBoardRequestDto {
     title: string;
     content: string;
-    image: string[];
+    boardImageList: string[];
     price: number;
 }
 

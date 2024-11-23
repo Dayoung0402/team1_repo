@@ -202,7 +202,9 @@ export default function Authentication() {
       if (code === "VF") alert('모든 값을 입력하세요.');
       if (code === "DBE") alert('데이터 베이스 오류입니다.');
 
-      if (code !== "SU") return;
+      if (code !== "SU") {
+        alert (code); //for test
+        return; }
 
       setView('sign-in');
     } 
@@ -260,8 +262,8 @@ export default function Authentication() {
       if (!isNicknamePattern || !isEmailPattern || !isCheckedPassword) return;
     }
 
-     //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
-     const onSignUpButtonClickHandler = () => {
+    //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
+    const onSignUpButtonClickHandler = () => {
       const nicknamePattern = /^[가-힣]+$/;
       const isNicknamePattern = nicknamePattern.test(nickname);
       if (!isNicknamePattern) {

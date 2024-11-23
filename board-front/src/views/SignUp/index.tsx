@@ -158,10 +158,7 @@ export default function SinUp() {
           setPasswordError(true);
           setPasswordErrorMessage('비밀번호는 8자 이상 입력해주세요.')
         }
-        if (!isNicknamePattern || !isEmailPattern || !isCheckedPassword) {
-          setView('sign-in');
-          return;
-        }
+        
         const hasNickname = nickname.trim().length !== 0;
         if (!hasNickname) {
           setNicknameError(true);

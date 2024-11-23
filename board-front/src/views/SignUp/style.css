@@ -5,13 +5,15 @@
     font-style: normal;
 }
 
+
+
 #auth-wrapper {
     display: flex;
     height: 100vh;
     background-color: #F7F6F3;
     margin: 0; /* 여백 제거 */
     padding: 0; /* 여백 제거 */
-    
+    box-sizing: border-box; /* 박스 모델 초기화 */
 }
 
 .left {
@@ -19,11 +21,11 @@
     padding: 0; /* 추가: 모든 내부 여백 제거 */
     left: 0; /* 왼쪽 여백 제거 */
     position: absolute;
-    width: 754px;
+    width: 754px ;
     height: 100%;
     text-align: left;
     position: relative;
-    background-image: url('../Authentication/assets/backgroundImage2.png');
+    background-image: url('./assets/backgroundImage2.png');
     background-position: center;
     background-size: cover;
 }
