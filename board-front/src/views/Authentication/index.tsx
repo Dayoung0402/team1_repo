@@ -17,6 +17,10 @@ export default function Authentication() {
   //          state: 화면 상태          //
   const [view, setView] = useState<'sign-in' | 'sign-up'>('sign-in');
 
+  const onClickChangeMainpathHandler = () => {
+    navigator(MAIN_PATH());
+};
+
   //          state:쿠키 상태          //
   const [cookies, setCookie] = useCookies();
 
@@ -202,9 +206,13 @@ export default function Authentication() {
       if (code === "VF") alert('모든 값을 입력하세요.');
       if (code === "DBE") alert('데이터 베이스 오류입니다.');
 
-      if (code !== "SU") return;
+      if (code !== "SU") {
+        alert (code); //for test
+        return; }
 
+      alert ('회원가입에 성공했습니다. 로그인해주세요');
       setView('sign-in');
+      return;
     } 
     
     //          event hadler: 닉네임 변경 이벤트 처리          //
@@ -260,8 +268,8 @@ export default function Authentication() {
       if (!isNicknamePattern || !isEmailPattern || !isCheckedPassword) return;
     }
 
-     //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
-     const onSignUpButtonClickHandler = () => {
+    //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
+    const onSignUpButtonClickHandler = () => {
       const nicknamePattern = /^[가-힣]+$/;
       const isNicknamePattern = nicknamePattern.test(nickname);
       if (!isNicknamePattern) {
@@ -290,6 +298,7 @@ export default function Authentication() {
         nickname, email, password
       };
       signUpRequest(requestBody).then(signUpResponse);
+
 
     }
 
@@ -344,7 +353,7 @@ export default function Authentication() {
   return (
     <div id='auth-wrapper'>
       <div className='left'>
-        <p className='titles'>흙수저 레시피</p>
+        <p className='titles' onClick={onClickChangeMainpathHandler}>흙수저 레시피</p>
         <p className='description'>우리가 가장 중요하게 생각하는 점은 레시피에 대한 이해도입니다 그런 면에서 이 흙수저 레시피는 독자들이 이해하기 쉽게 쓰여진 아주 훌륭한 레시피입니다 </p>
       </div>
       <div className='right'>

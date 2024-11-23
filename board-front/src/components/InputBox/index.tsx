@@ -46,7 +46,7 @@ const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
                 }
             </div>
             {message !== undefined && (<div className='inputbox-message'>{message}</div>)}
-            <div className='inputbox-message'>{message}</div>
+            <div className='inputbox-message'></div>
         </div>
     )
 

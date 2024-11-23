@@ -12,26 +12,20 @@ interface BannerProps {
 }
 
 export default function Banner({ data = { title: '', question: '', options: [], initialPercentages: [0, 0] } }: BannerProps) {
-    const { title, question, options, initialPercentages } = data;
-    const [percentages, setPercentages] = useState(initialPercentages);
+    const { title, question, options } = data;
+    const [percentages, setPercentages] = useState([0, 0]);
     const [showPercentage, setShowPercentage] = useState([false, false]);
-    const [activeButton, setActiveButton] = useState<number | null>(null); // 활성화된 버튼 상태 추가
+    const [activeButton, setActiveButton] = useState<number | null>(null);
 
     const handleClick = (index: number) => {
-        const totalVotes = percentages.reduce((acc, curr) => acc + curr, 0) + 1;
-        const newPercentages = [...percentages];
-        newPercentages[index] += 1;
-
-        const calculatedPercentages = newPercentages.map((votes) =>
-            Math.round((votes / totalVotes) * 100)
-        );
-
-        setPercentages(calculatedPercentages);
+        // 고정된 값 설정
+        const fixedPercentages = index === 0 ? [42, 58] : [42, 58]; // 1번 버튼과 2번 버튼의 퍼센트 값
+        setPercentages(fixedPercentages);
 
         const newShowPercentage = [false, false];
         newShowPercentage[index] = true;
         setShowPercentage(newShowPercentage);
-        setActiveButton(index); // 활성화된 버튼 인덱스 설정
+        setActiveButton(index); // 활성화된 버튼 업데이트
     };
 
     return (

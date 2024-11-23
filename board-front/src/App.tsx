@@ -75,11 +75,10 @@ const { setLoginUser, resetLoginUser } = useLoginUserStore();
         <Route path={SIGN_UP()} element={<SignUp />}/>
         <Route path={SEARCH_PATH(':searchWord')} element={<Search />}/>
 
-        <Route path={BOARD_PATH()} element={<FreeDomBoardList />}>
-          <Route path={BOARD_WRITE_PATH()} element={<BoardWrite />}/>
-          <Route path={BOARD_DETAIL_PATH(':boardNumber')} element={<BoardDetail />}/>
-          <Route path={BOARD_UPDATE_PATH(':boardNumber')} element={<BoardUpdate />}/>
-        </Route>
+        <Route path={BOARD_PATH()} element={<FreeDomBoardList />}/>
+        <Route path={BOARD_WRITE_PATH()} element={<BoardWrite />}/>
+        <Route path={BOARD_DETAIL_PATH(':boardNumber')} element={<BoardDetail />}/>
+        <Route path={BOARD_UPDATE_PATH(':boardNumber')} element={<BoardUpdate />}/>
 
         <Route path={RECIPE_PATH()} element={<RecipeBoardList />}/> {/*여기 수정*/}
         <Route path={RECIPE_WRITE_PATH()} element={<RecipeBoardWrite />}/>

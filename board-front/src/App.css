@@ -294,11 +294,11 @@
 
 .image-box-light-icon{
   background-image: url(assets/images/Img_box_fill.png);
-  width: 18px;
-  height: 18px;
+  width: 18px !important;
+  height: 18px !important;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 4px;
+  margin-top: 4.2px;
   position: relative;
   left: 81%;
   cursor: pointer;
@@ -423,7 +423,7 @@
 }
 
 .user-image-icon {
-  background-image: url(assets/images/person.png);
+  background-image: url(assets/images/personBlack.png);
   width: 25px;
   height: 25px;
   background-size: contain;
@@ -496,4 +496,28 @@
   background-repeat: no-repeat;
   position: relative;
   right: 40%;
+}
+
+.boardwriteimage {
+  background-image: url(assets/images/boardwritetool.png);
+  width: 1008px;
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  left: 2.5%;
+  margin-top: -40px;
+  margin-bottom: 70px;
+}
+
+.list-board-write-box {
+  background-image: url(assets/images/boardwritepageicon.png);
+  width: 1010px;
+  height: 680px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: -270px;
+  position: relative;
+  left: 2.5%;
+
 }

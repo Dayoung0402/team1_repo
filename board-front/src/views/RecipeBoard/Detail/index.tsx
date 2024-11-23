@@ -5,7 +5,7 @@ import StarRating from 'components/StarRating';
 import { useNavigate, useParams } from 'react-router-dom';
 import { boardMock } from 'mocks';
 import useCommentStore from 'stores/comment';
-import { MAIN_PATH } from 'constant';
+import { MAIN_PATH, RECIPE_DETAIL_PATH } from 'constant';
 import { getBoardRequest } from 'apis';
 import GetBoardResponseDto from 'apis/response/board/get-board.response.dto';
 import { ResponseDto } from 'apis/response';
@@ -55,7 +55,7 @@ export default function RecipeBoardDetail() {
       setBoard(board);
     }
 
-    
+      
     //          effect: 게시물 번호 path variable이 바뀔때 마다 게시물 불러오기          //
     useEffect(() => {
       if (!boardNumber) {
@@ -117,6 +117,11 @@ export default function RecipeBoardDetail() {
       commentRef.current.style.height = 'auto';
       commentRef.current.style.height = `${commentRef.current.scrollHeight}px`;
     }
+       //          입력 완료 버튼 클릭 핸들러          //
+    const onCompleteButtonClickHandler = () => {
+      if (!boardNumber) return;
+      navigator(RECIPE_DETAIL_PATH(boardNumber)); // 현재 게시물로 다시 이동
+    };
     
     //          render: 게시물 상세 하단 컴포넌트 렌더링          //
     return (
@@ -144,7 +149,7 @@ export default function RecipeBoardDetail() {
 
           <div className = 'comment-complete-button-box'>
             <div className = 'save-icon'></div>
-            <div className = 'comment-complete-title'>{'입력 완료'}</div>
+            <div className = 'comment-complete-title' onClick={onCompleteButtonClickHandler}>{'입력 완료'}</div>
           </div>
 
         </div>
