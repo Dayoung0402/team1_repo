@@ -9,14 +9,22 @@
 .recipe-board-list-current-contents {
     display: flex;
     flex-direction: row;
-    margin-top: -180px;
+    margin-top: -200px;
     align-items: center;
+<<<<<<< HEAD
     margin-left: 19px;
+=======
+>>>>>>> 1814433 (Revert "Merge remote-tracking branch 'origin/front4' into jiwoo5")
 }
 
 .recipe-board-list-bottom-pagination-box {
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
     margin-top: -20px;
     margin-left: 47px;
+=======
+    position: relative;
+    left: 4.3%;
+>>>>>>> 1814433 (Revert "Merge remote-tracking branch 'origin/front4' into jiwoo5")
 }

@@ -12,7 +12,7 @@ interface Props {
 // 컴포넌트: BoardList 컴포넌트
 export default function BoardItem({ boardlistItem }: Props) {
     // Properties
-    const { boardNumber, title, content, boardTitleImage, price } = boardlistItem;
+    const { boardNumber, title, content, boardTitleImage, favoriteCount, price } = boardlistItem;
 
     // 네비게이트 함수
     const navigator = useNavigate();
