@@ -9,13 +9,14 @@
 .recipe-board-list-current-contents {
     display: flex;
     flex-direction: row;
-    margin-top: -200px;
+    margin-top: -180px;
     align-items: center;
+    margin-left: 18.5px;
 }
 
 .recipe-board-list-bottom-pagination-box {
     display: flex;
     justify-content: center;
-    position: relative;
-    left: 4.3%;
+    margin-top: -20px;
+    margin-left: 45px;
 }

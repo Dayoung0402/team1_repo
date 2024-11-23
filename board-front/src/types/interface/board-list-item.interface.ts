@@ -4,7 +4,6 @@ export default interface BoardListItem {
     title: string;
     content: string;
     boardTitleImage: string | null;
-    favoriteCount: string; /*우리 이 기능 안 하기로 했으니까 그냥 사진 넣으려고 number에서 string으로 바꿈*/
     commentCount: number; 
     writeDateTime: string;
     writerNickname: string;

@@ -13,7 +13,7 @@ export default function Top3Item({ top3ListItem }: Props) {
 
     //          properties          //
     const { boardNumber, title, content, boardTitleImage } = top3ListItem;
-    const { favoriteCount, commentCount } = top3ListItem;
+    const { commentCount } = top3ListItem;
     const { writeDateTime, writerNickname } = top3ListItem;
 
     //          function: 네비게이트 함수          //
@@ -21,7 +21,7 @@ export default function Top3Item({ top3ListItem }: Props) {
     
     //          event handler: 게시물 아이템 클릭 이벤트 처리 함수          //
     const onClickHandler = () => {
-        navigator(RECIPE_PATH() + '/' + RECIPE_DETAIL_PATH(boardNumber));
+        navigator(RECIPE_DETAIL_PATH(boardNumber));
     }   
 
     
