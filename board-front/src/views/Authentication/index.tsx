@@ -202,7 +202,9 @@ export default function Authentication() {
       if (code === "VF") alert('모든 값을 입력하세요.');
       if (code === "DBE") alert('데이터 베이스 오류입니다.');
 
-      if (code !== "SU") return;
+      if (code !== "SU") {
+        alert (code); //for test
+        return; }
 
       setView('sign-in');
     } 

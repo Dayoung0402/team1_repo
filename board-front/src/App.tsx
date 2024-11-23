@@ -10,7 +10,6 @@ import BoardDetail from 'views/Board/Detail';
 import BoardWrite from 'views/Board/Write';
 import BoardUpdate from 'views/Board/Update';
 import Container from 'layouts/Container';
-import SignUp from 'views/SignUp';
 import RecipeBoardList from 'views/RecipeBoard/RecipeBoardList';
 import RecipeBoardDetail from 'views/RecipeBoard/Detail';
 import RecipeBoardUpdate from 'views/RecipeBoard/Update';
@@ -72,7 +71,7 @@ const { setLoginUser, resetLoginUser } = useLoginUserStore();
         {/* 얘는 전환되는 주소인듯 */}
         <Route path={MAIN_PATH()} element={<Main />}/>
         <Route path={AUTH_PATH()} element={<Authentication />}/>
-        <Route path={SIGN_UP()} element={<SignUp />}/>
+        <Route path={SIGN_UP()} element={<Authentication />}/>
         <Route path={SEARCH_PATH(':searchWord')} element={<Search />}/>
 
         <Route path={BOARD_PATH()} element={<BoardList />}>
