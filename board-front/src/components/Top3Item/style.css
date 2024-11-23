@@ -33,8 +33,12 @@
 }
 
 .top-3-list-item-image {
-    width: 230px;
-    height: 230px;
+    width: 230px; /* 이미지 컨테이너 너비 */
+    height: 230px; /* 이미지 컨테이너 높이 */
+    background-size: cover; /* 이미지를 컨테이너에 꽉 채우되 비율 유지 */
+    background-position: center; /* 이미지를 가운데 정렬 */
+    background-repeat: no-repeat; /* 이미지 반복 제거 */
+    overflow: hidden; /* 이미지가 영역을 넘지 않도록 */
 }
 
 .top-3-list-item-image img {
