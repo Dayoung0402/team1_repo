@@ -262,8 +262,8 @@ export default function Authentication() {
       if (!isNicknamePattern || !isEmailPattern || !isCheckedPassword) return;
     }
 
-     //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
-     const onSignUpButtonClickHandler = () => {
+    //          event handler: 회원가입 버튼 클릭 이벤트 처리          //
+    const onSignUpButtonClickHandler = () => {
       const nicknamePattern = /^[가-힣]+$/;
       const isNicknamePattern = nicknamePattern.test(nickname);
       if (!isNicknamePattern) {

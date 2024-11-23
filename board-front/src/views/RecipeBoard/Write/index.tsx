@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 import { AUTH_PATH, MAIN_PATH,BOARD_PATH } from 'constant';
 import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
-import { postBoardRequest } from 'apis';
+import { fileUploadRequest, postBoardRequest } from 'apis';
 import { PostBoardRequestDto } from 'apis/request/board';
 import useLoginUserStore from 'stores/login-user.store';
 
@@ -167,35 +167,52 @@ const onImageCloseButtonClickHandler = (deleteindex: number) => {
     
     };
     
-  
+    //          event handler: 업로드 버튼 클릭 이벤트 처리 함수          //
     const onRecipeWriteCompleteButtonClickHandler = async () => {
+      console.log('작성 완료 버튼 클릭됨'); // 로그 추가
+
       const accessToken = cookies.accessToken;
+
       if (!accessToken) {
         alert('로그인이 필요합니다.');
-        navigator('/auth');
+        navigator(AUTH_PATH());
         return;
+      }
+      
+      // if (!accessToken) return; // 3번, 위에 이프 문이 더 괜찮은 듯 //
+  
+      const boardImageList: string[] = [];
+  
+      for (const file of boardImageFileList) {
+        const data = new FormData();
+        data.append('file', file);
+  
+        const url = await fileUploadRequest(data, accessToken);
+        console.log("Uploaded Image URL:", url); // 로그 추가
+        if (url) { boardImageList.push(url);
+        } else {
+          alert('이미지 업로드에 실패했습니다.');
+          return; // 업로드 실패 시 종료
+        }
       }
   
       const requestBody: PostBoardRequestDto = {
         title,
         content,
-        image: imageUrls, // 미리 보기 URL로 처리 (API에서 저장된 이미지 URL 필요 시 로직 수정 가능)
+        boardImageList,
         price,
       };
+
   
-      try {
-        const response = await postBoardRequest(requestBody, accessToken);
-        if (response?.code === 'SU') {
-          alert('게시물이 성공적으로 저장되었습니다.');
-          resetBoard();
-          navigator('/main');
-        } else {
-          alert('게시물 저장 중 오류가 발생했습니다.');
-        }
-      } catch (error) {
-        console.error('게시물 저장 오류:', error);
-        alert('게시물 저장 중 오류가 발생했습니다.');
-      }
+    postBoardRequest(requestBody, accessToken)
+      .then((responseBody) => {
+        console.log("Post Board Response:", responseBody); // 로그 추가
+        postBoardResponse(responseBody);
+      })
+      .catch((error) => {
+        console.error("Post Board Request Failed:", error);
+        alert('게시물 저장에 실패했습니다.');
+    });
     };
   
     return (

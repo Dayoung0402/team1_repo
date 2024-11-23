@@ -41,7 +41,7 @@
   position: absolute;
   top: 70px;
   margin-top: 24px;
-  right: 5.9%;
+  right: 7.1%;
 }
 
 .menu-others {
@@ -77,10 +77,10 @@
 .welcome {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 15px;
   position: fixed; /* 위치를 고정합니다 */
   top: 15px; /* 화면 상단에서의 위치 */
-  right: 16.2%; /* 화면 오른쪽에서의 위치 */
+  right: 16%; /* 화면 오른쪽에서의 위치 */
   z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
 }
 
@@ -142,7 +142,7 @@
   cursor: pointer;
 
   position: relative;
-  left: 207.6%;
+  left: 202%;
    
 }
 
@@ -160,7 +160,7 @@
   cursor: pointer;
 
   position: relative;
-  left: 247%;
+  left: 246.2%;
    
 }
 
@@ -249,7 +249,6 @@
 
 .logo-person-icon {
   background-image: url('./assets/images/person.png');
-  margin-top: 2px;
 }
 
 .logo-upload-icon {
@@ -505,5 +504,5 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
-  left: 3.2%;
+  left: 1.7%;
 }
