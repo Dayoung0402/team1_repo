@@ -521,3 +521,22 @@
   left: 2.5%;
 
 }
+
+.left-main-icon {
+  background-image: url(assets/images/left.png);
+  width: 90px;
+  height: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: -60px;
+}
+
+.right-main-icon {
+  background-image: url(assets/images/right.png);
+  width: 90px;
+  height: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: -60px;
+  margin-left: 52px;
+}

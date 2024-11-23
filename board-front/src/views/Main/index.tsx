@@ -55,9 +55,11 @@ export default function Main() {
                 <div className='main-bottom-container'>
                     <div className='main-bottom-title'></div>
                     <div className='main-bottom-contents-box'>
-                        {/*<div className='logo-left-icon'></div>*/}
-                        <div className='main-bottom-contents-title'>오늘의 메뉴</div>
-                        {/*<div className='logo-right-icon'></div>*/}
+                        <div className='today-menu'>
+                            <div className='left-main-icon'></div>
+                            <div className='main-bottom-contents-title'>오늘의 메뉴</div>
+                            <div className='right-main-icon'></div>
+                        </div>
                         <div className='main-bottom-contents'>
                             {top3BoardList.map(top3ListItem => <Top3Item top3ListItem={top3ListItem}/>)}
                         </div>

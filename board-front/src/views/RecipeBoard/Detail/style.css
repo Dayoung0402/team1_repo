@@ -29,7 +29,6 @@
 .recipe-board-info-box{
     display: flex;
     flex-direction: row;
-    gap: 400px;
 }
 
 .recipe-user-info-box {
@@ -37,6 +36,8 @@
     flex-direction: row;
     gap: 10px;
     align-items: center;
+    position: relative; /* 캘린더 박스의 기준점 설정 */
+    width: 100%;
 }
 
 .user-name-box {
@@ -50,12 +51,11 @@
 }
 
 .recipe-user-calender-box {
-    color:#929191;
+    color: #929191;
     font-size: 13px;
-    margin-top: 20px;
-    margin-left: 201px;
-    position: relative;
-    left: 5.7%;
+    position: absolute; /* 부모 기준으로 고정 위치 설정 */
+    top: 23.5%; /* 부모 요소의 상단에 고정 */
+    right: 16.8%; /* 부모 요소의 오른쪽에 고정 */
 }
 
 .recipe-board-detail-box {
