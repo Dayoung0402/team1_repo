@@ -21,6 +21,7 @@ import { getSignInUserRequest } from 'apis';
 import { GetSignInUserResponseDto } from 'apis/response/user';
 import { ResponseDto } from 'apis/response';
 import User from 'types/interface/user.interface';
+import SinUp from 'views/SignUp';
 
 
 //          component: Application 컴포넌트          //
@@ -71,7 +72,7 @@ const { setLoginUser, resetLoginUser } = useLoginUserStore();
         {/* 얘는 전환되는 주소인듯 */}
         <Route path={MAIN_PATH()} element={<Main />}/>
         <Route path={AUTH_PATH()} element={<Authentication />}/>
-        <Route path={SIGN_UP()} element={<Authentication />}/>
+        <Route path={SIGN_UP()} element={<SinUp />}/>
         <Route path={SEARCH_PATH(':searchWord')} element={<Search />}/>
 
         <Route path={BOARD_PATH()} element={<BoardList />}>
