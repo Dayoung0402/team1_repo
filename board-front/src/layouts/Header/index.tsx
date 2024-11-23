@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useBoardStore } from 'stores';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { fileUploadRequest, postBoardRequest } from 'apis';
+import { postBoardRequest } from 'apis';
 import { PostBoardResponseDto } from 'apis/response/board';
 import { ResponseDto } from 'apis/response';
 import { PostBoardRequestDto } from 'apis/request/board';

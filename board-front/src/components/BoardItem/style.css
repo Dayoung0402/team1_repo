@@ -18,9 +18,11 @@
 
 .recipe-image {
     height: 400px;
-    max-width:300px;
-    background-size: contain;
-    background-position: center;
+    max-width: 300px;
+    background-size: contain; /* 이미지 크기를 컨테이너에 맞춤 */
+    background-position: center; /* 이미지 가운데 정렬 */
+    background-repeat: no-repeat; /* 이미지 반복 제거 */
+    background-attachment: fixed; /* 배경 이미지 고정 */
 }
 
 .recipe-image img {

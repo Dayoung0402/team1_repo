@@ -15,6 +15,10 @@ import { SignUpResponseDto } from 'apis/response/auth';
 export default function SinUp() {
    //          state: 화면 상태          //
    const [view, setView] = useState<'sign-in' | 'sign-up'>('sign-up');
+   
+   const onClickChangeMainpathHandler = () => {
+    navigator(MAIN_PATH());
+};
 
   //          state:쿠키 상태          //
   const [cookies, setCookie] = useCookies();
@@ -226,7 +230,7 @@ export default function SinUp() {
     return (
       <div id='auth-wrapper'>
         <div className='left'>
-          <p className='titles'>흙수저 레시피</p>
+          <p className='titles' onClick={ onClickChangeMainpathHandler}>흙수저 레시피</p>
           <p className='description'>우리가 가장 중요하게 생각하는 점은 레시피에 대한 이해도입니다 그런 면에서 이 흙수저 레시피는 독자들이 이해하기 쉽게 쓰여진 아주 훌륭한 레시피입니다 </p>
         </div>
         <div className='right'>
